@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://rs7301aqj778"]
+
+[ext_resource type="Texture2D" uid="uid://8ay6xg16wi1m" path="res://assets/temporary_assets_danu_no_judge/plx-1.v1.png" id="1_x0pxh"]
+[ext_resource type="Texture2D" uid="uid://blgf2vmvonujk" path="res://assets/temporary_assets_danu_no_judge/plx-2.v1.png" id="2_1l8bu"]
+[ext_resource type="Texture2D" uid="uid://3gtq1cd75qdg" path="res://assets/temporary_assets_danu_no_judge/plx-3.v1.png" id="3_0ou13"]
+[ext_resource type="Texture2D" uid="uid://covhuedd6p3k8" path="res://assets/temporary_assets_danu_no_judge/plx-4.v1.png" id="4_ygjbt"]
+[ext_resource type="Texture2D" uid="uid://bdjh4450ua2m8" path="res://assets/temporary_assets_danu_no_judge/plx-5.v1.png" id="5_j5g2r"]
+
+[node name="JungleBackground" type="Node2D" unique_id=1863640712]
+
+[node name="Parallax2DSolidBG" type="Parallax2D" parent="." unique_id=1423939749]
+scroll_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2DSolidBG" unique_id=1516385830]
+texture = ExtResource("1_x0pxh")
+centered = false
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1753422793]
+texture_filter = 1
+scroll_scale = Vector2(0.6, 1)
+repeat_size = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1054938520]
+texture = ExtResource("2_1l8bu")
+centered = false
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=996933111]
+texture_filter = 1
+scroll_scale = Vector2(0.7, 1)
+repeat_size = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D2" unique_id=392223840]
+texture = ExtResource("3_0ou13")
+centered = false
+
+[node name="Parallax2D3" type="Parallax2D" parent="." unique_id=264615144]
+texture_filter = 1
+scroll_scale = Vector2(0.8, 1)
+repeat_size = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D3" unique_id=704853252]
+texture = ExtResource("4_ygjbt")
+centered = false
+
+[node name="Parallax2D4" type="Parallax2D" parent="." unique_id=77943371]
+texture_filter = 1
+scroll_scale = Vector2(0.9, 1)
+repeat_size = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D4" unique_id=2002485072]
+texture = ExtResource("5_j5g2r")
+centered = false
