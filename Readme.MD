@@ -1,1 +1,1 @@
-# Seed Academy
+# SeedAcademy
