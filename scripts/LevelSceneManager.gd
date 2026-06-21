@@ -1,8 +1,14 @@
 extends Node
 
+# Exportables
+@export var Player: CharacterBody2D
+@export var Camera: Camera2D
+@export var Background: Node2D
+@export var Ground: StaticBody2D
+
 const PLAYER_START_POS := Vector2i(150, 485)
 const CAMERA_START_POS := Vector2i(576, 324)
-#Score here if needed
+# Score here if needed
 	
 var speed : float
 const START_SPEED : float = 10.0
@@ -16,17 +22,17 @@ func _ready() -> void:
 
 # Reset everything on new game
 func new_game():
-	$Fira.position = PLAYER_START_POS
-	$Fira.velocity = Vector2i(0, 0)
-	$Camera2D.position = CAMERA_START_POS
-	$JungleGround.position = Vector2i(0, 0)
+	Player.position = PLAYER_START_POS
+	Player.velocity = Vector2i(0, 0)
+	Camera.position = CAMERA_START_POS
+	Ground.position = Vector2i(0, 0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	speed = START_SPEED * 60.0 * delta
 	
-	$Fira.position.x += speed
-	$Camera2D.position.x += speed
+	Player.position.x += speed
+	Camera.position.x += speed
 	
-	if $Camera2D.position.x - $JungleGround.position.x > screen_size.x * 1.5:
-		$JungleGround.position.x += screen_size.x
+	if Camera.position.x - Ground.position.x > screen_size.x * 1.5:
+		Ground.position.x += screen_size.x
