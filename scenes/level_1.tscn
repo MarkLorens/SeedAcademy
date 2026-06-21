@@ -3,19 +3,25 @@
 [ext_resource type="Script" uid="uid://dos18l1kajxqj" path="res://scripts/LevelSceneManager.gd" id="1_4nkto"]
 [ext_resource type="PackedScene" uid="uid://rs7301aqj778" path="res://props/jungle_stage/JungleBackground.tscn" id="1_014kd"]
 [ext_resource type="PackedScene" uid="uid://bbpcdppcyqs2g" path="res://props/jungle_stage/JungleGround.tscn" id="2_rus8k"]
-[ext_resource type="PackedScene" uid="uid://c5sym1ls2gkxb" path="res://props/player_forms/Fira.tscn" id="3_5xbjy"]
-[ext_resource type="Script" uid="uid://bherj6x7cwdpg" path="res://scripts/PlayerMovement.gd" id="4_5xbjy"]
+[ext_resource type="PackedScene" uid="uid://c5sym1ls2gkxb" path="res://props/player_forms/Player.tscn" id="3_5xbjy"]
+[ext_resource type="Script" uid="uid://bx2hrhh8teetw" path="res://scripts/resource/FormData.gd" id="5_15mv3"]
+[ext_resource type="Resource" uid="uid://dleraek6mun4q" path="res://form_tres/human.tres" id="6_e3sih"]
+[ext_resource type="Resource" uid="uid://dskh4tkuuj6ee" path="res://form_tres/ape.tres" id="7_2y5yt"]
+[ext_resource type="Resource" uid="uid://dex1t3kuntlgn" path="res://form_tres/falcon.tres" id="8_2os1m"]
 
-[node name="Level1" type="Node" unique_id=257814844]
+[node name="Level1" type="Node" unique_id=257814844 node_paths=PackedStringArray("Player", "Camera", "Background", "Ground")]
 script = ExtResource("1_4nkto")
+Player = NodePath("Player")
+Camera = NodePath("Camera2D")
+Background = NodePath("JungleBackground")
+Ground = NodePath("JungleGround")
 
 [node name="JungleBackground" parent="." unique_id=1863640712 instance=ExtResource("1_014kd")]
 
 [node name="JungleGround" parent="." unique_id=392869593 instance=ExtResource("2_rus8k")]
 
-[node name="Fira" parent="." unique_id=1742630827 instance=ExtResource("3_5xbjy")]
-position = Vector2(121, 496)
-script = ExtResource("4_5xbjy")
+[node name="Player" parent="." unique_id=1742630827 instance=ExtResource("3_5xbjy")]
+forms = Array[ExtResource("5_15mv3")]([ExtResource("6_e3sih"), ExtResource("7_2y5yt"), ExtResource("8_2os1m")])
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1500401102]
 position = Vector2(576, 324)
