@@ -8,7 +8,7 @@ var current_form: FormData
 
 func _ready() -> void:
 	$AttackCol.hide()
-	set_form(2)
+	set_form(0)
 
 func set_form(index: int) -> void:
 	current_form_index = index
@@ -20,7 +20,12 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		current_form.action_script.execute(self, current_form)
-	
-	
-	
 	move_and_slide()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("form_1"):
+		set_form(0)
+	if Input.is_action_just_pressed("form_2"):
+		set_form(1)
+	if Input.is_action_just_pressed("form_3"):
+		set_form(2)
