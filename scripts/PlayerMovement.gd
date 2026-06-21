@@ -1,41 +1,26 @@
 extends CharacterBody2D
 
 const GRAVITY: int = 4200
-const JUMP_SPEED: int = -1800
-var max_jump_height: float = 0.0
 
-# Forms
-enum Form {
-	HUMAN,
-	APE,
-	FALCON
-}
-var current_form: Form = Form.HUMAN
+@export var forms: Array[FormData] = []
+var current_form_index: int = 0
+var current_form: FormData
 
 func _ready() -> void:
 	$AttackCol.hide()
+	set_form(2)
+
+func set_form(index: int) -> void:
+	current_form_index = index
+	current_form = forms[index]
+	$Sprite2D.texture = current_form.form_texture
 
 func _physics_process(delta: float) -> void:
-	velocity.y += GRAVITY * delta
+	velocity.y += GRAVITY * current_form.gravity_scale * delta
 	
 	if Input.is_action_just_pressed("ui_accept"):
-		match current_form:
-			Form.HUMAN:
-				human_action()
-			Form.APE:
-				ape_action()
-			Form.FALCON:
-				falcon_action()
+		current_form.action_script.execute(self, current_form)
+	
+	
+	
 	move_and_slide()
-
-func human_action() -> void:
-	if is_on_floor():
-		velocity.y = JUMP_SPEED
-
-func ape_action() -> void:
-	$AttackCol.show()
-	await get_tree().create_timer(1.0).timeout
-	$AttackCol.hide()
-
-func falcon_action() -> void:
-	velocity.y = JUMP_SPEED
