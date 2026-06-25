@@ -16,13 +16,14 @@ func set_form(index: int) -> void:
 	$Sprite2D.texture = current_form.form_texture
 
 func _physics_process(delta: float) -> void:
+	velocity.x = current_form.run_speed
 	velocity.y += GRAVITY * current_form.gravity_scale * delta
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		current_form.action_script.execute(self, current_form)
 	move_and_slide()
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("form_1"):
 		set_form(0)
 	if Input.is_action_just_pressed("form_2"):
