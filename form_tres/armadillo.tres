@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="FormData" format=3 uid="uid://bome6pqwaiyfe"]
+
+[ext_resource type="Script" uid="uid://g2g4i4tnygar" path="res://scripts/form_actions/armadillo.gd" id="1_24302"]
+[ext_resource type="Texture2D" uid="uid://uu3siudqp3he" path="res://assets/temporary_assets_danu_no_judge/Layered Rock.png" id="1_tn7wf"]
+[ext_resource type="Script" uid="uid://bx2hrhh8teetw" path="res://scripts/resource/FormData.gd" id="2_24302"]
+
+[sub_resource type="Resource" id="Resource_mloqk"]
+script = ExtResource("1_24302")
+metadata/_custom_type_script = "uid://g2g4i4tnygar"
+
+[resource]
+script = ExtResource("2_24302")
+form_name = "armadillo"
+form_texture = ExtResource("1_tn7wf")
+run_speed = 500.0
+action_script = SubResource("Resource_mloqk")
