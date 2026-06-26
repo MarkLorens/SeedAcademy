@@ -7,7 +7,7 @@ var current_form_index: int = 0
 var current_form: FormData
 
 func _ready() -> void:
-	$AttackCol.hide()
+	$AttackCol.disabled = true
 	set_form(0)
 
 func set_form(index: int) -> void:

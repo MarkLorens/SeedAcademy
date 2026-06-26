@@ -4,10 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://cnnp4naw7hmmh" path="res://assets/temporary_assets_danu_no_judge/Player_Wheelchair_Resized.png" id="1_lfadd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fey80"]
-size = Vector2(366, 579)
+size = Vector2(249.99998, 579)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2eghs"]
 size = Vector2(161.66666, 578.3333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6kwvf"]
+size = Vector2(366.6667, 580)
 
 [node name="Player" type="CharacterBody2D" unique_id=1742630827]
 z_index = 1
@@ -17,9 +20,18 @@ script = ExtResource("1_2eghs")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=864898495]
 texture = ExtResource("1_lfadd")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=983380857]
+[node name="MoveCol" type="CollisionShape2D" parent="." unique_id=983380857]
+position = Vector2(1.6666666, 0)
 shape = SubResource("RectangleShape2D_fey80")
 
 [node name="AttackCol" type="CollisionShape2D" parent="." unique_id=89791523]
 position = Vector2(264.16666, 0)
 shape = SubResource("RectangleShape2D_2eghs")
+
+[node name="HurtCol" type="Area2D" parent="." unique_id=1277471778]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtCol" unique_id=1633486968]
+position = Vector2(-6.3578286e-06, -5.5631e-06)
+shape = SubResource("RectangleShape2D_6kwvf")
+debug_color = Color(0.9813016, 0, 0.37631476, 0.41960785)
