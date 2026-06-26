@@ -10,7 +10,8 @@ var current_form_index: int = 0
 var current_form: FormData
 
 func _ready() -> void:
-	$AttackCol.hide()
+	add_to_group("player")
+	$AttackCol.disabled = true
 	set_form(0)
 	
 	assert(radial_button, "CRITICAL: Radial button node was not found!")
