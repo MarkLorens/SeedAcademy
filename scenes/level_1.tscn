@@ -1,27 +1,48 @@
-[gd_scene format=3 uid="uid://dcgb0j3s34ycs"]
+[gd_scene format=4 uid="uid://dcgb0j3s34ycs"]
 
 [ext_resource type="Script" uid="uid://dos18l1kajxqj" path="res://scripts/LevelSceneManager.gd" id="1_4nkto"]
 [ext_resource type="PackedScene" uid="uid://rs7301aqj778" path="res://props/jungle_stage/JungleBackground.tscn" id="1_014kd"]
-[ext_resource type="PackedScene" uid="uid://bbpcdppcyqs2g" path="res://props/jungle_stage/JungleGround.tscn" id="2_rus8k"]
 [ext_resource type="PackedScene" uid="uid://c5sym1ls2gkxb" path="res://props/player_forms/Player.tscn" id="3_5xbjy"]
 [ext_resource type="Script" uid="uid://bx2hrhh8teetw" path="res://scripts/resource/FormData.gd" id="5_15mv3"]
 [ext_resource type="Resource" uid="uid://dleraek6mun4q" path="res://form_tres/human.tres" id="6_e3sih"]
 [ext_resource type="Resource" uid="uid://dskh4tkuuj6ee" path="res://form_tres/ape.tres" id="7_2y5yt"]
 [ext_resource type="Resource" uid="uid://dex1t3kuntlgn" path="res://form_tres/falcon.tres" id="8_2os1m"]
+[ext_resource type="Texture2D" uid="uid://cb7844lo3vlgq" path="res://assets/temporary_assets_danu_no_judge/tiles.png" id="8_15mv3"]
+[ext_resource type="PackedScene" uid="uid://cmtn3cavbs7tu" path="res://ui/LevelUI.tscn" id="9_e3sih"]
 
-[node name="Level1" type="Node" unique_id=257814844 node_paths=PackedStringArray("Player", "Camera", "Background", "Ground")]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e3sih"]
+texture = ExtResource("8_15mv3")
+texture_region_size = Vector2i(88, 96)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(4, -8)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -19.237473, 32, -19.632158, 32, 32, -32, 32)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(-4, -8)
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -19.237473, 32, -19.632158, 32, 32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_fey80"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_e3sih")
+
+[node name="Level1" type="Node" unique_id=257814844 node_paths=PackedStringArray("Player", "Camera", "Background")]
 script = ExtResource("1_4nkto")
 Player = NodePath("Player")
-Camera = NodePath("Camera2D")
+Camera = NodePath("Player/Camera2D")
 Background = NodePath("JungleBackground")
-Ground = NodePath("JungleGround")
 
 [node name="JungleBackground" parent="." unique_id=1863640712 instance=ExtResource("1_014kd")]
-
-[node name="JungleGround" parent="." unique_id=392869593 instance=ExtResource("2_rus8k")]
 
 [node name="Player" parent="." unique_id=1742630827 instance=ExtResource("3_5xbjy")]
 forms = Array[ExtResource("5_15mv3")]([ExtResource("6_e3sih"), ExtResource("7_2y5yt"), ExtResource("8_2os1m")])
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1500401102]
-position = Vector2(576, 324)
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1500401102]
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_top_margin = 1.0
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1108646245]
+tile_map_data = PackedByteArray("AAAAAAkAAAAAAAAAAAABAAkAAAABAAAAAAACAAkAAAAAAAAAAAADAAkAAAABAAAAAAAEAAkAAAAAAAAAAAAFAAkAAAABAAAAAAAGAAkAAAAAAAAAAAAHAAkAAAABAAAAAAAIAAkAAAAAAAAAAAAJAAkAAAABAAAAAAAKAAkAAAAAAAAAAAALAAkAAAABAAAAAAAMAAkAAAAAAAAAAAANAAkAAAABAAAAAAAOAAkAAAAAAAAAAAAPAAkAAAABAAAAAAAQAAkAAAAAAAAAAAARAAkAAAABAAAAAAASAAkAAAAAAAAAAAATAAkAAAABAAAAAAAUAAkAAAAAAAAAAAAVAAkAAAABAAAAAAAWAAkAAAAAAAAAAAAXAAkAAAABAAAAAAAYAAkAAAAAAAAAAAAZAAkAAAABAAAAAAAaAAkAAAAAAAAAAAAbAAkAAAABAAAAAAAcAAkAAAAAAAAAAAAdAAkAAAABAAAAAAAeAAkAAAAAAAAAAAAfAAkAAAABAAAAAAAgAAkAAAAAAAAAAAAhAAkAAAABAAAAAAAiAAkAAAAAAAAAAAAjAAkAAAABAAAAAAA=")
+tile_set = SubResource("TileSet_fey80")
+
+[node name="LevelUI" parent="." unique_id=1469804206 instance=ExtResource("9_e3sih")]

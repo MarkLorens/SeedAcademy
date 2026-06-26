@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dcltvykh033wi"]
+
+[ext_resource type="Script" uid="uid://bcqmvng132k2e" path="res://scripts/radial_button.gd" id="1_6vhno"]
+[ext_resource type="Texture2D" uid="uid://bb61eobgh68rh" path="res://assets/temporary_assets_danu_no_judge/ControllerButton.png" id="2_yftdq"]
+[ext_resource type="Texture2D" uid="uid://bt3aevtkptv5i" path="res://assets/temporary_assets_danu_no_judge/PressedButton.png" id="3_0pb7w"]
+[ext_resource type="PackedScene" uid="uid://m2o5x8q51dwa" path="res://ui/RadialButton/RadialMenu.tscn" id="4_to6so"]
+
+[node name="RadialButton" type="Control" unique_id=1501342966]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_6vhno")
+
+[node name="HoldButton" type="TextureButton" parent="." unique_id=632730753]
+layout_mode = 1
+offset_right = 124.0
+offset_bottom = 123.0
+texture_normal = ExtResource("2_yftdq")
+texture_pressed = ExtResource("3_0pb7w")
+texture_hover = ExtResource("2_yftdq")
+texture_disabled = ExtResource("2_yftdq")
+texture_focused = ExtResource("2_yftdq")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="RadialMenu" parent="." unique_id=151962108 instance=ExtResource("4_to6so")]
+top_level = true
+layout_mode = 1
+anchors_preset = 4
+anchor_left = 0.0
+anchor_right = 0.0
+offset_top = 324.0
+offset_bottom = 324.0
+grow_horizontal = 1
+background_color = Color(1, 1, 1, 1)
