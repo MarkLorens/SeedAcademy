@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://dleraek6mun4q" path="res://form_tres/human.tres" id="6_e3sih"]
 [ext_resource type="Resource" uid="uid://dskh4tkuuj6ee" path="res://form_tres/ape.tres" id="7_2y5yt"]
 [ext_resource type="Resource" uid="uid://dex1t3kuntlgn" path="res://form_tres/falcon.tres" id="8_2os1m"]
+[ext_resource type="PackedScene" uid="uid://cmtn3cavbs7tu" path="res://ui/LevelUI.tscn" id="9_e3sih"]
 
 [node name="Level1" type="Node" unique_id=257814844 node_paths=PackedStringArray("Player", "Camera", "Background", "Ground")]
 script = ExtResource("1_4nkto")
@@ -25,3 +26,5 @@ forms = Array[ExtResource("5_15mv3")]([ExtResource("6_e3sih"), ExtResource("7_2y
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1500401102]
 position = Vector2(576, 324)
+
+[node name="LevelUI" parent="." unique_id=1469804206 instance=ExtResource("9_e3sih")]

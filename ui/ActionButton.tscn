@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://k83egyueyoyv"]
+
+[ext_resource type="Texture2D" uid="uid://orflin8u43tx" path="res://assets/temporary_assets_danu_no_judge/ActionButton.png" id="1_1nky0"]
+[ext_resource type="Script" uid="uid://bley0bepvmu2o" path="res://scripts/ActionButton.gd" id="1_7hh4a"]
+[ext_resource type="Texture2D" uid="uid://dxbsde1xwvj4t" path="res://assets/temporary_assets_danu_no_judge/PressedActionButton.png" id="2_7hh4a"]
+
+[node name="ActionButton" type="Control" unique_id=890205479]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_7hh4a")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=374129172]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -122.0
+grow_horizontal = 0
+grow_vertical = 0
+action_mode = 0
+texture_normal = ExtResource("1_1nky0")
+texture_pressed = ExtResource("2_7hh4a")
+ignore_texture_size = true
+stretch_mode = 0
