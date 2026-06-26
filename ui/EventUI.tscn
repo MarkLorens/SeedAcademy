@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b6cd3t06jcai1"]
+
+[ext_resource type="Script" uid="uid://b6ou43jpifywh" path="res://scripts/EventUI.gd" id="1_gks70"]
+
+[node name="EventUI" type="Control" unique_id=1119591421]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gks70")
+lines = Array[String](["\"Hey you.\"", "\"You're finally awake.\"", "\"Lorem Ipsum and whatnot.\""])
+metadata/_edit_use_anchors_ = true
+
+[node name="NewGameDialogues" type="CanvasLayer" parent="." unique_id=1570944692]
+
+[node name="MarginContainer" type="MarginContainer" parent="NewGameDialogues" unique_id=157647518]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogueLabel" type="Label" parent="NewGameDialogues/MarginContainer" unique_id=1262438983]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 64
+metadata/_edit_use_anchors_ = true
+
+[node name="NextButton" type="Button" parent="NewGameDialogues/MarginContainer" unique_id=1256480978]
+layout_mode = 2
