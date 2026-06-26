@@ -4,6 +4,7 @@ extends Node
 @export var Player: CharacterBody2D
 @export var Camera: Camera2D
 @export var Background: Node2D
+@export var Event_UI_Scene: PackedScene
 
 const PLAYER_START_POS := Vector2i(100, 485)
 const CAMERA_START_POS := Vector2i(700, -400)
@@ -33,9 +34,20 @@ func pause_game() -> void:
 
 # Reset everything on new game
 func new_game():
+	Camera.position = CAMERA_START_POS
+	_show_intro_event()
+
+func _show_intro_event() -> void:
 	Player.position = PLAYER_START_POS
 	Player.velocity = Vector2i(0, 0)
-	Camera.position = CAMERA_START_POS
+	Player.can_move = false
+	var eventUI: EventUI = Event_UI_Scene.instantiate()
+	add_child(eventUI)
+	eventUI.dialogue_finished.connect(_on_intro_finished)
 
 func player_died() -> void:
 	game_over.show_game_over()
+
+func _on_intro_finished() -> void:
+	Player.can_move = true
+	speed = START_SPEED
