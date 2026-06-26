@@ -16,3 +16,4 @@ run_speed = 400.0
 jump_speed = -1200.0
 gravity_scale = 0.7
 action_script = SubResource("Resource_htlcp")
+min_jump_speed = -900.0

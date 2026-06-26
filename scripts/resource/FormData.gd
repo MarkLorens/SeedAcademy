@@ -9,3 +9,4 @@ class_name FormData
 @export var jump_speed: float = 0
 @export var gravity_scale: float = 1.0
 @export var action_script: FormAction
+@export var min_jump_speed: float = 0

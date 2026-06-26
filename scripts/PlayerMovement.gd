@@ -17,6 +17,10 @@ var is_dashing := false
 var can_dash := true
 var dash_timer := 0.0
 var cooldown_timer := 0.0
+# Input monitor
+@export var max_charge_time: float = 1.0
+var is_charging := false
+var charge_time := 0.0
 
 func _ready() -> void:
 	add_to_group("player")
@@ -29,7 +33,22 @@ func _ready() -> void:
 	radial_button.character_selected.connect(_on_form_selected)
 	
 	assert(action_button, "CRITICAL: Action button node was not found!")
-	action_button.pressed.connect(action_pressed)
+	action_button.button_down.connect(_on_action_down)
+	action_button.button_up.connect(_on_action_up)
+
+func _process(delta: float) -> void:
+	if is_charging:
+		charge_time = min(charge_time + delta, max_charge_time)
+
+func _on_action_down() -> void:
+	is_charging = true
+	charge_time = 0.0
+	current_form.action_script.on_press(self, current_form)
+
+func _on_action_up() -> void:
+	is_charging = false
+	var charge_ratio: float = charge_time / max_charge_time
+	current_form.action_script.on_release(self, current_form, charge_ratio)
 
 # Fired by the radial menu when a slice is chosen on release.
 func _on_form_selected(index: int) -> void:
