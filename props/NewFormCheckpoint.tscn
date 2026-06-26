@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://blndefl6ahvhm"]
+
+[ext_resource type="Texture2D" uid="uid://dfct4emphwa0j" path="res://assets/temporary_assets_danu_no_judge/pngegg.png" id="1_swsas"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3bqs"]
+size = Vector2(93.5, 156)
+
+[node name="NewFormCheckpoint" type="Area2D" unique_id=1595220022]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=94482168]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_swsas")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1316638560]
+position = Vector2(-0.75, 2)
+shape = SubResource("RectangleShape2D_k3bqs")
+debug_color = Color(0.9394843, 1.1070073e-05, 0.6213323, 0.41960785)

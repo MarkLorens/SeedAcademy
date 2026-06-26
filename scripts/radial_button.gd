@@ -78,3 +78,8 @@ func _update_hover(screen_pos: Vector2) -> void:
 	# Get the hovered_idx
 	var step := ARC_TOTAL_DEG / CHARS.size()
 	hovered_idx = clampi(int(rel / step), 0, CHARS.size() - 1)
+
+func refresh_options(new_forms: Array) -> void:
+	CHARS = new_forms
+	hovered_idx = clampi(hovered_idx, -1, CHARS.size() - 1)
+	radial.queue_redraw()
