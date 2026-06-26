@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://b0ulvx1jp6p17"]
+
+[ext_resource type="Script" uid="uid://15ierjbch0eu" path="res://scripts/MainMenu.gd" id="1_main"]
+
+[node name="MainMenu" type="Control" unique_id=518480568]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_main")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=450595957]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer" unique_id=812605550]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/VBox" unique_id=441261519]
+layout_mode = 2
+text = "(TITLE)"
+horizontal_alignment = 1
+
+[node name="PlayButton" type="Button" parent="CenterContainer/VBox" unique_id=1508436693]
+layout_mode = 2
+text = "Start"
+
+[node name="BottomBar" type="HBoxContainer" parent="." unique_id=2039536817]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -70.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="AchievementsButton" type="Button" parent="BottomBar" unique_id=425128318]
+layout_mode = 2
+text = "Achievements"
+
+[node name="SettingsButton" type="Button" parent="BottomBar" unique_id=2104653733]
+layout_mode = 2
+text = "Settings"
+
+[node name="ScreenshotsButton" type="Button" parent="BottomBar" unique_id=743106769]
+layout_mode = 2
+text = "Screenshots"

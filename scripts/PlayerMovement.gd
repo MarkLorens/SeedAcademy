@@ -5,10 +5,12 @@ const GRAVITY: int = 4200
 # UI
 @onready var radial_button: Control = $"../LevelUI/CanvasLayer/MarginContainer/RadialButton"
 @onready var action_button: TextureButton = $"../LevelUI/CanvasLayer/MarginContainer2/ActionButton/TextureButton"
+
 # Forms
 @export var forms: Array[FormData] = []
 var current_form_index: int = 0
 var current_form: FormData
+
 # Dash
 @export var dash_speed: float = 1000.0
 @export var dash_duration: float = 0.2
@@ -17,6 +19,7 @@ var is_dashing := false
 var can_dash := true
 var dash_timer := 0.0
 var cooldown_timer := 0.0
+
 # Input monitor
 @export var max_charge_time: float = 1.0
 var is_charging := false

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bcqmvng132k2e" path="res://scripts/radial_button.gd" id="1_6vhno"]
 [ext_resource type="Texture2D" uid="uid://bb61eobgh68rh" path="res://assets/temporary_assets_danu_no_judge/ControllerButton.png" id="2_yftdq"]
 [ext_resource type="Texture2D" uid="uid://bt3aevtkptv5i" path="res://assets/temporary_assets_danu_no_judge/PressedButton.png" id="3_0pb7w"]
-[ext_resource type="PackedScene" uid="uid://m2o5x8q51dwa" path="res://ui/RadialButton/RadialMenu.tscn" id="4_to6so"]
+[ext_resource type="PackedScene" uid="uid://m2o5x8q51dwa" path="res://ui/Button/RadialButton/RadialMenu.tscn" id="4_to6so"]
 
 [node name="RadialButton" type="Control" unique_id=1501342966]
 modulate = Color(1, 1, 1, 0.15686275)

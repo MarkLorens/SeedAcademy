@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cy40kcqqkykwd"]
+
+[ext_resource type="Texture2D" uid="uid://tvq56yw1u4fg" path="res://icon.svg" id="1_4gfpj"]
+
+[node name="PauseButton" type="Control" unique_id=539774867]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=255762916]
+layout_mode = 1
+offset_left = -128.0
+offset_bottom = 128.0
+texture_normal = ExtResource("1_4gfpj")
+texture_pressed = ExtResource("1_4gfpj")
