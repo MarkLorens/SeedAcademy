@@ -5,8 +5,8 @@ extends Node
 @export var Camera: Camera2D
 @export var Background: Node2D
 
-const PLAYER_START_POS := Vector2i(400, 485)
-const CAMERA_START_POS := Vector2i(1500, -400)
+const PLAYER_START_POS := Vector2i(200, 485)
+const CAMERA_START_POS := Vector2i(1700, -400)
 # Score here if needed
 	
 var speed : float

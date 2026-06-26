@@ -94,3 +94,12 @@ func start_dash() -> void:
 	dash_timer = dash_duration
 	cooldown_timer = dash_cooldown
 	velocity.y = 0.0
+
+func unlock_form(new_form: FormData) -> void:
+	if new_form in forms:
+		return
+
+	forms.append(new_form)
+
+	if radial_button.has_method("refresh_options"):
+		radial_button.refresh_options(forms)
