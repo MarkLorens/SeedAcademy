@@ -6,17 +6,31 @@ extends Node
 @export var Background: Node2D
 @export var Event_UI_Scene: PackedScene
 
-const PLAYER_START_POS := Vector2i(200, 485)
-const CAMERA_START_POS := Vector2i(1700, -400)
+const PLAYER_START_POS := Vector2i(100, 485)
+const CAMERA_START_POS := Vector2i(700, -400)
 # Score here if needed
-	
+
 var speed : float
 const START_SPEED : float = 10.0
 const MAX_SPEED : int = 25
 
-# Called when the node enters the scene tree for the first time.
+@onready var pause_menu = $"LevelUI/CanvasLayer/PauseMenu"
+@onready var game_over = $"LevelUI/CanvasLayer/GameOver"
+@onready var pause_button = $"LevelUI/CanvasLayer/PauseButton/TextureButton"
+
 func _ready() -> void:
+	add_to_group("level_manager")
+	
+	assert(pause_menu, "CRITICAL: PAUSE MENU is not CONNECTED")
+	assert(game_over, "CRITICAL: GAME OVER is not CONNECTED")
+	
+	assert(pause_button, "CRITICAL: PAUSE BUTTON is not CONNECTED")
+	pause_button.pressed.connect(pause_game)
+
 	new_game()
+	
+func pause_game() -> void:
+	pause_menu.show_pause()
 
 # Reset everything on new game
 func new_game():
@@ -30,6 +44,9 @@ func _show_intro_event() -> void:
 	var eventUI: EventUI = Event_UI_Scene.instantiate()
 	add_child(eventUI)
 	eventUI.dialogue_finished.connect(_on_intro_finished)
+
+func player_died() -> void:
+	game_over.show_game_over()
 
 func _on_intro_finished() -> void:
 	Player.can_move = true

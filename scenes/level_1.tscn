@@ -53,9 +53,10 @@ visible = false
 forms = Array[ExtResource("5_15mv3")]([ExtResource("6_e3sih")])
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1500401102]
-zoom = Vector2(0.8, 0.8)
+offset = Vector2(300, 0)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+drag_left_margin = 1.0
 drag_top_margin = 1.0
 
 [node name="NewFormCheckpoint" parent="." unique_id=1595220022 instance=ExtResource("9_2y5yt")]
@@ -101,3 +102,14 @@ offset_bottom = 300.0
 text = "Finish"
 
 [node name="LevelUI" parent="." unique_id=1469804206 instance=ExtResource("10_2y5yt")]
+
+[node name="CanvasLayer" parent="LevelUI/CanvasLayer/PauseMenu" parent_id_path=PackedInt32Array(1469804206, 355216389) index="0" unique_id=734266689]
+visible = false
+
+[node name="CanvasLayer" parent="LevelUI/CanvasLayer/GameOver" parent_id_path=PackedInt32Array(1469804206, 1454118889) index="0" unique_id=1219356818]
+visible = false
+
+[editable path="LevelUI"]
+[editable path="LevelUI/CanvasLayer/PauseMenu"]
+[editable path="LevelUI/CanvasLayer/GameOver"]
+[editable path="LevelUI/CanvasLayer/PauseButton"]

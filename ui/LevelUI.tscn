@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://cmtn3cavbs7tu"]
 
-[ext_resource type="PackedScene" uid="uid://k83egyueyoyv" path="res://ui/ActionButton.tscn" id="1_iyk4s"]
-[ext_resource type="PackedScene" uid="uid://dcltvykh033wi" path="res://ui/RadialButton/RadialButton.tscn" id="1_nwk5d"]
+[ext_resource type="PackedScene" uid="uid://k83egyueyoyv" path="res://ui/Button/ActionButton.tscn" id="1_iyk4s"]
+[ext_resource type="PackedScene" uid="uid://dcltvykh033wi" path="res://ui/Button/RadialButton/RadialButton.tscn" id="1_nwk5d"]
+[ext_resource type="PackedScene" uid="uid://dwhbst82mgghc" path="res://ui/Menu/PauseMenu.tscn" id="3_okjyp"]
+[ext_resource type="PackedScene" uid="uid://v6f0518w8w57" path="res://ui/Menu/GameOver.tscn" id="4_v0jhs"]
+[ext_resource type="PackedScene" uid="uid://cy40kcqqkykwd" path="res://ui/Button/PauseButton.tscn" id="6_ic7kd"]
 
 [node name="LevelUI" type="Control" unique_id=1469804206]
 layout_mode = 3
@@ -14,12 +17,17 @@ grow_vertical = 2
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1472738757]
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer" unique_id=1135728937]
-offset_left = 997.0
-offset_top = 491.0
-offset_right = 1152.0
-offset_bottom = 648.0
-theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 40
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -155.0
+offset_top = -157.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
 
 [node name="ActionButton" parent="CanvasLayer/MarginContainer2" unique_id=890205479 instance=ExtResource("1_iyk4s")]
 layout_mode = 2
@@ -28,13 +36,26 @@ layout_mode = 2
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -210.0
-offset_right = 219.0
+offset_top = -173.0
+offset_right = 166.0
 offset_bottom = 9.0
 grow_vertical = 0
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_bottom = 100
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_bottom = 50
 
 [node name="RadialButton" parent="CanvasLayer/MarginContainer" unique_id=1501342966 instance=ExtResource("1_nwk5d")]
 layout_mode = 2
 OUTER_R = 100
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=355216389 instance=ExtResource("3_okjyp")]
+visible = false
+
+[node name="GameOver" parent="CanvasLayer" unique_id=1454118889 instance=ExtResource("4_v0jhs")]
+visible = false
+
+[node name="PauseButton" parent="CanvasLayer" unique_id=539774867 instance=ExtResource("6_ic7kd")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 1

@@ -21,6 +21,7 @@ func _ready() -> void:
 func _on_trigger_entered(body: Node2D) -> void:
 	if triggered or not body.is_in_group("player"):
 		return
+		
 	triggered = true
 	if triggerDelay > 0.0:
 		await get_tree().create_timer(triggerDelay).timeout
@@ -39,3 +40,8 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		print("hit") # Please leave the print as is. I am simply trying if the kill zone works
+		
+		# Here lies the command to start the dying
+		#var level = get_tree().get_first_node_in_group("level_manager")
+		#if level:
+			#level.player_died()
