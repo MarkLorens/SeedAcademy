@@ -34,5 +34,6 @@ func set_form(index: int) -> void:
 	$Sprite2D.texture = current_form.form_texture
 
 func _physics_process(delta: float) -> void:
+	velocity.x = current_form.run_speed
 	velocity.y += GRAVITY * current_form.gravity_scale * delta
 	move_and_slide()

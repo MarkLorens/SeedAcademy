@@ -12,4 +12,5 @@ metadata/_custom_type_script = "uid://drp47dq265ee"
 script = ExtResource("1_6j8ln")
 form_name = "ape"
 form_texture = ExtResource("2_a5g63")
+run_speed = 600.0
 action_script = SubResource("Resource_surk0")

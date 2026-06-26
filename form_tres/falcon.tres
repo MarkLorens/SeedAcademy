@@ -12,6 +12,7 @@ metadata/_custom_type_script = "uid://b3oujte8eps7m"
 script = ExtResource("1_bcf0k")
 form_name = "falcon"
 form_texture = ExtResource("2_htlcp")
+run_speed = 700.0
 jump_speed = -1600.0
 gravity_scale = 0.7
 action_script = SubResource("Resource_htlcp")
