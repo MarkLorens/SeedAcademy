@@ -8,8 +8,8 @@ extends Control
 @export var OUTER_R  := 125
 
 # Arc geometry: start at 225° (up-left) and sweep through the top to 360°/0° (right).
-@export var ARC_START_DEG := 247.5
-var ARC_TOTAL_DEG := 382.5 - ARC_START_DEG
+@export var ARC_START_DEG := 0
+var ARC_TOTAL_DEG := 360 - ARC_START_DEG
 var CHARS : Array
 
 var is_open     := false
@@ -69,11 +69,11 @@ func _update_hover(screen_pos: Vector2) -> void:
 
 	# Check if location outside of menu	
 	var rel := ang - ARC_START_DEG
-	if rel < 0.0:
-		rel += 360.0
-	if rel > ARC_TOTAL_DEG:
-		hovered_idx = -1
-		return
+	#if rel < 0.0:
+		#rel += 360.0
+	#if rel > ARC_TOTAL_DEG:
+		#hovered_idx = -1
+		#return
 	
 	# Get the hovered_idx
 	var step := ARC_TOTAL_DEG / CHARS.size()

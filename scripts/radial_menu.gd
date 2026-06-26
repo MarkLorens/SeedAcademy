@@ -25,6 +25,8 @@ func _draw() -> void:
 	var n = chars.size()
 	var start = deg_to_rad(btn.ARC_START_DEG)
 	var step = deg_to_rad(btn.ARC_TOTAL_DEG / n)
+	
+	print(btn.ARC_TOTAL_DEG)
 
 	var font := ThemeDB.fallback_font
 	var font_size := 20
