@@ -37,4 +37,5 @@ func _physics_process(delta: float) -> void:
 			position.y = floor_ray.get_collision_point().y
 
 func _on_body_entered(body: Node2D) -> void:
-	print("haha")
+	if body.is_in_group("player"):
+		print("hit") # Please leave the print as is. I am simply trying if the kill zone works

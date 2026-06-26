@@ -7,6 +7,7 @@ var current_form_index: int = 0
 var current_form: FormData
 
 func _ready() -> void:
+	add_to_group("player")
 	$AttackCol.disabled = true
 	set_form(0)
 
