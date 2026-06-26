@@ -21,6 +21,8 @@ var cooldown_timer := 0.0
 @export var max_charge_time: float = 1.0
 var is_charging := false
 var charge_time := 0.0
+# Event Handler
+var can_move := false
 
 func _ready() -> void:
 	add_to_group("player")
@@ -41,11 +43,15 @@ func _process(delta: float) -> void:
 		charge_time = min(charge_time + delta, max_charge_time)
 
 func _on_action_down() -> void:
+	if not can_move:
+		return
 	is_charging = true
 	charge_time = 0.0
 	current_form.action_script.on_press(self, current_form)
 
 func _on_action_up() -> void:
+	if not can_move:
+		return
 	is_charging = false
 	var charge_ratio: float = charge_time / max_charge_time
 	current_form.action_script.on_release(self, current_form, charge_ratio)
@@ -57,6 +63,8 @@ func _on_form_selected(index: int) -> void:
 
 # Fired by action button
 func action_pressed() -> void:
+	if not can_move:
+		return
 	self.current_form.action_script.execute(self, self.current_form)
 	
 func set_form(index: int) -> void:
@@ -67,6 +75,9 @@ func set_form(index: int) -> void:
 func _physics_process(delta: float) -> void:
 	_update_dash_timers(delta)
 	
+	if not can_move:
+		velocity = Vector2.ZERO
+		return
 	if is_dashing:
 		velocity.x = dash_speed
 	else:
