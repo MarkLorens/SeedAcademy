@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cmtn3cavbs7tu"]
+
+[ext_resource type="PackedScene" uid="uid://k83egyueyoyv" path="res://ui/ActionButton.tscn" id="1_iyk4s"]
+[ext_resource type="PackedScene" uid="uid://dcltvykh033wi" path="res://ui/RadialButton/RadialButton.tscn" id="1_nwk5d"]
+
+[node name="LevelUI" type="Control" unique_id=1469804206]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1472738757]
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer" unique_id=1135728937]
+offset_left = 997.0
+offset_top = 491.0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="ActionButton" parent="CanvasLayer/MarginContainer2" unique_id=890205479 instance=ExtResource("1_iyk4s")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=1625948689]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -166.0
+offset_right = 160.0
+grow_vertical = 0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="RadialButton" parent="CanvasLayer/MarginContainer" unique_id=1501342966 instance=ExtResource("1_nwk5d")]
+layout_mode = 2
+INNER_R = 75
+OUTER_R = 150

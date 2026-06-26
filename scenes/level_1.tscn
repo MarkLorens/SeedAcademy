@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://dex1t3kuntlgn" path="res://form_tres/falcon.tres" id="8_2os1m"]
 [ext_resource type="Texture2D" uid="uid://cb7844lo3vlgq" path="res://assets/temporary_assets_danu_no_judge/tiles.png" id="8_15mv3"]
 [ext_resource type="PackedScene" uid="uid://dp7p1uu7a8kwc" path="res://props/hazards/Spikes.tscn" id="9_e3sih"]
+[ext_resource type="PackedScene" uid="uid://cmtn3cavbs7tu" path="res://ui/LevelUI.tscn" id="10_2y5yt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e3sih"]
 texture = ExtResource("8_15mv3")
@@ -87,3 +88,5 @@ position = Vector2(5823, 249)
 
 [node name="Spikes4" parent="." unique_id=1586658479 instance=ExtResource("9_e3sih")]
 position = Vector2(5826, 98)
+
+[node name="LevelUI" parent="." unique_id=1469804206 instance=ExtResource("10_2y5yt")]
