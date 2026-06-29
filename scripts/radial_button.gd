@@ -2,14 +2,19 @@ extends Control
 
 @onready var hold_btn: TextureButton = $HoldButton
 @onready var radial: Control = $RadialMenu
-@onready var player = $"../../../../Player"
 
+@export var player : CharacterBody2D
 @export var INNER_R  := 50
 @export var OUTER_R  := 125
 
-# Arc geometry: start at 225° (up-left) and sweep through the top to 360°/0° (right).
-@export var ARC_START_DEG := 0
-var ARC_TOTAL_DEG := 360 - ARC_START_DEG
+# Angle (screen space, 0°=right / 90°=down / 180°=left / 270°=up) where segment 0
+# begins. 225° puts segment 0 at 225–315° (centered on "up" = top of the wheel),
+# then 315–45° (right), 45–135° (bottom), 135–225° (left).
+@export var ARC_START_DEG := 225
+
+# The wheel art is always drawn as 4 fixed segments, even before every form is
+# unlocked. Hovering maps to one of these 4 slots; only unlocked slots commit.
+const SEGMENTS := 4
 var CHARS : Array
 
 var is_open     := false
@@ -17,7 +22,7 @@ var hovered_idx := -1
 var chosen_idx  := -1
 var open_t      := 0.0
 
-signal character_selected(index: int, data: Dictionary)
+signal character_selected(index: int)
 
 func _ready() -> void:
 	assert(hold_btn, "CRITICAL: HOLD BUTTON node was not found!")
@@ -28,7 +33,6 @@ func _ready() -> void:
 	CHARS = player.forms
 
 func _on_hold_down() -> void:
-	# When the button is pressed it will open at restart the idx	
 	is_open = true
 	hovered_idx = -1
 	
@@ -43,12 +47,10 @@ func _process(delta: float) -> void:
 	else:
 		open_t = max(open_t - delta / 0.10, 0.0)
 
-	if open_t > 0.0 or is_open:
-		radial.queue_redraw()
-
 func _commit_selection() -> void:
 	is_open = false
-	if hovered_idx >= 0:
+	# Only commit if the hovered segment maps to an unlocked form.
+	if hovered_idx >= 0 and hovered_idx < CHARS.size():
 		chosen_idx = hovered_idx
 		character_selected.emit(chosen_idx)
 	hovered_idx = -1
@@ -63,23 +65,12 @@ func button_center() -> Vector2:
 func _update_hover(screen_pos: Vector2) -> void:
 	var center := button_center()
 	var offset := screen_pos - center
-	
-	# Get Mouse/Finger Angle Position
+
+	# Mouse/finger angle in screen space (0°=right, 90°=down, 180°=left, 270°=up).
 	var ang := fposmod(rad_to_deg(offset.angle()), 360.0)
 
-	# Check if location outside of menu	
-	var rel := ang - ARC_START_DEG
-	#if rel < 0.0:
-		#rel += 360.0
-	#if rel > ARC_TOTAL_DEG:
-		#hovered_idx = -1
-		#return
-	
-	# Get the hovered_idx
-	var step := ARC_TOTAL_DEG / CHARS.size()
-	hovered_idx = clampi(int(rel / step), 0, CHARS.size() - 1)
-
-func refresh_options(new_forms: Array) -> void:
-	CHARS = new_forms
-	hovered_idx = clampi(hovered_idx, -1, CHARS.size() - 1)
-	radial.queue_redraw()
+	# Rotate so segment 0 starts at ARC_START_DEG, wrapping so the slice that
+	# crosses 0° (315–45°) buckets correctly, then split into 4 equal slices.
+	var rel := fposmod(ang - ARC_START_DEG, 360.0)
+	var step := 360.0 / SEGMENTS
+	hovered_idx = clampi(int(rel / step), 0, SEGMENTS - 1)

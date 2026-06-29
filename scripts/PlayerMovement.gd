@@ -112,8 +112,4 @@ func start_dash() -> void:
 func unlock_form(new_form: FormData) -> void:
 	if new_form in forms:
 		return
-
 	forms.append(new_form)
-
-	if radial_button.has_method("refresh_options"):
-		radial_button.refresh_options(forms)

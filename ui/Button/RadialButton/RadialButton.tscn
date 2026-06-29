@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://dcltvykh033wi"]
 
 [ext_resource type="Script" uid="uid://bcqmvng132k2e" path="res://scripts/radial_button.gd" id="1_6vhno"]
-[ext_resource type="Texture2D" uid="uid://bb61eobgh68rh" path="res://assets/temporary_assets_danu_no_judge/ControllerButton.png" id="2_yftdq"]
-[ext_resource type="Texture2D" uid="uid://bt3aevtkptv5i" path="res://assets/temporary_assets_danu_no_judge/PressedButton.png" id="3_0pb7w"]
+[ext_resource type="Texture2D" uid="uid://ucb68apvrpec" path="res://assets/Emote Wheel/Main Wheel.png" id="2_nn0qb"]
 [ext_resource type="PackedScene" uid="uid://m2o5x8q51dwa" path="res://ui/Button/RadialButton/RadialMenu.tscn" id="4_to6so"]
+[ext_resource type="Texture2D" uid="uid://co7jeatwffdxh" path="res://assets/Emote Wheel/Wheel 1.png" id="5_2pro4"]
+[ext_resource type="Texture2D" uid="uid://dqvsidfglpfi8" path="res://assets/Emote Wheel/Wheel 2.png" id="6_wheel2"]
+[ext_resource type="Texture2D" uid="uid://b07lmoq3vaa3t" path="res://assets/Emote Wheel/Wheel 3.png" id="7_wheel3"]
+[ext_resource type="Texture2D" uid="uid://dwgcatt6d03cb" path="res://assets/Emote Wheel/Wheel 4.png" id="8_wheel4"]
+[ext_resource type="Texture2D" uid="uid://dkgxqstmgc6gj" path="res://assets/Emote Wheel/Wheel Idle.png" id="9_idle"]
 
 [node name="RadialButton" type="Control" unique_id=1501342966]
-modulate = Color(1, 1, 1, 0.15686275)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_6vhno")
@@ -15,21 +18,54 @@ script = ExtResource("1_6vhno")
 layout_mode = 1
 offset_right = 124.0
 offset_bottom = 123.0
-texture_normal = ExtResource("2_yftdq")
-texture_pressed = ExtResource("3_0pb7w")
-texture_hover = ExtResource("2_yftdq")
-texture_disabled = ExtResource("2_yftdq")
-texture_focused = ExtResource("2_yftdq")
+texture_normal = ExtResource("2_nn0qb")
+texture_pressed = ExtResource("2_nn0qb")
+texture_hover = ExtResource("2_nn0qb")
+texture_disabled = ExtResource("2_nn0qb")
+texture_focused = ExtResource("2_nn0qb")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="RadialMenu" parent="." unique_id=151962108 instance=ExtResource("4_to6so")]
 top_level = true
+z_index = -1
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = 2
 anchor_left = 0.0
+anchor_top = 1.0
 anchor_right = 0.0
-offset_top = 324.0
-offset_bottom = 324.0
+anchor_bottom = 1.0
 grow_horizontal = 1
-background_color = Color(1, 1, 1, 1)
+grow_vertical = 0
+mouse_filter = 2
+hover_textures = Array[Texture2D]([ExtResource("5_2pro4"), ExtResource("6_wheel2"), ExtResource("7_wheel3"), ExtResource("8_wheel4")])
+idle_texture = ExtResource("9_idle")
+
+[node name="IdleState" type="TextureRect" parent="RadialMenu" unique_id=990159694]
+custom_minimum_size = Vector2(100, 0)
+custom_maximum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -660.0
+offset_right = 136.0
+offset_bottom = -510.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("9_idle")
+
+[node name="ActiveState" type="TextureRect" parent="RadialMenu" unique_id=1185725601]
+visible = false
+custom_minimum_size = Vector2(100, 0)
+custom_maximum_size = Vector2(250, 250)
+layout_mode = 1
+offset_left = -62.0
+offset_top = -711.0
+offset_right = 188.0
+offset_bottom = -461.0
+mouse_filter = 2
+texture = ExtResource("5_2pro4")
+metadata/_edit_use_anchors_ = true

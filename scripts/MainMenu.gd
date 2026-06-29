@@ -10,6 +10,7 @@ const LEVEL_SELECT := "res://ui/Menu/level_select.tscn"
 
 func _ready() -> void:
 	play_button.pressed.connect(_on_play_pressed)
+	
 	# Placeholders for now — hook these up later.
 	achievements_button.pressed.connect(func(): print("Achievements (TODO)"))
 	settings_button.pressed.connect(func(): print("Settings (TODO)"))
