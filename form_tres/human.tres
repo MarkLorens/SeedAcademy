@@ -12,6 +12,6 @@ metadata/_custom_type_script = "uid://cvugvvj2wftdk"
 script = ExtResource("1_mm5lq")
 form_name = "human"
 form_texture = ExtResource("2_6inmp")
-run_speed = 400.0
+run_speed = 750.0
 jump_speed = -1500.0
 action_script = SubResource("Resource_c0gsl")

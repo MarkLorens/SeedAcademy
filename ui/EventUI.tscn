@@ -10,7 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gks70")
-lines = Array[String](["\"Hey you.\"", "\"You're finally awake.\"", "\"Lorem Ipsum and whatnot.\""])
+lines = Array[String]([])
 metadata/_edit_use_anchors_ = true
 
 [node name="NewGameDialogues" type="CanvasLayer" parent="." unique_id=1570944692]

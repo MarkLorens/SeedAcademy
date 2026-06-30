@@ -10,6 +10,7 @@
 
 [node name="Parallax2DSolidBG" type="Parallax2D" parent="." unique_id=1423939749]
 scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2DSolidBG" unique_id=1516385830]
 texture = ExtResource("1_x0pxh")
@@ -18,6 +19,7 @@ centered = false
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1753422793]
 texture_filter = 1
 scroll_scale = Vector2(0.6, 1)
+scroll_offset = Vector2(0, 1)
 repeat_size = Vector2(1152, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1054938520]
@@ -27,6 +29,7 @@ centered = false
 [node name="Parallax2D2" type="Parallax2D" parent="." unique_id=996933111]
 texture_filter = 1
 scroll_scale = Vector2(0.7, 1)
+scroll_offset = Vector2(0, 1)
 repeat_size = Vector2(1152, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D2" unique_id=392223840]
@@ -36,6 +39,7 @@ centered = false
 [node name="Parallax2D3" type="Parallax2D" parent="." unique_id=264615144]
 texture_filter = 1
 scroll_scale = Vector2(0.8, 1)
+scroll_offset = Vector2(0, 1)
 repeat_size = Vector2(1152, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D3" unique_id=704853252]
@@ -45,6 +49,7 @@ centered = false
 [node name="Parallax2D4" type="Parallax2D" parent="." unique_id=77943371]
 texture_filter = 1
 scroll_scale = Vector2(0.9, 1)
+scroll_offset = Vector2(0, 1)
 repeat_size = Vector2(1152, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D4" unique_id=2002485072]
