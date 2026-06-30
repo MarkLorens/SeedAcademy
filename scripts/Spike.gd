@@ -4,10 +4,14 @@ extends Area2D
 @export var fallSpeed: float = 3000.0
 @export var triggerDelay: float = 0.15
 
+const FALLING_TEXTURE := preload("res://assets/ingame art assets/level platform tiles/spikes_up.PNG")
+
 var velocity := Vector2.ZERO
 var landed := false
 var triggered := false
 
+@onready var sprite: Sprite2D = $Sprite2D
+@onready var kill_shape: CollisionPolygon2D = $CollisionShape2D
 @onready var floor_ray: RayCast2D = $FloorRayCast
 @onready var trigger_zone: Area2D = $TriggerZone
 
@@ -15,8 +19,15 @@ func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	if isFalling:
 		trigger_zone.body_entered.connect(_on_trigger_entered)
+		_apply_falling_appearance()
 	else:
 		trigger_zone.queue_free()
+
+# Swap to the down-pointing art and mirror the kill collision vertically to match.
+func _apply_falling_appearance() -> void:
+	sprite.texture = FALLING_TEXTURE
+	kill_shape.position.y = -kill_shape.position.y
+	kill_shape.scale.y = -kill_shape.scale.y
 
 func _on_trigger_entered(body: Node2D) -> void:
 	if triggered or not body.is_in_group("player"):

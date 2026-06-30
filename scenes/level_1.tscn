@@ -115,11 +115,10 @@ tile_size = Vector2i(256, 256)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_7nomh")
 
-[node name="Level1" type="Node" unique_id=257814844 node_paths=PackedStringArray("Player", "Camera", "Background")]
+[node name="Level1" type="Node" unique_id=257814844 node_paths=PackedStringArray("Player", "Camera")]
 script = ExtResource("1_4nkto")
 Player = NodePath("Player")
 Camera = NodePath("Player/Camera2D")
-Background = NodePath("")
 Event_UI_Scene = ExtResource("12_go7sj")
 
 [node name="BGLayer" type="TileMapLayer" parent="." unique_id=1509193997]
@@ -145,16 +144,16 @@ script = ExtResource("7_2y5yt")
 form_to_grant = ExtResource("8_2os1m")
 
 [node name="Spikes" parent="." unique_id=390458500 instance=ExtResource("9_e3sih")]
-position = Vector2(4460, 829)
+position = Vector2(4476, 896)
 
 [node name="Spikes2" parent="." unique_id=1446015163 instance=ExtResource("9_e3sih")]
-position = Vector2(7793, 818)
+position = Vector2(7805, 896)
 
 [node name="Spikes3" parent="." unique_id=1678122609 instance=ExtResource("9_e3sih")]
-position = Vector2(8065, 818)
+position = Vector2(8064, 898)
 
 [node name="Spikes4" parent="." unique_id=641353886 instance=ExtResource("9_e3sih")]
-position = Vector2(11347, -640)
+position = Vector2(11388, -534)
 isFalling = true
 
 [node name="Spikes5" parent="." unique_id=1923179411 instance=ExtResource("9_e3sih")]
