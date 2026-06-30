@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c5sym1ls2gkxb" path="res://props/player_forms/Player.tscn" id="3_5xbjy"]
 [ext_resource type="Texture2D" uid="uid://dhl8pin3f27oi" path="res://assets/spritesheets/bg-spritesheet.png" id="3_7gny6"]
 [ext_resource type="Script" uid="uid://bx2hrhh8teetw" path="res://scripts/resource/FormData.gd" id="5_15mv3"]
-[ext_resource type="Resource" uid="uid://dskh4tkuuj6ee" path="res://form_tres/ape.tres" id="6_6dial"]
+[ext_resource type="Resource" uid="uid://dleraek6mun4q" path="res://form_tres/human.tres" id="6_e3sih"]
 [ext_resource type="Script" uid="uid://8vlbf4etx0cd" path="res://scripts/new_form_checkpoint.gd" id="7_2y5yt"]
 [ext_resource type="Texture2D" uid="uid://brhkxw86c1yts" path="res://assets/spritesheets/breakable-sprite-sheet.png" id="8_2aecg"]
 [ext_resource type="Resource" uid="uid://dex1t3kuntlgn" path="res://form_tres/frog.tres" id="8_2os1m"]
@@ -146,7 +146,7 @@ tile_set = SubResource("TileSet_6kwvf")
 
 [node name="Player" parent="." unique_id=1742630827 instance=ExtResource("3_5xbjy")]
 scale = Vector2(0.7, 0.7)
-forms = Array[ExtResource("5_15mv3")]([ExtResource("6_6dial")])
+forms = Array[ExtResource("5_15mv3")]([ExtResource("6_e3sih")])
 dash_speed = 2500.0
 dash_cooldown = 0.5
 
