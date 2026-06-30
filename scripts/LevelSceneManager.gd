@@ -55,3 +55,4 @@ func player_died() -> void:
 func _on_intro_finished() -> void:
 	Player.can_move = true
 	speed = START_SPEED
+	pass
