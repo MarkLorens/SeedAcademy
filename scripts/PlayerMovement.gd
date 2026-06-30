@@ -5,6 +5,7 @@ const GRAVITY: int = 4200
 # UI
 @onready var radial_button: Control = $"../LevelUI/CanvasLayer/MarginContainer/RadialButton"
 @onready var action_button: TextureButton = $"../LevelUI/CanvasLayer/MarginContainer2/ActionButton/TextureButton"
+@onready var attack_hitbox: Area2D = $AttackHitbox
 
 # Forms
 @export var forms: Array[FormData] = []
@@ -29,7 +30,8 @@ var can_move := false
 
 func _ready() -> void:
 	add_to_group("player")
-	$AttackCol.disabled = true
+	attack_hitbox.monitoring = false
+	attack_hitbox.body_shape_entered.connect(_on_attack_hit)
 	$ShieldCol.monitoring = false
 	$ShieldCol.monitorable = false
 	set_form(0)
@@ -117,3 +119,19 @@ func unlock_form(new_form: FormData) -> void:
 
 	if radial_button.has_method("refresh_options"):
 		radial_button.refresh_options(forms)
+
+func _on_attack_hit(_body_rid: RID, body: Node, _body_shape: int, _local_shape: int) -> void:
+	if not body.has_method("break_in_global_rect"):
+		return
+	body.break_in_global_rect(_attack_world_rect())
+
+# World-space AABB of the attack hitbox, used to find which tile was hit.
+func _attack_world_rect() -> Rect2:
+	var col: CollisionShape2D = attack_hitbox.get_node("CollisionShape2D")
+	var size: Vector2 = (col.shape as RectangleShape2D).size
+	var xform: Transform2D = col.global_transform
+	var rect := Rect2(xform * (-size * 0.5), Vector2.ZERO)
+	rect = rect.expand(xform * Vector2(size.x * 0.5, -size.y * 0.5))
+	rect = rect.expand(xform * (size * 0.5))
+	rect = rect.expand(xform * Vector2(-size.x * 0.5, size.y * 0.5))
+	return rect

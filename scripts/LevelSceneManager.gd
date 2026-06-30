@@ -3,7 +3,6 @@ extends Node
 # Exportables
 @export var Player: CharacterBody2D
 @export var Camera: Camera2D
-@export var Background: Node2D
 @export var Event_UI_Scene: PackedScene
 @export var intro_lines: Array[String] = [
 	"\"Hey you.\"",

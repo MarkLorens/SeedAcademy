@@ -17,6 +17,7 @@ radius = 166.66666
 
 [node name="Player" type="CharacterBody2D" unique_id=1742630827]
 scale = Vector2(0.3, 0.3)
+collision_mask = 9
 script = ExtResource("1_2eghs")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=864898495]
@@ -26,8 +27,11 @@ texture = ExtResource("1_lfadd")
 position = Vector2(3.3333333, -1.6666666)
 shape = SubResource("RectangleShape2D_fey80")
 
-[node name="AttackCol" type="CollisionShape2D" parent="." unique_id=89791523]
-position = Vector2(193.33333, -3.3333304)
+[node name="AttackHitbox" type="Area2D" parent="." unique_id=1025660276]
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox" unique_id=89791523]
+position = Vector2(243.33333, 0)
 shape = SubResource("RectangleShape2D_2eghs")
 
 [node name="HurtCol" type="Area2D" parent="." unique_id=1277471778]
