@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://dcgb0j3s34ycs"]
 
 [ext_resource type="Script" uid="uid://dos18l1kajxqj" path="res://scripts/LevelSceneManager.gd" id="1_4nkto"]
-[ext_resource type="PackedScene" uid="uid://rs7301aqj778" path="res://props/jungle_stage/JungleBackground.tscn" id="1_014kd"]
 [ext_resource type="PackedScene" uid="uid://c5sym1ls2gkxb" path="res://props/player_forms/Player.tscn" id="3_5xbjy"]
 [ext_resource type="Texture2D" uid="uid://dhl8pin3f27oi" path="res://assets/spritesheets/bg-spritesheet.png" id="3_7gny6"]
 [ext_resource type="Script" uid="uid://bx2hrhh8teetw" path="res://scripts/resource/FormData.gd" id="5_15mv3"]
@@ -13,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cmtn3cavbs7tu" path="res://ui/LevelUI.tscn" id="10_2y5yt"]
 [ext_resource type="Texture2D" uid="uid://dq1b7kgnoi611" path="res://assets/spritesheets/spritesheet.png" id="12_2aecg"]
 [ext_resource type="PackedScene" uid="uid://b6cd3t06jcai1" path="res://ui/EventUI.tscn" id="12_go7sj"]
+[ext_resource type="PackedScene" uid="uid://d2h3l6oyr3lle" path="res://props/DialogueEventTrigger.tscn" id="14_2aecg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6dial"]
 texture = ExtResource("3_7gny6")
@@ -119,11 +119,8 @@ sources/1 = SubResource("TileSetAtlasSource_7nomh")
 script = ExtResource("1_4nkto")
 Player = NodePath("Player")
 Camera = NodePath("Player/Camera2D")
-Background = NodePath("JungleBackground")
+Background = NodePath("")
 Event_UI_Scene = ExtResource("12_go7sj")
-
-[node name="JungleBackground" parent="." unique_id=1863640712 instance=ExtResource("1_014kd")]
-visible = false
 
 [node name="BGLayer" type="TileMapLayer" parent="." unique_id=1509193997]
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAACAAAAAAACAAAAAAADAAAAAAADAAAAAAAEAAAAAAAEAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAABAAAAAAAHAAAAAAACAAAAAAAIAAAAAAADAAAAAAAJAAAAAAAEAAAAAAAKAAAAAAAAAAAAAAALAAAAAAABAAAAAAAMAAAAAAACAAAAAAANAAAAAAADAAAAAAAOAAAAAAAEAAAAAAD7/wAAAAAAAAAAAAD8/wAAAAABAAAAAAD9/wAAAAACAAAAAAD+/wAAAAADAAAAAAD//wAAAAAEAAAAAAD4/wAAAAAAAAAAAAD5/wAAAAABAAAAAAD6/wAAAAACAAAAAAD3/wAAAAAEAAAAAAAPAAAAAAAAAAAAAAAQAAAAAAABAAAAAAARAAAAAAACAAAAAAASAAAAAAADAAAAAAATAAAAAAAEAAAAAAAUAAAAAAAAAAAAAAAVAAAAAAABAAAAAAAWAAAAAAACAAAAAAAXAAAAAAADAAAAAAAYAAAAAAAEAAAAAAAZAAAAAAAAAAAAAAAaAAAAAAABAAAAAAAbAAAAAAACAAAAAAAcAAAAAAADAAAAAAAdAAAAAAAEAAAAAAAeAAAAAAAAAAAAAAAfAAAAAAABAAAAAAAgAAAAAAACAAAAAAAhAAAAAAADAAAAAAAiAAAAAAAEAAAAAAAjAAAAAAAAAAAAAAAkAAAAAAABAAAAAAAlAAAAAAACAAAAAAAmAAAAAAADAAAAAAAnAAAAAAAEAAAAAAAoAAAAAAAAAAAAAAApAAAAAAABAAAAAAAqAAAAAAACAAAAAAArAAAAAAADAAAAAAAsAAAAAAAEAAAAAAAtAAAAAAAAAAAAAAAuAAAAAAABAAAAAAAvAAAAAAACAAAAAAAwAAAAAAADAAAAAAAxAAAAAAAEAAAAAAAyAAAAAAAAAAAAAAAzAAAAAAABAAAAAAA0AAAAAAACAAAAAAA1AAAAAAADAAAAAAA2AAAAAAAEAAAAAAA3AAAAAAAAAAAAAAA4AAAAAAABAAAAAAA5AAAAAAACAAAAAAA6AAAAAAADAAAAAAA7AAAAAAAEAAAAAAA=")
@@ -160,14 +157,6 @@ position = Vector2(8065, 818)
 position = Vector2(11347, -640)
 isFalling = true
 
-[node name="LevelUI" parent="." unique_id=1469804206 instance=ExtResource("10_2y5yt")]
-
-[node name="CanvasLayer" parent="LevelUI/CanvasLayer/PauseMenu" parent_id_path=PackedInt32Array(1469804206, 355216389) index="0" unique_id=734266689]
-visible = false
-
-[node name="CanvasLayer" parent="LevelUI/CanvasLayer/GameOver" parent_id_path=PackedInt32Array(1469804206, 1454118889) index="0" unique_id=1219356818]
-visible = false
-
 [node name="Spikes5" parent="." unique_id=1923179411 instance=ExtResource("9_e3sih")]
 position = Vector2(13434, 574)
 
@@ -176,6 +165,22 @@ position = Vector2(13688, 579)
 
 [node name="Spikes7" parent="." unique_id=1237675964 instance=ExtResource("9_e3sih")]
 position = Vector2(13952, 579)
+
+[node name="DialogueEventTrigger" parent="." unique_id=531485491 instance=ExtResource("14_2aecg")]
+position = Vector2(3933, -73)
+lines = Array[String](["Gotta dash through..."])
+
+[node name="DialogueEventTrigger2" parent="." unique_id=78568718 instance=ExtResource("14_2aecg")]
+position = Vector2(10545, -103)
+lines = Array[String](["Above!"])
+
+[node name="LevelUI" parent="." unique_id=1469804206 instance=ExtResource("10_2y5yt")]
+
+[node name="CanvasLayer" parent="LevelUI/CanvasLayer/PauseMenu" parent_id_path=PackedInt32Array(1469804206, 355216389) index="0" unique_id=734266689]
+visible = false
+
+[node name="CanvasLayer" parent="LevelUI/CanvasLayer/GameOver" parent_id_path=PackedInt32Array(1469804206, 1454118889) index="0" unique_id=1219356818]
+visible = false
 
 [editable path="LevelUI"]
 [editable path="LevelUI/CanvasLayer/PauseMenu"]

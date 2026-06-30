@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://d2h3l6oyr3lle"]
+
+[ext_resource type="Script" uid="uid://pm1idw5r3156" path="res://scripts/DialogueTrigger.gd" id="1_82wvb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fey80"]
+size = Vector2(122, 1325)
+
+[node name="DialogueEventTrigger" type="Area2D" unique_id=531485491]
+script = ExtResource("1_82wvb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1093445122]
+position = Vector2(0, -9.5)
+shape = SubResource("RectangleShape2D_fey80")

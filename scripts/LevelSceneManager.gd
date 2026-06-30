@@ -5,6 +5,11 @@ extends Node
 @export var Camera: Camera2D
 @export var Background: Node2D
 @export var Event_UI_Scene: PackedScene
+@export var intro_lines: Array[String] = [
+	"\"Hey you.\"",
+	"\"You're finally awake.\"",
+	"\"Lorem Ipsum and whatnot.\"",
+]
 
 const PLAYER_START_POS := Vector2i(150, 350)
 const CAMERA_START_POS := Vector2i(700, -400)
@@ -40,8 +45,8 @@ func new_game():
 func _show_intro_event() -> void:
 	Player.position = PLAYER_START_POS
 	Player.velocity = Vector2i(0, 0)
-	Player.can_move = false
 	var eventUI: EventUI = Event_UI_Scene.instantiate()
+	eventUI.lines = intro_lines
 	add_child(eventUI)
 	eventUI.dialogue_finished.connect(_on_intro_finished)
 
