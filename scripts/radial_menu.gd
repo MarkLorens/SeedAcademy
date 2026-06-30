@@ -1,66 +1,52 @@
 extends Control
 
-@export var background_color : Color = Color(0.96, 0.96, 0.96, 1.0)
-@export var line_color : Color = Color(0.0, 0.6, 0.75, 1.0)
+# Order matches the player's `forms`: 0 = top, 1 = right, 2 = bottom, 3 = left.
+# Built dynamically from the player's forms — see _on_forms_changed().
+@export var hover_textures: Array[Texture2D] = []
 
-# Get Parent Button (Radial Button)
-@onready var btn : = $".."
+# Parent radial button drives open/hover state (see radial_button.gd).
+@onready var radial_btn := $".."
+@onready var idle_state := $IdleState
+@onready var active_state := $ActiveState
 
 func _ready() -> void:
-	assert(btn, "CRITICAL: Radial button node was not found!")
-
-func _process(_delta: float) -> void:	
-	# Draw if Button is pressed
-	if btn.open_t > 0.0 or btn.is_open:
-		queue_redraw()
-
-func _draw() -> void:		
-	var alpha = btn.open_t
-	if alpha <= 0.001:
-		return
-
-	# Draw around the button center, converted into this control's local space.
-	var center: Vector2 = get_global_transform().affine_inverse() * btn.button_center()
-	var chars = btn.CHARS
-	var n = chars.size()
-	var start = deg_to_rad(btn.ARC_START_DEG)
-	var step = deg_to_rad(btn.ARC_TOTAL_DEG / n)
+	assert(radial_btn, "CRITICAL: Radial button node was not found!")
+	assert(idle_state, "CRITICAL: IDLE STATE TextureRect node was not found!")
+	assert(active_state, "CRITICAL: ACTIVE STATE TextureRect node was not found")
 	
-	print(btn.ARC_TOTAL_DEG)
+	# Starts off idle
+	idle_mode()
 
-	var font := ThemeDB.fallback_font
-	var font_size := 20
+	# Build the wheel from the player's forms, and rebuild on every change
+	assert(radial_btn.player, "CRITICAL: Player not set on radial button!")
+	radial_btn.player.forms_changed.connect(_on_forms_changed)
+	
+	# Set the wheel	with the first texture
+	active_state.texture = radial_btn.player.forms[0].wheel_menu_forms[0]
 
-	for i in range(n):
-		var a0 = start + step * i
-		var a1 = start + step * (i + 1)
-		var is_hov = i == btn.hovered_idx
-		var r_in = btn.INNER_R
-		var r_out = btn.OUTER_R + (16.0 if is_hov else 0.0)
+func _on_forms_changed(forms: Array) -> void:
+	hover_textures.clear()
+	
+	for form in forms[-1].wheel_menu_forms:
+		hover_textures.append(form)
 
-		# Build the slice polygon (inner arc out to outer arc).
-		var pts = PackedVector2Array()
-		var segs = 24
-		
-		for s in range(segs + 1):
-			var a = lerp(a0, a1, float(s) / segs)
-			pts.append(center + Vector2(cos(a), sin(a)) * r_in)
-		for s in range(segs, -1, -1):
-			var a = lerp(a0, a1, float(s) / segs)
-			pts.append(center + Vector2(cos(a), sin(a)) * r_out)
+func idle_mode() -> void:
+	idle_state.visible = true
+	active_state.visible = false
 
-		var fill_a = (1.0 if is_hov else 0.85) * alpha
-		
-		draw_colored_polygon(pts, Color(line_color.r, line_color.g, line_color.b, fill_a))
-		draw_polyline(pts + PackedVector2Array([pts[0]]),
-			Color(1, 1, 1, alpha), (3.0 if is_hov else 1.5), true)
+func active_mode() -> void:
+	active_state.visible = true
+	idle_state.visible = false
 
-		# Slice label, placed at the mid-angle / mid-radius.
-		var mid_a = (a0 + a1) * 0.5
-		var label_r = (r_in + r_out) * 0.5
-		var label_pos = center + Vector2(cos(mid_a), sin(mid_a)) * label_r
-		var text = str(chars[i].form_name)
-		var ts = font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size)
-		
-		draw_string(font, label_pos - Vector2(ts.x * 0.5, -ts.y * 0.25),
-			text, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, Color(1, 1, 1, alpha))
+func _process(_delta: float) -> void:
+	var is_open: bool = radial_btn.is_open or radial_btn.open_t > 0.001
+	var idx: int = radial_btn.hovered_idx
+
+	if idx >= 0 and idx < hover_textures.size():
+		active_mode()
+		active_state.texture = hover_textures[idx]
+	elif is_open:
+		active_mode()
+		active_state.texture = hover_textures[0]
+	else:
+		idle_mode()

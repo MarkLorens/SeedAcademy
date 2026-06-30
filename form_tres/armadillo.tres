@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://g2g4i4tnygar" path="res://scripts/form_actions/armadillo.gd" id="1_24302"]
 [ext_resource type="Texture2D" uid="uid://uu3siudqp3he" path="res://assets/temporary_assets_danu_no_judge/Layered Rock.png" id="1_tn7wf"]
 [ext_resource type="Script" uid="uid://bx2hrhh8teetw" path="res://scripts/resource/FormData.gd" id="2_24302"]
+[ext_resource type="Texture2D" uid="uid://c1f7rlnj5ogqk" path="res://assets/Emote Wheel/Wheel Unlock 3-1 .png" id="4_k187g"]
+[ext_resource type="Texture2D" uid="uid://coae0ldlbqyq3" path="res://assets/Emote Wheel/Wheel Unlock 3-2.png" id="5_4n7ox"]
+[ext_resource type="Texture2D" uid="uid://mafm48xrtj5" path="res://assets/Emote Wheel/Wheel Unlock 3-3.png" id="6_k72am"]
 
 [sub_resource type="Resource" id="Resource_mloqk"]
 script = ExtResource("1_24302")
@@ -14,3 +17,4 @@ form_name = "armadillo"
 form_texture = ExtResource("1_tn7wf")
 run_speed = 500.0
 action_script = SubResource("Resource_mloqk")
+wheel_menu_forms = Array[Texture2D]([ExtResource("4_k187g"), ExtResource("5_4n7ox"), ExtResource("6_k72am")])

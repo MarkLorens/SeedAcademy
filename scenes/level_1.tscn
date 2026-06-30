@@ -115,11 +115,10 @@ tile_size = Vector2i(256, 256)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_7nomh")
 
-[node name="Level1" type="Node" unique_id=257814844 node_paths=PackedStringArray("Player", "Camera", "Background")]
+[node name="Level1" type="Node" unique_id=257814844 node_paths=PackedStringArray("Player", "Camera")]
 script = ExtResource("1_4nkto")
 Player = NodePath("Player")
 Camera = NodePath("Player/Camera2D")
-Background = NodePath("")
 Event_UI_Scene = ExtResource("12_go7sj")
 
 [node name="BGLayer" type="TileMapLayer" parent="." unique_id=1509193997]
@@ -140,7 +139,7 @@ tile_map_data = PackedByteArray("AAAAAAIAAQADAAEAAAABAAIAAQAEAAEAAAAFAAIAAQADAAE
 tile_set = SubResource("TileSet_fey80")
 
 [node name="NewFormCheckpoint" parent="." unique_id=1595220022 instance=ExtResource("9_2y5yt")]
-position = Vector2(1328, -879)
+position = Vector2(1830, -959)
 script = ExtResource("7_2y5yt")
 form_to_grant = ExtResource("8_2os1m")
 
@@ -176,6 +175,34 @@ lines = Array[String](["Above!"])
 
 [node name="LevelUI" parent="." unique_id=1469804206 instance=ExtResource("10_2y5yt")]
 
+[node name="RadialButton" parent="LevelUI/CanvasLayer/MarginContainer" parent_id_path=PackedInt32Array(1469804206, 1625948689) index="0" unique_id=1501342966 node_paths=PackedStringArray("player")]
+player = NodePath("../../../../Player")
+
+[node name="HoldButton" parent="LevelUI/CanvasLayer/MarginContainer/RadialButton" index="0" unique_id=632730753]
+z_index = 1
+
+[node name="RadialMenu" parent="LevelUI/CanvasLayer/MarginContainer/RadialButton" index="1" unique_id=151962108]
+z_index = 0
+offset_left = -2.0
+offset_top = -1.0
+offset_right = -2.0
+offset_bottom = -1.0
+mouse_filter = 0
+hover_textures = Array[Texture2D]([])
+
+[node name="IdleState" parent="LevelUI/CanvasLayer/MarginContainer/RadialButton/RadialMenu" index="0" unique_id=990159694]
+visible = false
+offset_left = 38.0
+offset_top = -184.0
+offset_right = 188.0
+offset_bottom = -34.0
+
+[node name="ActiveState" parent="LevelUI/CanvasLayer/MarginContainer/RadialButton/RadialMenu" index="1" unique_id=1185725601]
+offset_left = -13.0
+offset_top = -240.0
+offset_right = 237.0
+offset_bottom = 10.0
+
 [node name="CanvasLayer" parent="LevelUI/CanvasLayer/PauseMenu" parent_id_path=PackedInt32Array(1469804206, 355216389) index="0" unique_id=734266689]
 visible = false
 
@@ -183,6 +210,7 @@ visible = false
 visible = false
 
 [editable path="LevelUI"]
+[editable path="LevelUI/CanvasLayer/MarginContainer/RadialButton"]
 [editable path="LevelUI/CanvasLayer/PauseMenu"]
 [editable path="LevelUI/CanvasLayer/GameOver"]
 [editable path="LevelUI/CanvasLayer/PauseButton"]
