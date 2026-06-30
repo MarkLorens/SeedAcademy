@@ -6,7 +6,7 @@ extends Node
 @export var Background: Node2D
 @export var Event_UI_Scene: PackedScene
 
-const PLAYER_START_POS := Vector2i(100, 485)
+const PLAYER_START_POS := Vector2i(150, 350)
 const CAMERA_START_POS := Vector2i(700, -400)
 # Score here if needed
 
