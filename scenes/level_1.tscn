@@ -6,15 +6,12 @@
 [ext_resource type="Script" uid="uid://bx2hrhh8teetw" path="res://scripts/resource/FormData.gd" id="5_15mv3"]
 [ext_resource type="Resource" uid="uid://dleraek6mun4q" path="res://form_tres/human.tres" id="6_e3sih"]
 [ext_resource type="Script" uid="uid://8vlbf4etx0cd" path="res://scripts/new_form_checkpoint.gd" id="7_2y5yt"]
-[ext_resource type="Resource" uid="uid://dskh4tkuuj6ee" path="res://form_tres/ape.tres" id="8_2aecg"]
 [ext_resource type="Resource" uid="uid://dex1t3kuntlgn" path="res://form_tres/frog.tres" id="8_2os1m"]
 [ext_resource type="Texture2D" uid="uid://cb7844lo3vlgq" path="res://assets/temporary_assets_danu_no_judge/tiles.png" id="8_15mv3"]
 [ext_resource type="PackedScene" uid="uid://blndefl6ahvhm" path="res://props/NewFormCheckpoint.tscn" id="9_2y5yt"]
-[ext_resource type="Resource" uid="uid://bome6pqwaiyfe" path="res://form_tres/armadillo.tres" id="9_6dial"]
 [ext_resource type="PackedScene" uid="uid://dp7p1uu7a8kwc" path="res://props/hazards/Spikes.tscn" id="9_e3sih"]
 [ext_resource type="PackedScene" uid="uid://cmtn3cavbs7tu" path="res://ui/LevelUI.tscn" id="10_2y5yt"]
 [ext_resource type="PackedScene" uid="uid://b6cd3t06jcai1" path="res://ui/EventUI.tscn" id="12_go7sj"]
-[ext_resource type="Texture2D" uid="uid://dqvsidfglpfi8" path="res://assets/Emote Wheel/Wheel 2.png" id="18_tr1x6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e3sih"]
 texture = ExtResource("8_15mv3")
@@ -42,18 +39,6 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_e3sih")
 sources/1 = SubResource("TileSetAtlasSource_2y5yt")
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1s4pk"]
-load_path = "res://.godot/imported/Wheel 1.png-81b42ef2cb4a03adf20fab405c3847e8.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x2xxo"]
-load_path = "res://.godot/imported/Wheel 2.png-12bca9aaf51988c7bf363c7e80672d46.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6dial"]
-load_path = "res://.godot/imported/Wheel 3.png-cc8ffa124bf999907672e2934b2c0d81.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7nomh"]
-load_path = "res://.godot/imported/Wheel 4.png-38563a395fc50556f29abad26b005a92.ctex"
-
 [node name="Level1" type="Node" unique_id=257814844 node_paths=PackedStringArray("Player", "Camera", "Background")]
 script = ExtResource("1_4nkto")
 Player = NodePath("Player")
@@ -65,7 +50,7 @@ Event_UI_Scene = ExtResource("12_go7sj")
 visible = false
 
 [node name="Player" parent="." unique_id=1742630827 instance=ExtResource("3_5xbjy")]
-forms = Array[ExtResource("5_15mv3")]([ExtResource("6_e3sih"), ExtResource("8_2os1m"), ExtResource("8_2aecg"), ExtResource("9_6dial")])
+forms = Array[ExtResource("5_15mv3")]([ExtResource("6_e3sih")])
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1500401102]
 offset = Vector2(300, 0)
@@ -131,8 +116,7 @@ offset_top = -1.0
 offset_right = -2.0
 offset_bottom = -1.0
 mouse_filter = 0
-hover_textures = Array[Texture2D]([SubResource("CompressedTexture2D_1s4pk"), SubResource("CompressedTexture2D_x2xxo"), SubResource("CompressedTexture2D_6dial"), SubResource("CompressedTexture2D_7nomh")])
-active_texture = ExtResource("18_tr1x6")
+hover_textures = Array[Texture2D]([])
 
 [node name="IdleState" parent="LevelUI/CanvasLayer/MarginContainer/RadialButton/RadialMenu" index="0" unique_id=990159694]
 visible = false

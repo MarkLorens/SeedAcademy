@@ -31,6 +31,10 @@ func _ready() -> void:
 	
 	assert(player, "CRITICAL: PLAYER node was not found for RADIAL BUTTON")
 	CHARS = player.forms
+	player.forms_changed.connect(_on_forms_changed)
+
+func _on_forms_changed(forms: Array) -> void:
+	CHARS = forms
 
 func _on_hold_down() -> void:
 	is_open = true

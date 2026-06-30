@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://drp47dq265ee" path="res://scripts/form_actions/ape_action.gd" id="1_0syon"]
 [ext_resource type="Script" uid="uid://bx2hrhh8teetw" path="res://scripts/resource/FormData.gd" id="1_6j8ln"]
 [ext_resource type="Texture2D" uid="uid://dr4h670hpajk8" path="res://assets/temporary_assets_danu_no_judge/Player_Resized.png" id="2_a5g63"]
+[ext_resource type="Texture2D" uid="uid://co7jeatwffdxh" path="res://assets/Emote Wheel/Wheel 1.png" id="4_gryqo"]
+[ext_resource type="Texture2D" uid="uid://dqvsidfglpfi8" path="res://assets/Emote Wheel/Wheel 2.png" id="5_4wxqa"]
+[ext_resource type="Texture2D" uid="uid://b07lmoq3vaa3t" path="res://assets/Emote Wheel/Wheel 3.png" id="6_idxwi"]
+[ext_resource type="Texture2D" uid="uid://dwgcatt6d03cb" path="res://assets/Emote Wheel/Wheel 4.png" id="7_e3cpp"]
 
 [sub_resource type="Resource" id="Resource_surk0"]
 script = ExtResource("1_0syon")
@@ -14,3 +18,4 @@ form_name = "ape"
 form_texture = ExtResource("2_a5g63")
 run_speed = 600.0
 action_script = SubResource("Resource_surk0")
+wheel_menu_forms = Array[Texture2D]([ExtResource("4_gryqo"), ExtResource("5_4wxqa"), ExtResource("6_idxwi"), ExtResource("7_e3cpp")])
