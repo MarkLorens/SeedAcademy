@@ -1,24 +1,21 @@
 [gd_scene format=3 uid="uid://dp7p1uu7a8kwc"]
 
-[ext_resource type="Texture2D" uid="uid://eo3yral5qnqf" path="res://assets/temporary_assets_danu_no_judge/caution_wet_floor_w.PNG" id="1_8vtn8"]
 [ext_resource type="Script" uid="uid://iuv4falc6ar1" path="res://scripts/Spike.gd" id="1_nunml"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nunml"]
-size = Vector2(100, 92)
+[ext_resource type="Texture2D" uid="uid://dd6h7at0q13fo" path="res://assets/ingame art assets/level platform tiles/spikes_ground.PNG" id="2_nunml"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fey80"]
-size = Vector2(128.25, 579.75)
+size = Vector2(50.25, 916.75)
 
 [node name="Spikes" type="Area2D" unique_id=390458500]
 script = ExtResource("1_nunml")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1236624305]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_8vtn8")
+texture = ExtResource("2_nunml")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1435573406]
-position = Vector2(2, 29)
-shape = SubResource("RectangleShape2D_nunml")
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=529604077]
+position = Vector2(2.6639328, 60.101738)
+scale = Vector2(1.8340163, 1.5517472)
+polygon = PackedVector2Array(-15.629051, -12.309826, -46.70838, -57.420265, -66.33743, 44.40044, 65, 45.5, 45.98436, -60.64244, 25, 11.5, -2.543016, -76.75331)
 
 [node name="FloorRayCast" type="RayCast2D" parent="." unique_id=1842892488]
 collision_mask = 2
@@ -26,5 +23,5 @@ collision_mask = 2
 [node name="TriggerZone" type="Area2D" parent="." unique_id=1799492291]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerZone" unique_id=603736747]
-position = Vector2(-117.875, 356.125)
+position = Vector2(-78.875, 524.625)
 shape = SubResource("RectangleShape2D_fey80")

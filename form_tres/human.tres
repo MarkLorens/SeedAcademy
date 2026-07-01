@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cvugvvj2wftdk" path="res://scripts/form_actions/human_action.gd" id="1_bv8e0"]
 [ext_resource type="Script" uid="uid://bx2hrhh8teetw" path="res://scripts/resource/FormData.gd" id="1_mm5lq"]
 [ext_resource type="Texture2D" uid="uid://cnnp4naw7hmmh" path="res://assets/temporary_assets_danu_no_judge/Player_Wheelchair_Resized.png" id="2_6inmp"]
+[ext_resource type="Texture2D" uid="uid://ie5skpqls73d" path="res://assets/Emote Wheel/Wheel unlock 1.png" id="4_shmhx"]
 
 [sub_resource type="Resource" id="Resource_c0gsl"]
 script = ExtResource("1_bv8e0")
@@ -12,6 +13,7 @@ metadata/_custom_type_script = "uid://cvugvvj2wftdk"
 script = ExtResource("1_mm5lq")
 form_name = "human"
 form_texture = ExtResource("2_6inmp")
-run_speed = 400.0
+run_speed = 750.0
 jump_speed = -1500.0
 action_script = SubResource("Resource_c0gsl")
+wheel_menu_forms = Array[Texture2D]([ExtResource("4_shmhx")])

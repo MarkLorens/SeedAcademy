@@ -5,11 +5,16 @@ const GRAVITY: int = 4200
 # UI
 @onready var radial_button: Control = $"../LevelUI/CanvasLayer/MarginContainer/RadialButton"
 @onready var action_button: TextureButton = $"../LevelUI/CanvasLayer/MarginContainer2/ActionButton/TextureButton"
+@onready var attack_hitbox: Area2D = $AttackHitbox
 
 # Forms
 @export var forms: Array[FormData] = []
 var current_form_index: int = 0
 var current_form: FormData
+
+# Emitted whenever the set of available forms changes (initial setup + unlocks).
+# The radial menu listens to this to (re)build its wheel.
+signal forms_changed(forms: Array[FormData])
 
 # Dash
 @export var dash_speed: float = 1000.0
@@ -29,7 +34,8 @@ var can_move := false
 
 func _ready() -> void:
 	add_to_group("player")
-	$AttackCol.disabled = true
+	attack_hitbox.monitoring = false
+	attack_hitbox.body_shape_entered.connect(_on_attack_hit)
 	$ShieldCol.monitoring = false
 	$ShieldCol.monitorable = false
 	set_form(0)
@@ -40,6 +46,10 @@ func _ready() -> void:
 	assert(action_button, "CRITICAL: Action button node was not found!")
 	action_button.button_down.connect(_on_action_down)
 	action_button.button_up.connect(_on_action_up)
+
+	# Tell the wheel about the starting forms. Deferred so it fires after every
+	# node's _ready has run, regardless of tree order.
+	forms_changed.emit.call_deferred(forms)
 
 func _process(delta: float) -> void:
 	if is_charging:
@@ -112,8 +122,21 @@ func start_dash() -> void:
 func unlock_form(new_form: FormData) -> void:
 	if new_form in forms:
 		return
-
 	forms.append(new_form)
+	forms_changed.emit(forms)
 
-	if radial_button.has_method("refresh_options"):
-		radial_button.refresh_options(forms)
+func _on_attack_hit(_body_rid: RID, body: Node, _body_shape: int, _local_shape: int) -> void:
+	if not body.has_method("break_in_global_rect"):
+		return
+	body.break_in_global_rect(_attack_world_rect())
+
+# World-space AABB of the attack hitbox, used to find which tile was hit.
+func _attack_world_rect() -> Rect2:
+	var col: CollisionShape2D = attack_hitbox.get_node("CollisionShape2D")
+	var size: Vector2 = (col.shape as RectangleShape2D).size
+	var xform: Transform2D = col.global_transform
+	var rect := Rect2(xform * (-size * 0.5), Vector2.ZERO)
+	rect = rect.expand(xform * Vector2(size.x * 0.5, -size.y * 0.5))
+	rect = rect.expand(xform * (size * 0.5))
+	rect = rect.expand(xform * Vector2(-size.x * 0.5, size.y * 0.5))
+	return rect
