@@ -31,6 +31,8 @@ var is_charging := false
 var charge_time := 0.0
 # Event Handler
 var can_move := false
+# True while in a form that grants invulnerability (e.g. armadillo).
+var is_shielded := false
 
 func _ready() -> void:
 	add_to_group("player")
