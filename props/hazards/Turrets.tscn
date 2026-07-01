@@ -14,7 +14,7 @@ projectile_range = 2000.0
 texture = ExtResource("1_pd6fd")
 
 [node name="ShotTriggerZone" type="CollisionShape2D" parent="." unique_id=1647716524]
-position = Vector2(-4727.25, 0)
+position = Vector2(-2958, -6)
 shape = SubResource("RectangleShape2D_fey80")
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=538653324]

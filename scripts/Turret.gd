@@ -9,7 +9,7 @@ const PROJECTILE_SCENE := preload("res://props/hazards/Projectile.tscn")
 @export var fire_cooldown: float = 1.5
 @export var projectile_speed: float = 800.0
 @export var projectile_range: float = 1200.0
-@export var fire_direction: CharacterBody2D
+@export var fire_direction: Vector2 = Vector2.LEFT
 
 @onready var muzzle: Marker2D = $Muzzle
 
@@ -40,6 +40,6 @@ func _fire() -> void:
 	var shot: Projectile = PROJECTILE_SCENE.instantiate()
 	shot.speed = projectile_speed
 	shot.max_distance = projectile_range
-	shot.direction = (fire_direction.global_position - global_position).normalized()
+	shot.direction = fire_direction
 	get_parent().add_child(shot)
 	shot.global_position = muzzle.global_position
