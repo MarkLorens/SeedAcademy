@@ -10,6 +10,7 @@ anchors_preset = 0
 script = ExtResource("1_7hh4a")
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=374129172]
+custom_minimum_size = Vector2(250, 250)
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

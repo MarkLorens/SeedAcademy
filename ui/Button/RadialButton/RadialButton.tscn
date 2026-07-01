@@ -16,8 +16,8 @@ script = ExtResource("1_6vhno")
 
 [node name="HoldButton" type="TextureButton" parent="." unique_id=632730753]
 layout_mode = 1
-offset_right = 124.0
-offset_bottom = 123.0
+offset_right = 264.0
+offset_bottom = 260.0
 texture_normal = ExtResource("2_nn0qb")
 texture_pressed = ExtResource("2_nn0qb")
 texture_hover = ExtResource("2_nn0qb")
@@ -39,11 +39,10 @@ grow_horizontal = 1
 grow_vertical = 0
 mouse_filter = 2
 hover_textures = Array[Texture2D]([ExtResource("5_2pro4"), ExtResource("6_wheel2"), ExtResource("7_wheel3"), ExtResource("8_wheel4")])
-idle_texture = ExtResource("9_idle")
 
 [node name="IdleState" type="TextureRect" parent="RadialMenu" unique_id=990159694]
 custom_minimum_size = Vector2(100, 0)
-custom_maximum_size = Vector2(150, 150)
+custom_maximum_size = Vector2(300, 300)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -60,7 +59,7 @@ texture = ExtResource("9_idle")
 [node name="ActiveState" type="TextureRect" parent="RadialMenu" unique_id=1185725601]
 visible = false
 custom_minimum_size = Vector2(100, 0)
-custom_maximum_size = Vector2(250, 250)
+custom_maximum_size = Vector2(500, 500)
 layout_mode = 1
 offset_left = -62.0
 offset_top = -711.0
