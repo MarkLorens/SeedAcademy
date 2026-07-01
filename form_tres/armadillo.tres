@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="FormData" format=3 uid="uid://bome6pqwaiyfe"]
 
-[ext_resource type="Script" uid="uid://g2g4i4tnygar" path="res://scripts/form_actions/armadillo.gd" id="1_24302"]
+[ext_resource type="Script" uid="uid://g2g4i4tnygar" path="res://scripts/form_actions/armadillo_action.gd" id="1_24302"]
 [ext_resource type="Texture2D" uid="uid://uu3siudqp3he" path="res://assets/temporary_assets_danu_no_judge/Layered Rock.png" id="1_tn7wf"]
 [ext_resource type="Script" uid="uid://bx2hrhh8teetw" path="res://scripts/resource/FormData.gd" id="2_24302"]
 [ext_resource type="Texture2D" uid="uid://c1f7rlnj5ogqk" path="res://assets/Emote Wheel/Wheel Unlock 3-1 .png" id="4_k187g"]
