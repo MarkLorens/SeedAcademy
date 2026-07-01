@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://byycomofmvfbj"]
+
+[ext_resource type="Texture2D" uid="uid://d3fvd1duyl4l2" path="res://assets/ingame art assets/level platform tiles/turret.PNG" id="1_pd6fd"]
+[ext_resource type="Script" uid="uid://b0yjxll3g6fr2" path="res://scripts/Turret.gd" id="3_turret"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fey80"]
+size = Vector2(5511.5, 2369.5)
+
+[node name="Turrets" type="Area2D" unique_id=1818455521]
+script = ExtResource("3_turret")
+projectile_range = 2000.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1572658030]
+texture = ExtResource("1_pd6fd")
+
+[node name="ShotTriggerZone" type="CollisionShape2D" parent="." unique_id=1647716524]
+position = Vector2(-4727.25, 0)
+shape = SubResource("RectangleShape2D_fey80")
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=538653324]
+position = Vector2(-160, 0)
