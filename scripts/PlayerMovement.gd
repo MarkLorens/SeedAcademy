@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
-const GRAVITY: int = 4200
+const GRAVITY: int = 6725
 
 # UI
 @onready var radial_button: Control = $"../LevelUI/CanvasLayer/MarginContainer/RadialButton"
 @onready var action_button: TextureButton = $"../LevelUI/CanvasLayer/MarginContainer2/ActionButton/TextureButton"
 @onready var attack_hitbox: Area2D = $AttackHitbox
+@onready var charge_bar: ChargeBar = $ChargeBar
 
 # Forms
 @export var forms: Array[FormData] = []
@@ -26,7 +27,7 @@ var dash_timer := 0.0
 var cooldown_timer := 0.0
 
 # Input monitor
-@export var max_charge_time: float = 1.0
+@export var max_charge_time: float = 0.6
 var is_charging := false
 var charge_time := 0.0
 # Event Handler
@@ -56,18 +57,30 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if is_charging:
 		charge_time = min(charge_time + delta, max_charge_time)
+		if charge_bar.visible:
+			charge_bar.set_ratio(charge_time / max_charge_time)
 
 func _on_action_down() -> void:
 	if not can_move:
 		return
 	is_charging = true
 	charge_time = 0.0
+	# Frog is the only form that charges its action; show the charge bar for it.
+	if current_form.action_script is FrogAction:
+		charge_bar.set_ratio(0.0)
+		charge_bar.visible = true
 	current_form.action_script.on_press(self, current_form)
 
 func _on_action_up() -> void:
 	if not can_move:
 		return
 	is_charging = false
+	charge_bar.visible = false
+	
+	
+	print("Charge Time: ", charge_time)
+	print("Max Charge Time: ", max_charge_time)
+	
 	var charge_ratio: float = charge_time / max_charge_time
 	current_form.action_script.on_release(self, current_form, charge_ratio)
 

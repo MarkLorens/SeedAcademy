@@ -7,4 +7,5 @@ func on_press(_player: CharacterBody2D, _form: FormData) -> void:
 
 func on_release(player: CharacterBody2D, form: FormData, charge_ratio: float) -> void:
 	if player.is_on_floor():
+		print(lerp(form.min_jump_speed, form.jump_speed, charge_ratio))
 		player.velocity.y = lerp(form.min_jump_speed, form.jump_speed, charge_ratio)
