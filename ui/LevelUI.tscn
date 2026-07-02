@@ -16,7 +16,7 @@ grow_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1472738757]
 
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer" unique_id=1135728937]
+[node name="ActionMargin" type="MarginContainer" parent="CanvasLayer" unique_id=1135728937]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -29,10 +29,10 @@ grow_vertical = 0
 theme_override_constants/margin_right = 175
 theme_override_constants/margin_bottom = 175
 
-[node name="ActionButton" parent="CanvasLayer/MarginContainer2" unique_id=890205479 instance=ExtResource("1_iyk4s")]
+[node name="ActionButton" parent="CanvasLayer/ActionMargin" unique_id=890205479 instance=ExtResource("1_iyk4s")]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=1625948689]
+[node name="RadialMargin" type="MarginContainer" parent="CanvasLayer" unique_id=1625948689]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -43,17 +43,17 @@ grow_vertical = 0
 theme_override_constants/margin_left = 175
 theme_override_constants/margin_bottom = 175
 
-[node name="RadialButton" parent="CanvasLayer/MarginContainer" unique_id=1501342966 instance=ExtResource("1_nwk5d")]
+[node name="RadialButton" parent="CanvasLayer/RadialMargin" unique_id=1501342966 instance=ExtResource("1_nwk5d")]
 layout_mode = 2
 OUTER_R = 100
 
-[node name="IdleState" parent="CanvasLayer/MarginContainer/RadialButton/RadialMenu" parent_id_path=PackedInt32Array(1501342966, 151962108) index="0" unique_id=990159694]
+[node name="IdleState" parent="CanvasLayer/RadialMargin/RadialButton/RadialMenu" parent_id_path=PackedInt32Array(1501342966, 151962108) index="0" unique_id=990159694]
 offset_left = 155.0
 offset_top = -432.0
 offset_right = 455.0
 offset_bottom = -132.0
 
-[node name="ActiveState" parent="CanvasLayer/MarginContainer/RadialButton/RadialMenu" parent_id_path=PackedInt32Array(1501342966, 151962108) index="1" unique_id=1185725601]
+[node name="ActiveState" parent="CanvasLayer/RadialMargin/RadialButton/RadialMenu" parent_id_path=PackedInt32Array(1501342966, 151962108) index="1" unique_id=1185725601]
 offset_left = 58.0
 offset_top = -538.0
 offset_right = 558.0
@@ -72,4 +72,4 @@ anchor_bottom = 0.0
 grow_horizontal = 0
 grow_vertical = 1
 
-[editable path="CanvasLayer/MarginContainer/RadialButton"]
+[editable path="CanvasLayer/RadialMargin/RadialButton"]

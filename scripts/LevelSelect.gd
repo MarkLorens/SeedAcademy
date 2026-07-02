@@ -1,7 +1,5 @@
 extends Control
 
-@onready var level_manager := load("res://scripts/manager/LevelManager.gd")
-
 # Where the home button returns to.
 const MAIN_MENU := "res://ui/Menu/main_menu.tscn"
 
@@ -9,32 +7,8 @@ const MAIN_MENU := "res://ui/Menu/main_menu.tscn"
 const INDICATOR_ON := preload("res://assets/menu/IndicatorOn.png")
 const INDICATOR_OFF := preload("res://assets/menu/IndicatorOff.png")
 
-# One entry per level page. Leave "scene" empty for levels that don't exist yet —
-# you can still page to them, but tapping the graphic won't start anything.
-# "title" / "graphic" are texture paths; "progress" is 0-100.
-@export var levels: Array[Dictionary] = [
-	{
-		"name": "Deep Forest",
-		"scene": "res://scenes/level_1.tscn",
-		"title": "res://assets/menu/DeepForest.png",
-		"graphic": "res://assets/menu/DeepForestGraphic2.png",
-		"progress": 10.0,
-	},
-	{
-		"name": "Level 2",
-		"scene": "",
-		"title": "",
-		"graphic": "res://assets/menu/DeepForestGraphic1.png",
-		"progress": 0.0,
-	},
-		{
-		"name": "Level 3",
-		"scene": "",
-		"title": "",
-		"graphic": "res://assets/menu/DeepForestGraphic1.png",
-		"progress": 100.0,
-	},
-]
+# Level pages come from the LevelManager autoload (the level database).
+var levels: Array[Dictionary] = []
 
 var current := 0
 
@@ -48,6 +22,7 @@ var current := 0
 @onready var home_button: TextureButton = $HomeButton
 
 func _ready() -> void:
+	levels = LevelManager.levels
 	graphic_button.pressed.connect(_on_play_pressed)
 	prev_button.pressed.connect(func(): _go(current - 1))
 	next_button.pressed.connect(func(): _go(current + 1))
