@@ -1,8 +1,15 @@
 [gd_scene format=3 uid="uid://c5lvls1q8r0xa"]
 
-[ext_resource type="Script" path="res://scripts/LevelSelect.gd" id="1_lsel"]
+[ext_resource type="Script" uid="uid://d13bcakvfsder" path="res://scripts/LevelSelect.gd" id="1_lsel"]
+[ext_resource type="Texture2D" uid="uid://b8a8w43gxuh57" path="res://assets/menu/CoverOpened.png" id="2_cover"]
+[ext_resource type="Texture2D" uid="uid://c7ffl6w7mes2k" path="res://assets/menu/DeepForestGraphic1.png" id="3_graphic"]
+[ext_resource type="Texture2D" uid="uid://q62if1ynqyav" path="res://assets/menu/DeepForest.png" id="4_title"]
+[ext_resource type="Texture2D" uid="uid://cegn6ewxppp7a" path="res://assets/menu/HomeButton.png" id="5_home"]
+[ext_resource type="Texture2D" uid="uid://dabya00peyew" path="res://assets/menu/LevelLeft.png" id="6_left"]
+[ext_resource type="Texture2D" uid="uid://bhjlufd050tlx" path="res://assets/menu/LevelRight.png" id="7_right"]
+[ext_resource type="PackedScene" path="res://ui/Menu/LevelProgressBar.tscn" id="8_progress"]
 
-[node name="LevelSelect" type="Control"]
+[node name="LevelSelect" type="Control" unique_id=1211000246]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,64 +18,125 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lsel")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=940349284]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 60)
 
-[node name="VBox" type="VBoxContainer" parent="CenterContainer"]
+[node name="Paper" type="Control" parent="CenterContainer" unique_id=1599219913]
+custom_minimum_size = Vector2(1400, 955)
 layout_mode = 2
-theme_override_constants/separation = 20
+offset_transform_enabled = true
 
-[node name="LevelNameLabel" type="Label" parent="CenterContainer/VBox"]
+[node name="CoverBG" type="TextureRect" parent="CenterContainer/Paper" unique_id=1286114321]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 62.0
+offset_right = -1.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_cover")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/Paper" unique_id=1164739903]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.119
+anchor_right = 1.0
+anchor_bottom = 1.0680001
+offset_left = 130.0
+offset_top = 38.354996
+offset_right = -110.0
+offset_bottom = -116.94006
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 50)
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="GraphicButton" type="TextureButton" parent="CenterContainer/Paper/VBox" unique_id=351233313]
+custom_minimum_size = Vector2(360, 330)
 layout_mode = 2
-text = "Level 1"
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_graphic")
+stretch_mode = 5
+
+[node name="TitleImage" type="TextureRect" parent="CenterContainer/Paper/VBox" unique_id=1310312370]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+texture = ExtResource("4_title")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/Paper/VBox" unique_id=1287680488]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.36, 0.24, 0.13, 1)
+theme_override_font_sizes/font_size = 56
+text = "Level 2"
 horizontal_alignment = 1
 
-[node name="PlayButton" type="Button" parent="CenterContainer/VBox"]
+[node name="ProgressBar" parent="CenterContainer/Paper/VBox" unique_id=970653208 instance=ExtResource("8_progress")]
 layout_mode = 2
-text = "Play"
+size_flags_horizontal = 4
+value = 10.0
+progress = 10.0
 
-[node name="Dots" type="HBoxContainer" parent="CenterContainer/VBox"]
+[node name="Dots" type="HBoxContainer" parent="CenterContainer/Paper/VBox" unique_id=965626863]
 layout_mode = 2
+theme_override_constants/separation = 16
 alignment = 1
-theme_override_constants/separation = 8
 
-[node name="PrevButton" type="Button" parent="."]
+[node name="HomeButton" type="TextureButton" parent="." unique_id=679829864]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 40.0
-offset_top = -20.0
-offset_right = 130.0
-offset_bottom = 20.0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 223.0
+offset_bottom = 219.0
+texture_normal = ExtResource("5_home")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="PrevButton" type="TextureButton" parent="." unique_id=1767359056]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.026
+anchor_top = 0.59800005
+anchor_right = 0.026
+anchor_bottom = 0.59800005
+offset_left = 2.079998
+offset_top = -84.84003
+offset_right = 232.08
+offset_bottom = 85.15997
 grow_vertical = 2
-text = "< Prev"
+texture_normal = ExtResource("6_left")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="NextButton" type="Button" parent="."]
+[node name="NextButton" type="TextureButton" parent="." unique_id=105429525]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -130.0
-offset_top = -20.0
-offset_right = -40.0
-offset_bottom = 20.0
+anchors_preset = -1
+anchor_left = 0.9710001
+anchor_top = 0.587
+anchor_right = 0.9710001
+anchor_bottom = 0.587
+offset_left = -231.32019
+offset_top = -84.96002
+offset_right = -1.3201904
+offset_bottom = 85.03998
 grow_horizontal = 0
 grow_vertical = 2
-text = "Next >"
-
-[node name="BackButton" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 90.0
-offset_bottom = 50.0
-text = "Back"
+texture_normal = ExtResource("7_right")
+ignore_texture_size = true
+stretch_mode = 5

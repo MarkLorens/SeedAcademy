@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://qu4ph48e4y6l"]
+
+[ext_resource type="Script" uid="uid://bgxf5ro3vl7fe" path="res://scripts/NewFormUI.gd" id="0_script"]
+[ext_resource type="FontFile" uid="uid://pyolfstly3un" path="res://assets/fonts/Lilita_One/LilitaOne-Regular.ttf" id="1_73jnv"]
+[ext_resource type="Texture2D" uid="uid://h0tsy03rmlf3" path="res://assets/Emote Wheel/Wheel Unlock 2-2.png" id="3_q7xmj"]
+
+[node name="NewFormUI" type="Control" unique_id=796758990]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("0_script")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2099012696]
+
+[node name="Background" type="ColorRect" parent="CanvasLayer" unique_id=1841972040]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Container" type="VBoxContainer" parent="CanvasLayer" unique_id=1486788442]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_top = 80.0
+offset_right = -80.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Container" unique_id=442622283]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_73jnv")
+theme_override_font_sizes/font_size = 64
+text = "You've unlocked a new form."
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Container" unique_id=1466381347]
+layout_mode = 2
+alignment = 1
+
+[node name="NewForm" type="TextureRect" parent="CanvasLayer/Container/HBoxContainer2" unique_id=1361970532]
+custom_minimum_size = Vector2(420, 420)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NewFormGuide" type="Label" parent="CanvasLayer/Container/HBoxContainer2" unique_id=912132787]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Container" unique_id=1640400264]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="NewWheel" type="TextureRect" parent="CanvasLayer/Container/HBoxContainer" unique_id=428742040]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("3_q7xmj")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/Container/HBoxContainer" unique_id=150715876]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_73jnv")
+theme_override_font_sizes/font_size = 40
+text = "Use the form wheel on the bottom right to swap form"

@@ -1,15 +1,29 @@
 extends Control
 
 func _ready() -> void:
-	$CanvasLayer.visible = false
+	self.visible = false
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func show_pause() -> void:
-	$CanvasLayer.visible = true
+	self.visible = true
+	$"../ActionMargin".visible = false
+	$"../RadialMargin".visible = false
+	$"../PauseButton".visible = false
 	get_tree().paused = true
+	_refresh_progress()
+
+# Pull this level's progress from the LevelManager database; keep the
+# scene's exported value when the current scene isn't in it.
+func _refresh_progress() -> void:
+	var pct: float = LevelManager.get_progress_for_scene(get_tree().current_scene.scene_file_path)
+	if pct >= 0.0:
+		$CenterContainer/Paper/VBoxContainer/ProgressBar.progress = pct
 
 func hide_pause() -> void:
-	$CanvasLayer.visible = false
+	self.visible = false
+	$"../ActionMargin".visible = true
+	$"../RadialMargin".visible = true
+	$"../PauseButton".visible = true
 	get_tree().paused = false
 
 func _on_resume_pressed() -> void:
@@ -22,3 +36,11 @@ func _on_restart_pressed() -> void:
 func _on_home_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://ui/Menu/main_menu.tscn")
+
+func _on_list_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://ui/Menu/level_select.tscn")
+
+func _on_settings_pressed() -> void:
+	# TODO: hook up the settings screen.
+	print("Settings (TODO)")

@@ -1,0 +1,169 @@
+[gd_scene format=3 uid="uid://blode0p1qqirb"]
+
+[ext_resource type="Script" uid="uid://dx3u2biekopxm" path="res://scripts/StatsMenu.gd" id="1_stats"]
+[ext_resource type="Texture2D" uid="uid://b8a8w43gxuh57" path="res://assets/menu/CoverOpened.png" id="2_cover"]
+[ext_resource type="Texture2D" uid="uid://dwxuyu4iisew2" path="res://assets/menu/stats/StatsTitle.png" id="3_title"]
+[ext_resource type="Texture2D" uid="uid://df0cs71dy6vgt" path="res://assets/menu/stats/Stats1.png" id="4_note1"]
+[ext_resource type="Texture2D" uid="uid://dgbqvsgmtx3rv" path="res://assets/menu/stats/Stats2.png" id="5_note2"]
+[ext_resource type="Texture2D" uid="uid://2glcfkqhvymn" path="res://assets/menu/stats/Stats3.png" id="6_note3"]
+[ext_resource type="Texture2D" uid="uid://cegn6ewxppp7a" path="res://assets/menu/HomeButton.png" id="7_home"]
+
+[node name="StatsMenu" type="Control" unique_id=943726088]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_stats")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1671056855]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Paper" type="Control" parent="CenterContainer" unique_id=510383661]
+custom_minimum_size = Vector2(1400, 955)
+layout_mode = 2
+
+[node name="CoverBG" type="TextureRect" parent="CenterContainer/Paper" unique_id=249184320]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 62.0
+offset_right = -1.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_cover")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/Paper" unique_id=1443350118]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.15900001
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 109.0
+offset_top = 0.15498352
+offset_right = -111.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="TitleImage" type="TextureRect" parent="CenterContainer/Paper/VBox" unique_id=965193395]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+texture = ExtResource("3_title")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NotesRow" type="HBoxContainer" parent="CenterContainer/Paper/VBox" unique_id=58689826]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="JumpsNote" type="TextureRect" parent="CenterContainer/Paper/VBox/NotesRow" unique_id=1958010730]
+custom_minimum_size = Vector2(360, 360)
+layout_mode = 2
+texture = ExtResource("4_note1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Value" type="Label" parent="CenterContainer/Paper/VBox/NotesRow/JumpsNote" unique_id=614010549]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13700001
+anchor_top = 0.39800003
+anchor_right = 0.85800004
+anchor_bottom = 0.79300004
+offset_left = -10.3200035
+offset_top = 28.719986
+offset_right = -8.925598
+offset_bottom = -14.480011
+grow_horizontal = 2
+rotation = -0.17453292
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.36, 0.24, 0.13, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 72
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AttemptsNote" type="TextureRect" parent="CenterContainer/Paper/VBox/NotesRow" unique_id=602752033]
+custom_minimum_size = Vector2(400, 360)
+layout_mode = 2
+texture = ExtResource("5_note2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Value" type="Label" parent="CenterContainer/Paper/VBox/NotesRow/AttemptsNote" unique_id=1030196416]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.23200001
+anchor_top = 0.374
+anchor_right = 0.822
+anchor_bottom = 0.82000005
+offset_left = 0.19999695
+offset_top = 4.3600006
+offset_right = 1.1999817
+offset_bottom = -43.200012
+grow_horizontal = 2
+rotation = 0.17453292
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.36, 0.24, 0.13, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 72
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeNote" type="TextureRect" parent="CenterContainer/Paper/VBox/NotesRow" unique_id=584639806]
+custom_minimum_size = Vector2(360, 360)
+layout_mode = 2
+texture = ExtResource("6_note3")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Value" type="Label" parent="CenterContainer/Paper/VBox/NotesRow/TimeNote" unique_id=1812722041]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.15300001
+anchor_top = 0.381
+anchor_right = 0.86700004
+anchor_bottom = 0.77800006
+offset_left = -0.080005646
+offset_top = -4.1600037
+offset_right = -0.120025635
+offset_bottom = -4.080017
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.36, 0.24, 0.13, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 72
+text = "0:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HomeButton" type="TextureButton" parent="." unique_id=795285389]
+layout_mode = 1
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 223.0
+offset_bottom = 219.0
+texture_normal = ExtResource("7_home")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="HomeButton" to="." method="_on_home_pressed"]

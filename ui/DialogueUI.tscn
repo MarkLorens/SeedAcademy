@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://b6cd3t06jcai1"]
 
-[ext_resource type="Script" uid="uid://b6ou43jpifywh" path="res://scripts/EventUI.gd" id="1_gks70"]
+[ext_resource type="Script" uid="uid://b6ou43jpifywh" path="res://scripts/EventUI.gd" id="1_qe7eq"]
+[ext_resource type="FontFile" uid="uid://pyolfstly3un" path="res://assets/fonts/Lilita_One/LilitaOne-Regular.ttf" id="2_xda8i"]
 
-[node name="EventUI" type="Control" unique_id=1119591421]
+[node name="DialogueUI" type="Control" unique_id=1119591421]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_gks70")
-lines = Array[String]([])
+script = ExtResource("1_qe7eq")
 metadata/_edit_use_anchors_ = true
 
 [node name="NewGameDialogues" type="CanvasLayer" parent="." unique_id=1570944692]
@@ -26,6 +26,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_xda8i")
 theme_override_font_sizes/font_size = 64
 metadata/_edit_use_anchors_ = true
 

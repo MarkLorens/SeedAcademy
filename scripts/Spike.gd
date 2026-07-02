@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var isFalling: bool = false
-@export var fallSpeed: float = 3000.0
+@export var fallSpeed: float = 5000.0
 @export var triggerDelay: float = 0.15
 
 const FALLING_TEXTURE := preload("res://assets/ingame art assets/level platform tiles/spikes_up.PNG")
@@ -53,6 +53,6 @@ func _on_body_entered(body: Node2D) -> void:
 		print("hit") # Please leave the print as is. I am simply trying if the kill zone works
 		
 		# Here lies the command to start the dying
-		#var level = get_tree().get_first_node_in_group("level_manager")
-		#if level:
-			#level.player_died()
+		var level = get_tree().get_first_node_in_group("level_manager")
+		if level:
+			level.player_died()
