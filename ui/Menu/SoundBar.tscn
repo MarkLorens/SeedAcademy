@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bb1pxsu5ll1o4"]
+
+[ext_resource type="Script" uid="uid://buon6fp1l87gh" path="res://scripts/SoundBar.gd" id="1_sb"]
+[ext_resource type="Texture2D" uid="uid://b74a5tw6mvewu" path="res://assets/menu/BorderSoundBar.png" id="2_border"]
+[ext_resource type="Texture2D" uid="uid://b5k7kwhmvlc5w" path="res://assets/menu/FillSoundBar.png" id="4_fill"]
+[ext_resource type="Texture2D" uid="uid://b6jn4inl6l0g6" path="res://assets/menu/ToggleSoundbar.png" id="5_knob"]
+
+[node name="SoundBar" type="Control" unique_id=1644855421]
+custom_minimum_size = Vector2(150, 32)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 367.0
+offset_bottom = 42.0
+script = ExtResource("1_sb")
+
+[node name="FillBar" type="TextureProgressBar" parent="." unique_id=869960292]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+value = 70.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_border")
+texture_over = ExtResource("4_fill")
+
+[node name="Knob" type="TextureRect" parent="." unique_id=629827410]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -40.0
+offset_right = 80.0
+offset_bottom = 40.0
+grow_vertical = 2
+offset_transform_enabled = true
+mouse_filter = 2
+texture = ExtResource("5_knob")
+expand_mode = 3
+stretch_mode = 5

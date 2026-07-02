@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://blndefl6ahvhm"]
 
-[ext_resource type="Texture2D" uid="uid://dfct4emphwa0j" path="res://assets/temporary_assets_danu_no_judge/pngegg.png" id="1_swsas"]
+[ext_resource type="Texture2D" uid="uid://b5qolu1hbh7g2" path="res://assets/ingame art assets/characters/temporary characters/frog_samesize.PNG" id="1_swsas"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k3bqs"]
 size = Vector2(93.5, 1531)
