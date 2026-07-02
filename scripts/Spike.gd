@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var isFalling: bool = false
-@export var fallSpeed: float = 3000.0
+@export var fallSpeed: float = 5000.0
 @export var triggerDelay: float = 0.15
 
 const FALLING_TEXTURE := preload("res://assets/ingame art assets/level platform tiles/spikes_up.PNG")

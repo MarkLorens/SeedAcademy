@@ -17,3 +17,4 @@ run_speed = 1400.0
 jump_speed = -1500.0
 action_script = SubResource("Resource_c0gsl")
 wheel_menu_forms = Array[Texture2D]([ExtResource("4_shmhx")])
+new_form_guide = "Fira dashes nimbly as she likes."

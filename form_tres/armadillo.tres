@@ -18,3 +18,4 @@ form_texture = ExtResource("1_tn7wf")
 run_speed = 1250.0
 action_script = SubResource("Resource_mloqk")
 wheel_menu_forms = Array[Texture2D]([ExtResource("4_k187g"), ExtResource("5_4n7ox"), ExtResource("6_k72am")])
+new_form_guide = "Curls up and shrug away pain!"

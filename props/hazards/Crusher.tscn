@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bqu5mvd3q7agq"]
+
+[ext_resource type="Texture2D" uid="uid://bqpdvwl4hc4fq" path="res://assets/ingame art assets/level platform tiles/crusher.PNG" id="1_lvuun"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvuun"]
+size = Vector2(227, 247)
+
+[node name="Crusher" type="Area2D" unique_id=1634587465]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=441702513]
+position = Vector2(0, -897)
+texture = ExtResource("1_lvuun")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=402993900]
+position = Vector2(-4.5, -131.5)
+shape = SubResource("RectangleShape2D_lvuun")

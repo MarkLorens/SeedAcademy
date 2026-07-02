@@ -19,3 +19,4 @@ form_texture = ExtResource("2_a5g63")
 run_speed = 1250.0
 action_script = SubResource("Resource_surk0")
 wheel_menu_forms = Array[Texture2D]([ExtResource("4_gryqo"), ExtResource("5_4wxqa"), ExtResource("6_idxwi"), ExtResource("7_e3cpp")])
+new_form_guide = "Rhino bulldozes through walls!"

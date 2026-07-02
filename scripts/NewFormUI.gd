@@ -10,8 +10,9 @@ const CLOSE_DELAY := 2.0
 ## Set by the checkpoint before this scene is added to the tree.
 var form_data: FormData
 
-@onready var form_rect: TextureRect = $CanvasLayer/Container/NewForm
+@onready var form_rect: TextureRect = $CanvasLayer/Container/HBoxContainer2/NewForm
 @onready var wheel_rect: TextureRect = $CanvasLayer/Container/HBoxContainer/NewWheel
+@onready var form_guide: Label = $CanvasLayer/Container/HBoxContainer2/NewFormGuide
 
 var _can_close := false
 
@@ -22,6 +23,7 @@ func _ready() -> void:
 
 	if form_data:
 		form_rect.texture = form_data.form_texture
+		form_guide.text = form_data.new_form_guide
 		if not form_data.wheel_menu_forms.is_empty():
 			wheel_rect.texture = form_data.wheel_menu_forms[-1]
 
