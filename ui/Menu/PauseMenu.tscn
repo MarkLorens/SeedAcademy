@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dwhbst82mgghc"]
+[gd_scene format=3 uid="uid://dwhbst82mgghc"]
 
 [ext_resource type="Script" uid="uid://cqqbq8sp54mgx" path="res://scripts/PauseMenu.gd" id="1_pause"]
 [ext_resource type="Texture2D" uid="uid://csrn0tod4ag13" path="res://assets/menu/PaperTornBG.png" id="2_paper"]
@@ -74,6 +74,7 @@ stretch_mode = 5
 [node name="ProgressBar" parent="CenterContainer/Paper/VBoxContainer" unique_id=1982279880 instance=ExtResource("5_progress")]
 layout_mode = 2
 size_flags_horizontal = 4
+value = 10.0
 progress = 10.0
 
 [node name="ButtonRow" type="HBoxContainer" parent="CenterContainer/Paper/VBoxContainer" unique_id=2114626910]
