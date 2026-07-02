@@ -10,7 +10,7 @@ extends Node
 	"\"Lorem Ipsum and whatnot.\"",
 ]
 
-const PLAYER_START_POS := Vector2i(150, 350)
+#const PLAYER_START_POS := Vector2i(150, 280)
 const CAMERA_START_POS := Vector2i(700, -400)
 # Score here if needed
 
@@ -42,7 +42,7 @@ func new_game():
 	_show_intro_event()
 
 func _show_intro_event() -> void:
-	Player.position = PLAYER_START_POS
+	#Player.position = PLAYER_START_POS
 	Player.velocity = Vector2i(0, 0)
 	var eventUI: EventUI = Event_UI_Scene.instantiate()
 	eventUI.lines = intro_lines

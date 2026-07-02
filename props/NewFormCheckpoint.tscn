@@ -1,14 +1,15 @@
 [gd_scene format=3 uid="uid://blndefl6ahvhm"]
 
-[ext_resource type="Texture2D" uid="uid://b5qolu1hbh7g2" path="res://assets/ingame art assets/characters/temporary characters/frog_samesize.PNG" id="1_swsas"]
+[ext_resource type="Script" uid="uid://8vlbf4etx0cd" path="res://scripts/new_form_checkpoint.gd" id="1_swsas"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k3bqs"]
 size = Vector2(93.5, 1531)
 
 [node name="NewFormCheckpoint" type="Area2D" unique_id=1595220022]
+script = ExtResource("1_swsas")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=94482168]
-texture = ExtResource("1_swsas")
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1316638560]
 position = Vector2(-0.75, -623.5)
