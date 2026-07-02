@@ -1,16 +1,49 @@
 [gd_scene format=3 uid="uid://bqu5mvd3q7agq"]
 
 [ext_resource type="Texture2D" uid="uid://bqpdvwl4hc4fq" path="res://assets/ingame art assets/level platform tiles/crusher.PNG" id="1_lvuun"]
+[ext_resource type="Script" uid="uid://yaby3ticgaxg" path="res://scripts/Crusher.gd" id="2_crush"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvuun"]
-size = Vector2(227, 247)
+size = Vector2(227, 218.5)
 
-[node name="Crusher" type="Area2D" unique_id=1634587465]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_warn"]
+size = Vector2(140, 800)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=441702513]
-position = Vector2(0, -897)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slam"]
+size = Vector2(140, 800)
+
+[node name="Crusher" type="Node2D" unique_id=1634587465]
+script = ExtResource("2_crush")
+
+[node name="Pole" type="Sprite2D" parent="." unique_id=441702513]
 texture = ExtResource("1_lvuun")
+centered = false
+offset = Vector2(-128, 0)
+region_enabled = true
+region_rect = Rect2(0, 1500, 256, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=402993900]
-position = Vector2(-4.5, -131.5)
+[node name="Head" type="Area2D" parent="." unique_id=402993901]
+
+[node name="Sprite2D" type="Sprite2D" parent="Head" unique_id=441702514]
+texture = ExtResource("1_lvuun")
+centered = false
+offset = Vector2(-128, 0)
+region_enabled = true
+region_rect = Rect2(0, 1500, 256, 292)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head" unique_id=402993900]
+position = Vector2(0, 131.75)
 shape = SubResource("RectangleShape2D_lvuun")
+
+[node name="WarningZone" type="Area2D" parent="." unique_id=402993902]
+position = Vector2(-2584, 396)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WarningZone" unique_id=402993903]
+shape = SubResource("RectangleShape2D_warn")
+
+[node name="SlamZone" type="Area2D" parent="." unique_id=402993904]
+position = Vector2(-400, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlamZone" unique_id=402993905]
+position = Vector2(473, -2)
+shape = SubResource("RectangleShape2D_slam")
