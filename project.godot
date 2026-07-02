@@ -15,6 +15,10 @@ run/main_scene="res://ui/Menu/main_menu.tscn"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+LevelManager="*res://scripts/manager/LevelManager.gd"
+
 [debug]
 
 settings/stdout/print_fps=true

@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://c5sym1ls2gkxb"]
 
 [ext_resource type="Script" uid="uid://bherj6x7cwdpg" path="res://scripts/PlayerMovement.gd" id="1_2eghs"]
-[ext_resource type="Texture2D" uid="uid://cnnp4naw7hmmh" path="res://assets/temporary_assets_danu_no_judge/Player_Wheelchair_Resized.png" id="1_lfadd"]
 [ext_resource type="Script" uid="uid://8onymlchs2e0" path="res://scripts/ChargeBar.gd" id="2_chgbr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fey80"]
@@ -21,9 +20,8 @@ scale = Vector2(0.3, 0.3)
 collision_mask = 9
 script = ExtResource("1_2eghs")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=864898495]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=864898495]
 scale = Vector2(0.9885737, 0.8924647)
-texture = ExtResource("1_lfadd")
 
 [node name="ChargeBar" type="Node2D" parent="." unique_id=1390273384]
 visible = false

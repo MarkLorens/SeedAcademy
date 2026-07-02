@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://b0ulvx1jp6p17"]
 
 [ext_resource type="Script" uid="uid://15ierjbch0eu" path="res://scripts/MainMenu.gd" id="1_main"]
+[ext_resource type="Texture2D" uid="uid://ccowcholpiifr" path="res://assets/menu/main_menu/HomepageCover.png" id="2_cover"]
+[ext_resource type="Texture2D" uid="uid://cp0rkr544x4ii" path="res://assets/menu/main_menu/HomepageStatsButton.png" id="3_stats"]
+[ext_resource type="Texture2D" uid="uid://sjxhlnx6ypo" path="res://assets/menu/main_menu/HomepagePlayButton.png" id="4_play"]
+[ext_resource type="Texture2D" uid="uid://cnax5qaoxkss6" path="res://assets/menu/main_menu/HomepageAboutButton.png" id="5_about"]
 
 [node name="MainMenu" type="Control" unique_id=518480568]
 layout_mode = 3
@@ -11,48 +15,64 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_main")
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=450595957]
+[node name="Cover" type="TextureRect" parent="." unique_id=450595958]
+custom_minimum_size = Vector2(1798, 1247)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBox" type="VBoxContainer" parent="CenterContainer" unique_id=812605550]
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="TitleLabel" type="Label" parent="CenterContainer/VBox" unique_id=441261519]
-layout_mode = 2
-text = "(TITLE)"
-horizontal_alignment = 1
-
-[node name="PlayButton" type="Button" parent="CenterContainer/VBox" unique_id=1508436693]
-layout_mode = 2
-text = "Start"
-
-[node name="BottomBar" type="HBoxContainer" parent="." unique_id=2039536817]
-layout_mode = 1
-anchors_preset = 12
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_top = -70.0
-offset_bottom = -20.0
+offset_left = -800.0
+offset_top = -1117.0
+offset_right = 998.0
+offset_bottom = 130.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 20
+scale = Vector2(0.9, 0.9)
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 50)
+texture = ExtResource("2_cover")
+
+[node name="ButtonRow" type="HBoxContainer" parent="." unique_id=812605550]
+custom_minimum_size = Vector2(1000, 700)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -884.5
+offset_top = -700.0
+offset_right = 884.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 300
 alignment = 1
 
-[node name="AchievementsButton" type="Button" parent="BottomBar" unique_id=425128318]
+[node name="StatsButton" type="TextureButton" parent="ButtonRow" unique_id=425128318]
+custom_minimum_size = Vector2(150, 149)
 layout_mode = 2
-text = "Achievements"
+size_flags_vertical = 4
+texture_normal = ExtResource("3_stats")
+ignore_texture_size = true
+stretch_mode = 3
 
-[node name="SettingsButton" type="Button" parent="BottomBar" unique_id=2104653733]
+[node name="PlayButton" type="TextureButton" parent="ButtonRow" unique_id=1508436693]
+custom_minimum_size = Vector2(190, 189)
 layout_mode = 2
-text = "Settings"
+texture_normal = ExtResource("4_play")
+ignore_texture_size = true
+stretch_mode = 3
 
-[node name="ScreenshotsButton" type="Button" parent="BottomBar" unique_id=743106769]
+[node name="AboutButton" type="TextureButton" parent="ButtonRow" unique_id=743106769]
+custom_minimum_size = Vector2(150, 149)
 layout_mode = 2
-text = "Screenshots"
+size_flags_vertical = 4
+texture_normal = ExtResource("5_about")
+ignore_texture_size = true
+stretch_mode = 3
+
+[connection signal="pressed" from="ButtonRow/StatsButton" to="." method="_on_stats_pressed"]
+[connection signal="pressed" from="ButtonRow/PlayButton" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="ButtonRow/AboutButton" to="." method="_on_about_pressed"]

@@ -8,6 +8,9 @@ extends Area2D
 var _used := false
 
 func _ready() -> void:
+	# Fallback if didnt change texture	
+	$Sprite2D.texture = form_to_grant.form_texture
+	
 	body_entered.connect(_on_body_entered)
 	sprite.texture = form_texture
 
