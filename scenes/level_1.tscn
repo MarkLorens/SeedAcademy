@@ -134,8 +134,9 @@ tile_size = Vector2i(256, 256)
 physics_layer_0/collision_layer = 8
 sources/0 = SubResource("TileSetAtlasSource_1s4pk")
 
-[node name="Level1" type="Node" unique_id=257814844 node_paths=PackedStringArray("Player", "Camera")]
+[node name="Level1" type="Node" unique_id=257814844 node_paths=PackedStringArray("attempt_text", "Player", "Camera")]
 script = ExtResource("1_4nkto")
+attempt_text = NodePath("LevelUI/CanvasLayer/AttemptMargin/Attempts")
 Player = NodePath("Player")
 Camera = NodePath("Player/Camera2D")
 Event_UI_Scene = ExtResource("12_go7sj")
@@ -344,12 +345,6 @@ offset_right = 556.0
 offset_bottom = -40.0
 grow_vertical = 0
 
-[node name="ProgressBar" parent="LevelUI/CanvasLayer/PauseMenu/CenterContainer/Paper/VBoxContainer" parent_id_path=PackedInt32Array(1469804206, 355216389, 2105194800) index="1" unique_id=1982279880]
-value = 10.0
-
-[node name="CanvasLayer" parent="LevelUI/CanvasLayer/GameOver" parent_id_path=PackedInt32Array(1469804206, 1454118889) index="0" unique_id=1219356818]
-visible = false
-
 [node name="NewFormCheckpoint" parent="." unique_id=1595220022 instance=ExtResource("9_2y5yt")]
 position = Vector2(28082, 319)
 form_to_grant = ExtResource("12_7nomh")
@@ -358,5 +353,4 @@ form_texture = ExtResource("15_6dial")
 [editable path="LevelUI"]
 [editable path="LevelUI/CanvasLayer/RadialMargin/RadialButton"]
 [editable path="LevelUI/CanvasLayer/PauseMenu"]
-[editable path="LevelUI/CanvasLayer/GameOver"]
 [editable path="LevelUI/CanvasLayer/PauseButton"]

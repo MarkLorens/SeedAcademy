@@ -4,6 +4,10 @@ extends Node
 ## One entry per level page. Leave "scene" empty for levels that don't exist yet.
 ## "title" / "graphic" are texture paths; "progress" is 0-100.
 
+# Set right before a death-restart so the reloaded level skips the intro
+# dialogue. LevelSceneManager consumes (and resets) it in new_game().
+var skip_next_intro := false
+
 var levels: Array[Dictionary] = [
 	{
 		"name": "Deep Forest",

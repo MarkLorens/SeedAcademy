@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://k83egyueyoyv" path="res://ui/Button/ActionButton.tscn" id="1_iyk4s"]
 [ext_resource type="PackedScene" uid="uid://dcltvykh033wi" path="res://ui/Button/RadialButton/RadialButton.tscn" id="1_nwk5d"]
 [ext_resource type="PackedScene" uid="uid://dwhbst82mgghc" path="res://ui/Menu/PauseMenu.tscn" id="3_okjyp"]
-[ext_resource type="PackedScene" uid="uid://v6f0518w8w57" path="res://ui/Menu/GameOver.tscn" id="4_v0jhs"]
+[ext_resource type="FontFile" uid="uid://pyolfstly3un" path="res://assets/fonts/Lilita_One/LilitaOne-Regular.ttf" id="5_v0jhs"]
 [ext_resource type="PackedScene" uid="uid://cy40kcqqkykwd" path="res://ui/Button/PauseButton.tscn" id="6_ic7kd"]
 
 [node name="LevelUI" type="Control" unique_id=1469804206]
@@ -62,14 +62,29 @@ offset_bottom = -38.0
 [node name="PauseMenu" parent="CanvasLayer" unique_id=355216389 instance=ExtResource("3_okjyp")]
 visible = false
 
-[node name="GameOver" parent="CanvasLayer" unique_id=1454118889 instance=ExtResource("4_v0jhs")]
-visible = false
-
 [node name="PauseButton" parent="CanvasLayer" unique_id=539774867 instance=ExtResource("6_ic7kd")]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_bottom = 0.0
 grow_horizontal = 0
 grow_vertical = 1
+
+[node name="AttemptMargin" type="MarginContainer" parent="CanvasLayer" unique_id=1613654322]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -134.0
+offset_right = 134.0
+offset_bottom = 175.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 100
+
+[node name="Attempts" type="Label" parent="CanvasLayer/AttemptMargin" unique_id=120891016]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("5_v0jhs")
+theme_override_font_sizes/font_size = 100
+text = "Attempt 1"
 
 [editable path="CanvasLayer/RadialMargin/RadialButton"]
