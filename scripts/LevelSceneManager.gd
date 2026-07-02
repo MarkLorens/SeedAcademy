@@ -10,7 +10,7 @@ extends Node
 	"\"Lorem Ipsum and whatnot.\"",
 ]
 
-const PLAYER_START_POS := Vector2i(150, 350)
+const PLAYER_START_POS := Vector2i(150, 280)
 const CAMERA_START_POS := Vector2i(700, -400)
 # Score here if needed
 

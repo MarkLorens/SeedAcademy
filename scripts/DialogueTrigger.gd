@@ -6,7 +6,7 @@ class_name DialogueTrigger
 ## walks in, the game pauses and EventUI shows the lines.
 
 @export var lines: Array[String] = []
-@export var event_ui_scene: PackedScene = preload("res://ui/EventUI.tscn")
+@export var event_ui_scene: PackedScene = preload("res://ui/DialogueUI.tscn")
 @export var pause_game := true
 ## Fire only the first time the player enters, then remove the trigger.
 @export var one_shot := true
