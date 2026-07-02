@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="FormData" format=3 uid="uid://dex1t3kuntlgn"]
 
 [ext_resource type="Script" uid="uid://b3oujte8eps7m" path="res://scripts/form_actions/frog_action.gd" id="1_mloqk"]
-[ext_resource type="Texture2D" uid="uid://eo3yral5qnqf" path="res://assets/temporary_assets_danu_no_judge/caution_wet_floor_w.PNG" id="2_uwqxr"]
+[ext_resource type="Texture2D" uid="uid://b5qolu1hbh7g2" path="res://assets/ingame art assets/characters/temporary characters/frog_samesize.PNG" id="2_fgmyk"]
 [ext_resource type="Script" uid="uid://bx2hrhh8teetw" path="res://scripts/resource/FormData.gd" id="3_fgmyk"]
 [ext_resource type="Texture2D" uid="uid://ipmuk3ukwp46" path="res://assets/Emote Wheel/Wheel Unlock 2-1.png" id="4_fgmyk"]
 [ext_resource type="Texture2D" uid="uid://h0tsy03rmlf3" path="res://assets/Emote Wheel/Wheel Unlock 2-2.png" id="5_fcfqp"]
@@ -13,7 +13,7 @@ metadata/_custom_type_script = "uid://b3oujte8eps7m"
 [resource]
 script = ExtResource("3_fgmyk")
 form_name = "frog"
-form_texture = ExtResource("2_uwqxr")
+form_texture = ExtResource("2_fgmyk")
 run_speed = 1400.0
 jump_speed = -3000.0
 gravity_scale = 0.7

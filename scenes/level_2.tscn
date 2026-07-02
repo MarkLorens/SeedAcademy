@@ -1,14 +1,13 @@
 [gd_scene format=4 uid="uid://b4jsedfasf0ig"]
 
+[ext_resource type="Script" uid="uid://dos18l1kajxqj" path="res://scripts/manager/LevelSceneManager.gd" id="1_g2hoc"]
 [ext_resource type="Texture2D" uid="uid://dq1b7kgnoi611" path="res://assets/spritesheets/spritesheet.png" id="1_wo48x"]
-[ext_resource type="Script" uid="uid://dos18l1kajxqj" path="res://scripts/LevelSceneManager.gd" id="1_y0kc7"]
 [ext_resource type="PackedScene" uid="uid://b6cd3t06jcai1" path="res://ui/DialogueUI.tscn" id="2_hey2k"]
 [ext_resource type="Texture2D" uid="uid://dhl8pin3f27oi" path="res://assets/spritesheets/bg-spritesheet.png" id="2_ne2mo"]
 [ext_resource type="PackedScene" uid="uid://c5sym1ls2gkxb" path="res://props/player_forms/Player.tscn" id="2_y0kc7"]
 [ext_resource type="Script" uid="uid://bx2hrhh8teetw" path="res://scripts/resource/FormData.gd" id="3_ne2mo"]
 [ext_resource type="Resource" uid="uid://dleraek6mun4q" path="res://form_tres/human.tres" id="4_6cvei"]
 [ext_resource type="Resource" uid="uid://dex1t3kuntlgn" path="res://form_tres/frog.tres" id="5_que50"]
-[ext_resource type="Resource" uid="uid://dskh4tkuuj6ee" path="res://form_tres/ape.tres" id="6_hey2k"]
 [ext_resource type="Texture2D" uid="uid://brhkxw86c1yts" path="res://assets/spritesheets/breakable-sprite-sheet.png" id="9_que50"]
 [ext_resource type="Script" uid="uid://sspf8gc7udxc" path="res://scripts/BreakableTileLayer.gd" id="10_hey2k"]
 [ext_resource type="PackedScene" uid="uid://cmtn3cavbs7tu" path="res://ui/LevelUI.tscn" id="12_172wr"]
@@ -133,12 +132,12 @@ tile_size = Vector2i(256, 256)
 physics_layer_0/collision_layer = 8
 sources/0 = SubResource("TileSetAtlasSource_g2hoc")
 
-[node name="Level2" type="Node" unique_id=1255567890 node_paths=PackedStringArray("Player", "Camera")]
-script = ExtResource("1_y0kc7")
+[node name="Level2" type="Node" unique_id=1255567890 node_paths=PackedStringArray("attempt_text", "Player", "Camera")]
+script = ExtResource("1_g2hoc")
+attempt_text = NodePath("LevelUI/CanvasLayer/AttemptMargin/Attempts")
 Player = NodePath("Player")
 Camera = NodePath("Player/Camera2D")
 Event_UI_Scene = ExtResource("2_hey2k")
-intro_lines = Array[String](["\"Lorem Ipsum and whatnot.\""])
 
 [node name="BGLayer" type="TileMapLayer" parent="." unique_id=1248394571]
 position = Vector2(0, 1)
@@ -147,7 +146,7 @@ tile_set = SubResource("TileSet_que50")
 
 [node name="Player" parent="." unique_id=1742630827 instance=ExtResource("2_y0kc7")]
 scale = Vector2(1, 1)
-forms = Array[ExtResource("3_ne2mo")]([ExtResource("4_6cvei"), ExtResource("5_que50"), ExtResource("6_hey2k")])
+forms = Array[ExtResource("3_ne2mo")]([ExtResource("4_6cvei"), ExtResource("5_que50"), null])
 dash_speed = 2750.0
 dash_cooldown = 0.3
 
@@ -166,7 +165,7 @@ script = ExtResource("10_hey2k")
 
 [node name="LevelUI" parent="." unique_id=1469804206 instance=ExtResource("12_172wr")]
 
-[node name="RadialButton" parent="LevelUI/CanvasLayer/MarginContainer" parent_id_path=PackedInt32Array(1469804206, 1625948689) index="0" unique_id=1501342966 node_paths=PackedStringArray("player")]
+[node name="RadialButton" parent="LevelUI/CanvasLayer/RadialMargin" parent_id_path=PackedInt32Array(1469804206, 1625948689) index="0" unique_id=1501342966 node_paths=PackedStringArray("player")]
 player = NodePath("../../../../Player")
 
 [node name="Spikes" parent="." unique_id=390458500 instance=ExtResource("13_g2hoc")]
@@ -371,4 +370,4 @@ down_velocity = 1500.0
 up_velocity = 800.0
 
 [editable path="LevelUI"]
-[editable path="LevelUI/CanvasLayer/MarginContainer/RadialButton"]
+[editable path="LevelUI/CanvasLayer/RadialMargin/RadialButton"]

@@ -1,20 +1,20 @@
 [gd_scene format=4 uid="uid://dcgb0j3s34ycs"]
 
-[ext_resource type="Script" uid="uid://dos18l1kajxqj" path="res://scripts/LevelSceneManager.gd" id="1_4nkto"]
+[ext_resource type="Script" uid="uid://dos18l1kajxqj" path="res://scripts/manager/LevelSceneManager.gd" id="1_4nkto"]
 [ext_resource type="PackedScene" uid="uid://c5sym1ls2gkxb" path="res://props/player_forms/Player.tscn" id="3_5xbjy"]
 [ext_resource type="Texture2D" uid="uid://dhl8pin3f27oi" path="res://assets/spritesheets/bg-spritesheet.png" id="3_7gny6"]
 [ext_resource type="Script" uid="uid://bx2hrhh8teetw" path="res://scripts/resource/FormData.gd" id="5_15mv3"]
 [ext_resource type="Resource" uid="uid://dleraek6mun4q" path="res://form_tres/human.tres" id="6_e3sih"]
 [ext_resource type="Texture2D" uid="uid://brhkxw86c1yts" path="res://assets/spritesheets/breakable-sprite-sheet.png" id="8_2aecg"]
-[ext_resource type="Resource" uid="uid://dex1t3kuntlgn" path="res://form_tres/frog.tres" id="8_2os1m"]
 [ext_resource type="PackedScene" uid="uid://blndefl6ahvhm" path="res://props/NewFormCheckpoint.tscn" id="9_2y5yt"]
 [ext_resource type="Script" uid="uid://sspf8gc7udxc" path="res://scripts/BreakableTileLayer.gd" id="9_6dial"]
 [ext_resource type="PackedScene" uid="uid://dp7p1uu7a8kwc" path="res://props/hazards/Spikes.tscn" id="9_e3sih"]
 [ext_resource type="PackedScene" uid="uid://cmtn3cavbs7tu" path="res://ui/LevelUI.tscn" id="10_2y5yt"]
 [ext_resource type="Texture2D" uid="uid://dq1b7kgnoi611" path="res://assets/spritesheets/spritesheet.png" id="12_2aecg"]
-[ext_resource type="Texture2D" uid="uid://uf8e8w5dkup" path="res://assets/ingame art assets/characters/temporary characters/frog_dynamicsize.PNG" id="12_6dial"]
+[ext_resource type="Resource" uid="uid://dex1t3kuntlgn" path="res://form_tres/frog.tres" id="12_7nomh"]
 [ext_resource type="PackedScene" uid="uid://b6cd3t06jcai1" path="res://ui/DialogueUI.tscn" id="12_go7sj"]
 [ext_resource type="PackedScene" uid="uid://d2h3l6oyr3lle" path="res://props/DialogueEventTrigger.tscn" id="14_2aecg"]
+[ext_resource type="Texture2D" uid="uid://b5qolu1hbh7g2" path="res://assets/ingame art assets/characters/temporary characters/frog_samesize.PNG" id="15_6dial"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6dial"]
 texture = ExtResource("3_7gny6")
@@ -134,8 +134,9 @@ tile_size = Vector2i(256, 256)
 physics_layer_0/collision_layer = 8
 sources/0 = SubResource("TileSetAtlasSource_1s4pk")
 
-[node name="Level1" type="Node" unique_id=257814844 node_paths=PackedStringArray("Player", "Camera")]
+[node name="Level1" type="Node" unique_id=257814844 node_paths=PackedStringArray("attempt_text", "Player", "Camera")]
 script = ExtResource("1_4nkto")
+attempt_text = NodePath("LevelUI/CanvasLayer/AttemptMargin/Attempts")
 Player = NodePath("Player")
 Camera = NodePath("Player/Camera2D")
 Event_UI_Scene = ExtResource("12_go7sj")
@@ -162,11 +163,6 @@ tile_set = SubResource("TileSet_fey80")
 [node name="BreakableLayer" type="TileMapLayer" parent="." unique_id=1114311814]
 tile_set = SubResource("TileSet_8kv12")
 script = ExtResource("9_6dial")
-
-[node name="NewFormCheckpoint" parent="." unique_id=1595220022 instance=ExtResource("9_2y5yt")]
-position = Vector2(30154, 337)
-form_to_grant = ExtResource("8_2os1m")
-form_texture = ExtResource("12_6dial")
 
 [node name="Spikes" parent="." unique_id=390458500 instance=ExtResource("9_e3sih")]
 position = Vector2(4476, 896)
@@ -309,13 +305,13 @@ lines = Array[String](["Haha!", "What a rush", "Huh, is that?", "Hippity hoppity
 [node name="LevelUI" parent="." unique_id=1469804206 instance=ExtResource("10_2y5yt")]
 metadata/_edit_lock_ = true
 
-[node name="RadialButton" parent="LevelUI/CanvasLayer/MarginContainer" parent_id_path=PackedInt32Array(1469804206, 1625948689) index="0" unique_id=1501342966 node_paths=PackedStringArray("player")]
+[node name="RadialButton" parent="LevelUI/CanvasLayer/RadialMargin" parent_id_path=PackedInt32Array(1469804206, 1625948689) index="0" unique_id=1501342966 node_paths=PackedStringArray("player")]
 player = NodePath("../../../../Player")
 
-[node name="HoldButton" parent="LevelUI/CanvasLayer/MarginContainer/RadialButton" index="0" unique_id=632730753]
+[node name="HoldButton" parent="LevelUI/CanvasLayer/RadialMargin/RadialButton" index="0" unique_id=632730753]
 z_index = 1
 
-[node name="RadialMenu" parent="LevelUI/CanvasLayer/MarginContainer/RadialButton" index="1" unique_id=151962108]
+[node name="RadialMenu" parent="LevelUI/CanvasLayer/RadialMargin/RadialButton" index="1" unique_id=151962108]
 z_index = 0
 offset_left = -2.0
 offset_top = -1.0
@@ -324,14 +320,14 @@ offset_bottom = -1.0
 mouse_filter = 0
 hover_textures = Array[Texture2D]([])
 
-[node name="IdleState" parent="LevelUI/CanvasLayer/MarginContainer/RadialButton/RadialMenu" index="0" unique_id=990159694]
+[node name="IdleState" parent="LevelUI/CanvasLayer/RadialMargin/RadialButton/RadialMenu" index="0" unique_id=990159694]
 visible = false
 offset_left = 157.0
 offset_top = -431.0
 offset_right = 457.0
 offset_bottom = -131.0
 
-[node name="ActiveState" parent="LevelUI/CanvasLayer/MarginContainer/RadialButton/RadialMenu" index="1" unique_id=1185725601]
+[node name="ActiveState" parent="LevelUI/CanvasLayer/RadialMargin/RadialButton/RadialMenu" index="1" unique_id=1185725601]
 visible = true
 anchors_preset = 2
 anchor_top = 1.0
@@ -342,14 +338,12 @@ offset_right = 556.0
 offset_bottom = -40.0
 grow_vertical = 0
 
-[node name="CanvasLayer" parent="LevelUI/CanvasLayer/PauseMenu" parent_id_path=PackedInt32Array(1469804206, 355216389) index="0" unique_id=734266689]
-visible = false
-
-[node name="CanvasLayer" parent="LevelUI/CanvasLayer/GameOver" parent_id_path=PackedInt32Array(1469804206, 1454118889) index="0" unique_id=1219356818]
-visible = false
+[node name="NewFormCheckpoint" parent="." unique_id=1595220022 instance=ExtResource("9_2y5yt")]
+position = Vector2(28082, 319)
+form_to_grant = ExtResource("12_7nomh")
+form_texture = ExtResource("15_6dial")
 
 [editable path="LevelUI"]
-[editable path="LevelUI/CanvasLayer/MarginContainer/RadialButton"]
+[editable path="LevelUI/CanvasLayer/RadialMargin/RadialButton"]
 [editable path="LevelUI/CanvasLayer/PauseMenu"]
-[editable path="LevelUI/CanvasLayer/GameOver"]
 [editable path="LevelUI/CanvasLayer/PauseButton"]

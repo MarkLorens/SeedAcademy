@@ -53,6 +53,6 @@ func _on_body_entered(body: Node2D) -> void:
 		print("hit") # Please leave the print as is. I am simply trying if the kill zone works
 		
 		# Here lies the command to start the dying
-		#var level = get_tree().get_first_node_in_group("level_manager")
-		#if level:
-			#level.player_died()
+		var level = get_tree().get_first_node_in_group("level_manager")
+		if level:
+			level.player_died()

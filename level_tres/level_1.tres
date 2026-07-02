@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="level_data" format=3 uid="uid://ciixgsr5vxpri"]
+
+[ext_resource type="Script" uid="uid://dqiqd0nd3t4sg" path="res://scripts/resource/level_data.gd" id="1_w8jk0"]
+
+[resource]
+script = ExtResource("1_w8jk0")
+name = "Deep Forest"
+scene_path = "uid://dcgb0j3s34ycs"
+title = "uid://q62if1ynqyav"
+graphic = "uid://c7ffl6w7mes2k"
+default_unlocked = true

@@ -1,8 +1,18 @@
 [gd_scene format=3 uid="uid://dwhbst82mgghc"]
 
 [ext_resource type="Script" uid="uid://cqqbq8sp54mgx" path="res://scripts/PauseMenu.gd" id="1_pause"]
+[ext_resource type="Texture2D" uid="uid://csrn0tod4ag13" path="res://assets/menu/PaperTornBG.png" id="2_paper"]
+[ext_resource type="Texture2D" uid="uid://q62if1ynqyav" path="res://assets/menu/DeepForest.png" id="3_title"]
+[ext_resource type="Texture2D" uid="uid://xatkv1icn8bm" path="res://assets/menu/SettingsButton.png" id="4_settings"]
+[ext_resource type="PackedScene" path="res://ui/Menu/LevelProgressBar.tscn" id="5_progress"]
+[ext_resource type="Texture2D" uid="uid://c32ibufycdn2e" path="res://assets/menu/ListButton.png" id="7_list"]
+[ext_resource type="Texture2D" uid="uid://clame0hd6xsc5" path="res://assets/menu/PlayButton.png" id="8_play"]
+[ext_resource type="Texture2D" uid="uid://csh4nd2v4anxm" path="res://assets/menu/RestartButton.png" id="9_restart"]
+[ext_resource type="Texture2D" uid="uid://y4lggwecqnew" path="res://assets/menu/SFX.png" id="10_sfx"]
+[ext_resource type="Texture2D" uid="uid://otihvdrm55x3" path="res://assets/menu/BGM.png" id="11_bgm"]
+[ext_resource type="PackedScene" uid="uid://bb1pxsu5ll1o4" path="res://ui/Menu/SoundBar.tscn" id="12_soundbar"]
 
-[node name="PauseMenu" type="Control" unique_id=1452498891]
+[node name="PauseMenu" type="Control" unique_id=279701831]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,51 +21,157 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pause")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=734266689]
-layer = 10
-
-[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=2039178504]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -120.0
-offset_right = 150.0
-offset_bottom = 120.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel" unique_id=503743694]
+[node name="Dim" type="ColorRect" parent="." unique_id=1134176266]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.45)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=463780433]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1189065350]
+[node name="Paper" type="Control" parent="CenterContainer" unique_id=1575284974]
+custom_minimum_size = Vector2(1200, 800)
 layout_mode = 2
-text = "PAUSE"
-horizontal_alignment = 1
 
-[node name="ResumeButton" type="Button" parent="CanvasLayer/Panel/VBoxContainer" unique_id=985985713]
+[node name="PaperBG" type="TextureRect" parent="CenterContainer/Paper" unique_id=1860712256]
+custom_minimum_size = Vector2(1300, 800)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_right = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_paper")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Paper" unique_id=2105194800]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.05
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Title" type="TextureRect" parent="CenterContainer/Paper/VBoxContainer" unique_id=308976930]
+custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
-text = "Lanjut Game"
+texture = ExtResource("3_title")
+stretch_mode = 5
 
-[node name="RestartButton" type="Button" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1451571223]
+[node name="ProgressBar" parent="CenterContainer/Paper/VBoxContainer" unique_id=1982279880 instance=ExtResource("5_progress")]
 layout_mode = 2
-text = "Restart"
+size_flags_horizontal = 4
+value = 10.0
+progress = 10.0
 
-[node name="HomeButton" type="Button" parent="CanvasLayer/Panel/VBoxContainer" unique_id=713864263]
+[node name="ButtonRow" type="HBoxContainer" parent="CenterContainer/Paper/VBoxContainer" unique_id=2114626910]
 layout_mode = 2
-text = "Back to Home"
+size_flags_vertical = 2
+theme_override_constants/separation = 40
+alignment = 1
 
-[connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/ResumeButton" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/RestartButton" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/HomeButton" to="." method="_on_home_pressed"]
+[node name="ListButton" type="TextureButton" parent="CenterContainer/Paper/VBoxContainer/ButtonRow" unique_id=730685713]
+custom_minimum_size = Vector2(175, 185)
+layout_mode = 2
+texture_normal = ExtResource("7_list")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="PlayButton" type="TextureButton" parent="CenterContainer/Paper/VBoxContainer/ButtonRow" unique_id=2145861588]
+custom_minimum_size = Vector2(225, 227)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("8_play")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="RestartButton" type="TextureButton" parent="CenterContainer/Paper/VBoxContainer/ButtonRow" unique_id=736118254]
+custom_minimum_size = Vector2(175, 185)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("9_restart")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="SoundRow" type="HBoxContainer" parent="CenterContainer/Paper/VBoxContainer" unique_id=509788075]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="LeftPad" type="Control" parent="CenterContainer/Paper/VBoxContainer/SoundRow" unique_id=509788076]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="SFX" type="HBoxContainer" parent="CenterContainer/Paper/VBoxContainer/SoundRow" unique_id=379589943]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="SFXLabel" type="TextureRect" parent="CenterContainer/Paper/VBoxContainer/SoundRow/SFX" unique_id=1765065042]
+custom_minimum_size = Vector2(100, 60)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("10_sfx")
+expand_mode = 3
+
+[node name="SFXBar" parent="CenterContainer/Paper/VBoxContainer/SoundRow/SFX" unique_id=345795533 instance=ExtResource("12_soundbar")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="BGM" type="HBoxContainer" parent="CenterContainer/Paper/VBoxContainer/SoundRow" unique_id=2051483336]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="BGMLabel" type="TextureRect" parent="CenterContainer/Paper/VBoxContainer/SoundRow/BGM" unique_id=1077409308]
+custom_minimum_size = Vector2(100, 60)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("11_bgm")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="BGMBar" parent="CenterContainer/Paper/VBoxContainer/SoundRow/BGM" unique_id=1914001754 instance=ExtResource("12_soundbar")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bar_label = "BGM"
+value = 0.5
+
+[node name="RightPad" type="Control" parent="CenterContainer/Paper/VBoxContainer/SoundRow" unique_id=509788077]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="SettingsButton" type="TextureButton" parent="CenterContainer/Paper" unique_id=1945806709]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.883
+anchor_top = 0.093
+anchor_right = 0.96000004
+anchor_bottom = 0.20700002
+offset_left = -0.5999756
+offset_top = -10.400002
+offset_right = 3.0
+offset_bottom = 13.399994
+texture_normal = ExtResource("4_settings")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="CenterContainer/Paper/VBoxContainer/ButtonRow/ListButton" to="." method="_on_list_pressed"]
+[connection signal="pressed" from="CenterContainer/Paper/VBoxContainer/ButtonRow/PlayButton" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="CenterContainer/Paper/VBoxContainer/ButtonRow/RestartButton" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="CenterContainer/Paper/SettingsButton" to="." method="_on_settings_pressed"]

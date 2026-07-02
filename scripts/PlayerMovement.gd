@@ -3,10 +3,11 @@ extends CharacterBody2D
 const GRAVITY: int = 6725
 
 # UI
-@onready var radial_button: Control = $"../LevelUI/CanvasLayer/MarginContainer/RadialButton"
-@onready var action_button: TextureButton = $"../LevelUI/CanvasLayer/MarginContainer2/ActionButton/TextureButton"
+@onready var radial_button: Control = $"../LevelUI/CanvasLayer/RadialMargin/RadialButton"
+@onready var action_button: TextureButton = $"../LevelUI/CanvasLayer/ActionMargin/ActionButton/TextureButton"
 @onready var attack_hitbox: Area2D = $AttackHitbox
 @onready var charge_bar: ChargeBar = $ChargeBar
+@onready var sprite: AnimatedSprite2D = $Sprite2D
 
 # Forms
 @export var forms: Array[FormData] = []
@@ -98,11 +99,31 @@ func action_pressed() -> void:
 func set_form(index: int) -> void:
 	current_form_index = index
 	current_form = forms[index]
-	$Sprite2D.texture = current_form.form_texture
+	_build_walk_animation(current_form)
+
+# Build a "walk" animation from the form's frames. Forms with no walk_frames
+# fall back to a single-frame animation of their static form_texture.
+func _build_walk_animation(form: FormData) -> void:
+	var frames := SpriteFrames.new()
+	frames.remove_animation("default")
+	frames.add_animation("walk")
+	frames.set_animation_loop("walk", true)
+	frames.set_animation_speed("walk", form.walk_fps)
+	if form.walk_frames.is_empty():
+		if form.form_texture != null:
+			frames.add_frame("walk", form.form_texture)
+	else:
+		for tex in form.walk_frames:
+			frames.add_frame("walk", tex)
+	sprite.sprite_frames = frames
+	sprite.play("walk")
 
 func _physics_process(delta: float) -> void:
 	_update_dash_timers(delta)
-	
+
+	# Freeze the walk cycle on its current frame while the player is stationary.
+	sprite.speed_scale = 1.0 if can_move else 0.0
+
 	if not can_move:
 		velocity = Vector2.ZERO
 		return
@@ -137,6 +158,7 @@ func start_dash() -> void:
 func unlock_form(new_form: FormData) -> void:
 	if new_form in forms:
 		return
+		
 	forms.append(new_form)
 	forms_changed.emit(forms)
 

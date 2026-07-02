@@ -1,6 +1,7 @@
 extends Node
 
 # Exportables
+@export var attempt_text: Label
 @export var Player: CharacterBody2D
 @export var Camera: Camera2D
 @export var Event_UI_Scene: PackedScene
@@ -10,39 +11,47 @@ extends Node
 	"\"Lorem Ipsum and whatnot.\"",
 ]
 
-#const PLAYER_START_POS := Vector2i(150, 280)
+const PLAYER_START_POS := Vector2i(150, 280)
 const CAMERA_START_POS := Vector2i(700, -400)
-# Score here if needed
+var attempts := 1
 
 var speed : float
 const START_SPEED : float = 10.0
 const MAX_SPEED : int = 25
 
+
 @onready var pause_menu = $"LevelUI/CanvasLayer/PauseMenu"
-@onready var game_over = $"LevelUI/CanvasLayer/GameOver"
 @onready var pause_button = $"LevelUI/CanvasLayer/PauseButton/TextureButton"
 
 func _ready() -> void:
 	add_to_group("level_manager")
 	
 	assert(pause_menu, "CRITICAL: PAUSE MENU is not CONNECTED")
-	assert(game_over, "CRITICAL: GAME OVER is not CONNECTED")
-	
 	assert(pause_button, "CRITICAL: PAUSE BUTTON is not CONNECTED")
 	pause_button.pressed.connect(pause_game)
 
-	new_game()
+	new_game(false)
 	
 func pause_game() -> void:
 	pause_menu.show_pause()
 
 # Reset everything on new game
-func new_game():
+func new_game(just_died: bool):
 	Camera.position = CAMERA_START_POS
-	_show_intro_event()
+	Player.position = PLAYER_START_POS
+	
+	if not just_died:
+		_show_intro_event()
+	else:
+		attempts += 1
+		attempt_text.text = "Attempt %d" % attempts
+		attempt_text.get_parent().show()
+		
+		await get_tree().create_timer(1.0).timeout
+		
+		attempt_text.get_parent().hide()
 
 func _show_intro_event() -> void:
-	#Player.position = PLAYER_START_POS
 	Player.velocity = Vector2i(0, 0)
 	var eventUI: EventUI = Event_UI_Scene.instantiate()
 	eventUI.lines = intro_lines
@@ -52,7 +61,8 @@ func _show_intro_event() -> void:
 func player_died() -> void:
 	if Player.is_shielded:
 		return
-	game_over.show_game_over()
+	
+	new_game(true)
 
 func _on_intro_finished() -> void:
 	Player.can_move = true

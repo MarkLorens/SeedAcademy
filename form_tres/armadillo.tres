@@ -1,11 +1,12 @@
 [gd_resource type="Resource" script_class="FormData" format=3 uid="uid://bome6pqwaiyfe"]
 
 [ext_resource type="Script" uid="uid://g2g4i4tnygar" path="res://scripts/form_actions/armadillo_action.gd" id="1_24302"]
-[ext_resource type="Texture2D" uid="uid://uu3siudqp3he" path="res://assets/temporary_assets_danu_no_judge/Layered Rock.png" id="1_tn7wf"]
 [ext_resource type="Script" uid="uid://bx2hrhh8teetw" path="res://scripts/resource/FormData.gd" id="2_24302"]
-[ext_resource type="Texture2D" uid="uid://c1f7rlnj5ogqk" path="res://assets/Emote Wheel/Wheel Unlock 3-1 .png" id="4_k187g"]
-[ext_resource type="Texture2D" uid="uid://coae0ldlbqyq3" path="res://assets/Emote Wheel/Wheel Unlock 3-2.png" id="5_4n7ox"]
-[ext_resource type="Texture2D" uid="uid://mafm48xrtj5" path="res://assets/Emote Wheel/Wheel Unlock 3-3.png" id="6_k72am"]
+[ext_resource type="Texture2D" uid="uid://cjicl0p40um4s" path="res://assets/ingame art assets/characters/temporary characters/armadillo_dynamicsize.PNG" id="2_k187g"]
+[ext_resource type="Texture2D" uid="uid://co7jeatwffdxh" path="res://assets/Emote Wheel/Wheel 1.png" id="4_4n7ox"]
+[ext_resource type="Texture2D" uid="uid://dqvsidfglpfi8" path="res://assets/Emote Wheel/Wheel 2.png" id="5_k72am"]
+[ext_resource type="Texture2D" uid="uid://b07lmoq3vaa3t" path="res://assets/Emote Wheel/Wheel 3.png" id="6_fqiuw"]
+[ext_resource type="Texture2D" uid="uid://dwgcatt6d03cb" path="res://assets/Emote Wheel/Wheel 4.png" id="7_80x8j"]
 
 [sub_resource type="Resource" id="Resource_mloqk"]
 script = ExtResource("1_24302")
@@ -14,7 +15,7 @@ metadata/_custom_type_script = "uid://g2g4i4tnygar"
 [resource]
 script = ExtResource("2_24302")
 form_name = "armadillo"
-form_texture = ExtResource("1_tn7wf")
+form_texture = ExtResource("2_k187g")
 run_speed = 1250.0
 action_script = SubResource("Resource_mloqk")
 wheel_menu_forms = Array[Texture2D]([ExtResource("4_k187g"), ExtResource("5_4n7ox"), ExtResource("6_k72am")])
