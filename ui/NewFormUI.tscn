@@ -49,7 +49,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="NewForm" type="TextureRect" parent="CanvasLayer/Container/HBoxContainer2" unique_id=1361970532]
-custom_minimum_size = Vector2(420, 420)
+custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
@@ -69,7 +69,7 @@ theme_override_constants/separation = 24
 alignment = 1
 
 [node name="NewWheel" type="TextureRect" parent="CanvasLayer/Container/HBoxContainer" unique_id=428742040]
-custom_minimum_size = Vector2(240, 240)
+custom_minimum_size = Vector2(420, 420)
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("3_q7xmj")

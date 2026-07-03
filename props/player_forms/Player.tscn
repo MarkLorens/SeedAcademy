@@ -34,6 +34,7 @@ position = Vector2(3.3333333, -1.6666666)
 shape = SubResource("RectangleShape2D_fey80")
 
 [node name="AttackHitbox" type="Area2D" parent="." unique_id=1025660276]
+visible = false
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox" unique_id=89791523]
@@ -49,6 +50,7 @@ shape = SubResource("RectangleShape2D_6kwvf")
 debug_color = Color(0.9813016, 0, 0.37631476, 0.41960785)
 
 [node name="ShieldCol" type="Area2D" parent="." unique_id=1562741397]
+visible = false
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShieldCol" unique_id=1703412327]
