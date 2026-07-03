@@ -3,20 +3,19 @@
 [ext_resource type="Texture2D" uid="uid://cekms7w8expo0" path="res://assets/Action Button/ActionButton-Shield.png" id="1_7q0qy"]
 [ext_resource type="Script" uid="uid://g2g4i4tnygar" path="res://scripts/form_actions/armadillo_action.gd" id="1_24302"]
 [ext_resource type="Script" uid="uid://bx2hrhh8teetw" path="res://scripts/resource/FormData.gd" id="2_24302"]
-[ext_resource type="Texture2D" uid="uid://cjicl0p40um4s" path="res://assets/ingame art assets/characters/temporary characters/armadillo_dynamicsize.PNG" id="2_k187g"]
 [ext_resource type="Texture2D" uid="uid://co7jeatwffdxh" path="res://assets/Emote Wheel/Wheel 1.png" id="4_4n7ox"]
-[ext_resource type="Texture2D" uid="uid://muqtelo3neiv" path="res://assets/ingame art assets/characters/armadillo_walking_1.PNG" id="4_t32fb"]
-[ext_resource type="Texture2D" uid="uid://bdof7rp74xrbc" path="res://assets/ingame art assets/characters/armadillo_walking_2.PNG" id="5_7q0qy"]
+[ext_resource type="Texture2D" uid="uid://cmhe5dwuo45re" path="res://assets/ingame art assets/characters/armadillo_walking_1.PNG" id="4_t32fb"]
+[ext_resource type="Texture2D" uid="uid://ekmbrl821up0" path="res://assets/ingame art assets/characters/armadillo_walking_2.PNG" id="5_7q0qy"]
 [ext_resource type="Texture2D" uid="uid://dqvsidfglpfi8" path="res://assets/Emote Wheel/Wheel 2.png" id="5_k72am"]
-[ext_resource type="Texture2D" uid="uid://dfcer5b0njgyk" path="res://assets/ingame art assets/characters/armadillo_walking_3.PNG" id="6_1c0cu"]
+[ext_resource type="Texture2D" uid="uid://2hum7tfs3l8j" path="res://assets/ingame art assets/characters/armadillo_walking_3.PNG" id="6_1c0cu"]
 [ext_resource type="Texture2D" uid="uid://b07lmoq3vaa3t" path="res://assets/Emote Wheel/Wheel 3.png" id="6_fqiuw"]
 [ext_resource type="Texture2D" uid="uid://dwgcatt6d03cb" path="res://assets/Emote Wheel/Wheel 4.png" id="7_80x8j"]
-[ext_resource type="Texture2D" uid="uid://qpv5tbvuhq2h" path="res://assets/ingame art assets/characters/armadillo_walking_4.PNG" id="7_85coq"]
-[ext_resource type="Texture2D" uid="uid://cegn6ewxppp7a" path="res://assets/menu/HomeButton.png" id="7_hfvj2"]
-[ext_resource type="Texture2D" uid="uid://dc6mgme1l6wan" path="res://assets/ingame art assets/characters/armadillo_ability_1.PNG" id="8_ab1"]
-[ext_resource type="Texture2D" uid="uid://cw1f5vh1tgg0l" path="res://assets/ingame art assets/characters/armadillo_ability_2.PNG" id="9_ab2"]
-[ext_resource type="Texture2D" uid="uid://cvxm5w5pmojk4" path="res://assets/ingame art assets/characters/armadillo_ability_3.PNG" id="10_ab3"]
-[ext_resource type="Texture2D" uid="uid://cuwwtxblegmjq" path="res://assets/ingame art assets/characters/armadillo_ability_4.PNG" id="11_ab4"]
+[ext_resource type="Texture2D" uid="uid://fkgpbucueuw8" path="res://assets/ingame art assets/characters/armadillo_walking_4.PNG" id="7_85coq"]
+[ext_resource type="Texture2D" uid="uid://15silbeoaiv5" path="res://assets/ingame art assets/characters/armadillo_falling.PNG" id="7_hfvj2"]
+[ext_resource type="Texture2D" uid="uid://cfgqt74rigi03" path="res://assets/ingame art assets/characters/armadillo_ability_1.PNG" id="8_ab1"]
+[ext_resource type="Texture2D" uid="uid://cvbsuc685whx6" path="res://assets/ingame art assets/characters/armadillo_ability_2.PNG" id="9_ab2"]
+[ext_resource type="Texture2D" uid="uid://cw3j7ysqowemb" path="res://assets/ingame art assets/characters/armadillo_ability_3.PNG" id="10_ab3"]
+[ext_resource type="Texture2D" uid="uid://ch2f5w5vhufow" path="res://assets/ingame art assets/characters/armadillo_ability_4.PNG" id="11_ab4"]
 
 [sub_resource type="Resource" id="Resource_mloqk"]
 script = ExtResource("1_24302")
@@ -25,7 +24,7 @@ metadata/_custom_type_script = "uid://g2g4i4tnygar"
 [resource]
 script = ExtResource("2_24302")
 form_name = "armadillo"
-form_texture = ExtResource("2_k187g")
+form_texture = ExtResource("4_t32fb")
 walk_frames = Array[Texture2D]([ExtResource("4_t32fb"), ExtResource("5_7q0qy"), ExtResource("6_1c0cu"), ExtResource("7_85coq")])
 run_speed = 1250.0
 action_script = SubResource("Resource_mloqk")

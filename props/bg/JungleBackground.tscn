@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://rs7301aqj778"]
 
-[ext_resource type="Texture2D" uid="uid://cf52orv7y0xxi" path="res://assets/ingame art assets/back:foregrounds/meadow (plains)/bg_meadow_1_sky base.PNG" id="1_4r6sx"]
-[ext_resource type="Texture2D" uid="uid://bjhr7psv8ujvm" path="res://assets/ingame art assets/back:foregrounds/meadow (plains)/bg_meadow_2_clouds.PNG" id="2_svlrf"]
-[ext_resource type="Texture2D" uid="uid://68fpl007qhgp" path="res://assets/ingame art assets/back:foregrounds/meadow (plains)/bg_meadow_3_hills.PNG" id="3_l4u4r"]
-[ext_resource type="Texture2D" uid="uid://dju7tw0pm3n4n" path="res://assets/ingame art assets/back:foregrounds/meadow (plains)/bg_meadow_4_trees.PNG" id="4_bmk5s"]
+[ext_resource type="Texture2D" uid="uid://c2kjxg6o5o4c" path="res://assets/ingame art assets/back:foregrounds/meadow (plains)/bg_meadow_1_sky base.PNG" id="1_4r6sx"]
+[ext_resource type="Texture2D" uid="uid://6wbjtten1oss" path="res://assets/ingame art assets/back:foregrounds/meadow (plains)/bg_meadow_2_clouds.PNG" id="2_svlrf"]
+[ext_resource type="Texture2D" uid="uid://dmnv43d0b1m0s" path="res://assets/ingame art assets/back:foregrounds/meadow (plains)/bg_meadow_3_hills.PNG" id="3_l4u4r"]
+[ext_resource type="Texture2D" uid="uid://vqu1b728ju64" path="res://assets/ingame art assets/back:foregrounds/meadow (plains)/bg_meadow_4_trees.PNG" id="4_bmk5s"]
 
 [node name="JungleBackground" type="Node2D" unique_id=1863640712]
 
@@ -13,6 +13,7 @@ scroll_offset = Vector2(0, 1)
 repeat_size = Vector2(7877, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1054938520]
+position = Vector2(0, -3898)
 texture = ExtResource("1_4r6sx")
 centered = false
 
@@ -23,6 +24,7 @@ scroll_offset = Vector2(0, 1)
 repeat_size = Vector2(7877, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D2" unique_id=392223840]
+position = Vector2(0, -265)
 texture = ExtResource("2_svlrf")
 centered = false
 

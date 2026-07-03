@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cgym5qnarhnsg"]
+
+[ext_resource type="Texture2D" uid="uid://032tfaikq3h6" path="res://assets/ingame art assets/back:foregrounds/mountain/bg_mountain_1_sky base.PNG" id="1_ogxdl"]
+[ext_resource type="Texture2D" uid="uid://hjd1vsxkl67r" path="res://assets/ingame art assets/back:foregrounds/mountain/bg_mountain_2_mountains.PNG" id="2_k8kmm"]
+[ext_resource type="Texture2D" uid="uid://dqsmx8tp8t1sg" path="res://assets/ingame art assets/back:foregrounds/mountain/bg_mountain_3_hills.PNG" id="3_pqy1g"]
+[ext_resource type="Texture2D" uid="uid://bcvvbu1ac865i" path="res://assets/ingame art assets/back:foregrounds/mountain/bg_mountain_4_trees.PNG" id="4_d5ebl"]
+
+[node name="MountainBackground" type="Node2D" unique_id=1076276017]
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1101568442]
+scroll_scale = Vector2(0.6, 1)
+scroll_offset = Vector2(0, 1)
+repeat_size = Vector2(7877, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1991437175]
+position = Vector2(8, -2292)
+texture = ExtResource("1_ogxdl")
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=1860664169]
+scroll_scale = Vector2(0.7, 1)
+scroll_offset = Vector2(0, 1)
+repeat_size = Vector2(7877, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D2" unique_id=1314445737]
+texture = ExtResource("2_k8kmm")
+
+[node name="Parallax2D3" type="Parallax2D" parent="." unique_id=231735670]
+scroll_scale = Vector2(0.8, 1)
+scroll_offset = Vector2(0, 1)
+repeat_size = Vector2(7877, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D3" unique_id=121384709]
+texture = ExtResource("3_pqy1g")
+
+[node name="Parallax2D4" type="Parallax2D" parent="." unique_id=935069990]
+scroll_scale = Vector2(0.9, 1)
+scroll_offset = Vector2(0, 1)
+repeat_size = Vector2(7877, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D4" unique_id=604816524]
+texture = ExtResource("4_d5ebl")

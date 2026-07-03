@@ -8,7 +8,7 @@
 [ext_resource type="FontFile" uid="uid://pyolfstly3un" path="res://assets/fonts/Lilita_One/LilitaOne-Regular.ttf" id="6_font"]
 [ext_resource type="Texture2D" uid="uid://csh4nd2v4anxm" path="res://assets/menu/RestartButton.png" id="7_restart"]
 [ext_resource type="Texture2D" uid="uid://c32ibufycdn2e" path="res://assets/menu/ListButton.png" id="8_list"]
-[ext_resource type="Texture2D" uid="uid://clame0hd6xsc5" path="res://assets/menu/PlayButton.png" id="9_next"]
+[ext_resource type="Texture2D" uid="uid://1bfoiggljpbv" path="res://assets/menu/NextButton.png" id="9_3qofo"]
 
 [node name="LevelCompleteMenu" type="Control" unique_id=1368391438]
 layout_mode = 3
@@ -152,7 +152,7 @@ stretch_mode = 5
 [node name="NextButton" type="TextureButton" parent="CenterContainer/Paper/VBox/ButtonRow" unique_id=354082461]
 custom_minimum_size = Vector2(150, 158)
 layout_mode = 2
-texture_normal = ExtResource("9_next")
+texture_normal = ExtResource("9_3qofo")
 ignore_texture_size = true
 stretch_mode = 5
 

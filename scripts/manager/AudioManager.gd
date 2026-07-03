@@ -4,7 +4,9 @@ extends Node
 ## Owns the menu music player and fire-and-forget SFX playback on the
 ## BGM / SFX buses (see default_bus_layout.tres).
 
-const MUSIC := preload("res://assets/Sounds/Music/main_music.wav")
+const MUSIC := preload("res://assets/Sounds/Music/MAIN MENU MUSIC.ogg")
+const GAMEPLAY_MUSIC := preload("res://assets/Sounds/Music/IN GAME MUSIC.ogg")
+const CREDIT_MUSIC := preload("res://assets/Sounds/Music/CREDITS MUSIC.ogg")
 
 const SFX_BUTTON := preload("res://assets/Sounds/Sound Effects/UI/Button.mp3")
 const SFX_DASH := preload("res://assets/Sounds/Sound Effects/Fira/Fira Dash.mp3")
@@ -40,10 +42,23 @@ func _ready() -> void:
 ## Start the menu music if it isn't already playing. Safe to call from every
 ## menu's _ready — the track carries on seamlessly between menu scenes.
 func play_menu_music() -> void:
-	if not _music.playing:
-		_music.play()
+	_play_music(MUSIC)
 
-## Stop the music (levels are music-free for now).
+## Start the in-game music. Safe to call from every level's _ready.
+func play_gameplay_music() -> void:
+	_play_music(GAMEPLAY_MUSIC)
+	
+func play_credit_music() -> void:
+	_play_music(CREDIT_MUSIC)
+
+## Switch to `stream`, restarting only when the track actually changes.
+func _play_music(stream: AudioStream) -> void:
+	if _music.stream == stream and _music.playing:
+		return
+	_music.stream = stream
+	_music.play()
+
+## Stop the music.
 func stop_music() -> void:
 	_music.stop()
 

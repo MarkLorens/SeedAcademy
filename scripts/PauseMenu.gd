@@ -25,6 +25,14 @@ func _refresh_progress() -> void:
 	if progress >= 0.0:
 		$CenterContainer/Paper/VBoxContainer/ProgressBar.progress = progress
 
+	# Use this level's progress bar art (see level_data).
+	var data: level_data = LevelManager.get_level(
+		LevelManager.index_for_scene(get_tree().current_scene.scene_file_path))
+	if data:
+		$CenterContainer/Paper/VBoxContainer/ProgressBar.set_level_textures(
+			load(data.progress_fill) if not data.progress_fill.is_empty() else null,
+			load(data.progress_edge) if not data.progress_edge.is_empty() else null)
+
 func hide_pause() -> void:
 	self.visible = false
 	$"../ActionMargin".visible = true
@@ -34,6 +42,15 @@ func hide_pause() -> void:
 
 func _on_resume_pressed() -> void:
 	hide_pause()
+
+# Tapping the dimmed area outside the panel (the CenterContainer catches it,
+# since the Paper panel stops input over itself) resumes the game.
+func _on_backdrop_gui_input(event: InputEvent) -> void:
+	var pressed := (event is InputEventMouseButton) \
+		or (event is InputEventScreenTouch)
+	if pressed:
+		accept_event()
+		hide_pause()
 
 func _on_restart_pressed() -> void:
 	get_tree().paused = false

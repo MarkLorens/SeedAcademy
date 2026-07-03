@@ -2,6 +2,20 @@
 
 [ext_resource type="Script" uid="uid://b6ou43jpifywh" path="res://scripts/EventUI.gd" id="1_qe7eq"]
 [ext_resource type="FontFile" uid="uid://pyolfstly3un" path="res://assets/fonts/Lilita_One/LilitaOne-Regular.ttf" id="2_xda8i"]
+[ext_resource type="Texture2D" uid="uid://d28ndh8jxb5io" path="res://assets/menu/BGCard.png" id="3_bgcrd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_btn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_card"]
+content_margin_left = 70.0
+content_margin_top = 45.0
+content_margin_right = 70.0
+content_margin_bottom = 60.0
+texture = ExtResource("3_bgcrd")
+texture_margin_left = 45.0
+texture_margin_top = 40.0
+texture_margin_right = 45.0
+texture_margin_bottom = 55.0
 
 [node name="DialogueUI" type="Control" unique_id=1119591421]
 layout_mode = 3
@@ -15,19 +29,46 @@ metadata/_edit_use_anchors_ = true
 
 [node name="NewGameDialogues" type="CanvasLayer" parent="." unique_id=1570944692]
 
+[node name="Dim" type="ColorRect" parent="NewGameDialogues" unique_id=1177654294]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.55)
+
 [node name="MarginContainer" type="MarginContainer" parent="NewGameDialogues" unique_id=157647518]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="DialogueLabel" type="Label" parent="NewGameDialogues/MarginContainer" unique_id=1262438983]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("2_xda8i")
-theme_override_font_sizes/font_size = 64
-metadata/_edit_use_anchors_ = true
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
 
 [node name="NextButton" type="Button" parent="NewGameDialogues/MarginContainer" unique_id=1256480978]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_btn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_btn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_btn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_btn")
+
+[node name="CardPanel" type="PanelContainer" parent="NewGameDialogues/MarginContainer" unique_id=1469372047]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_card")
+
+[node name="DialogueLabel" type="Label" parent="NewGameDialogues/MarginContainer/CardPanel" unique_id=1262438983]
+custom_minimum_size = Vector2(1200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.26, 0.16, 0.09, 1)
+theme_override_fonts/font = ExtResource("2_xda8i")
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+autowrap_mode = 2
+justification_flags = 171

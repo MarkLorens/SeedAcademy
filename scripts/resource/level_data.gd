@@ -9,5 +9,8 @@ class_name level_data
 @export_file("*.png") var graphic: String
 @export_file("*.png") var complete_image_path : String
 @export var progress: int
+## Per-level art for the progress bar: the fill strip and the cap drawn at its tip.
+@export_file("*.png") var progress_fill: String
+@export_file("*.png") var progress_edge: String
 @export var locked: bool = false
 @export var completed: bool = false

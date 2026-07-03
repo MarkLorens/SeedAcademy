@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 LevelManager="*res://scripts/manager/LevelManager.gd"
 AudioManager="*res://scripts/manager/AudioManager.gd"
+StatsManager="*res://scripts/manager/StatsManager.gd"
 
 [debug]
 

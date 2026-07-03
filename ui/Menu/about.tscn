@@ -1,0 +1,160 @@
+[gd_scene format=3 uid="uid://diixj3qcth85o"]
+
+[ext_resource type="Script" uid="uid://cnf7ofwn4skfh" path="res://scripts/AboutMenu.gd" id="1_about"]
+[ext_resource type="Texture2D" uid="uid://c2kjxg6o5o4c" path="res://assets/ingame art assets/back:foregrounds/meadow (plains)/bg_meadow_1_sky base.PNG" id="2_bg"]
+[ext_resource type="Texture2D" uid="uid://b8a8w43gxuh57" path="res://assets/menu/CoverOpened.png" id="3_cover"]
+[ext_resource type="FontFile" uid="uid://pyolfstly3un" path="res://assets/fonts/Lilita_One/LilitaOne-Regular.ttf" id="4_font"]
+[ext_resource type="Texture2D" uid="uid://cegn6ewxppp7a" path="res://assets/menu/HomeButton.png" id="5_home"]
+[ext_resource type="Texture2D" uid="uid://chcr5y253vvdy" path="res://assets/ingame art assets/characters/fira_walking_1.PNG" id="6_a3yvk"]
+[ext_resource type="Texture2D" uid="uid://cmhe5dwuo45re" path="res://assets/ingame art assets/characters/armadillo_walking_1.PNG" id="7_x8opl"]
+[ext_resource type="Texture2D" uid="uid://5464g7dp7g6d" path="res://assets/ingame art assets/characters/rhino_ability.PNG" id="8_a3yvk"]
+
+[node name="AboutMenu" type="Control" unique_id=189732428]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_about")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1885208210]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bg")
+expand_mode = 4
+
+[node name="Paper" type="Control" parent="." unique_id=691690694]
+custom_minimum_size = Vector2(1400, 955)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -700.0
+offset_top = -955.0
+offset_right = 700.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CoverBG" type="TextureRect" parent="Paper" unique_id=1631240482]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_cover")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBox" type="VBoxContainer" parent="Paper" unique_id=932294123]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -300.0
+offset_right = 480.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="TitleLabel" type="Label" parent="Paper/VBox" unique_id=1667570292]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.36, 0.24, 0.13, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 128
+text = "Thank You
+for Playing!"
+horizontal_alignment = 1
+
+[node name="BodyLabel" type="Label" parent="Paper/VBox" unique_id=1547318863]
+custom_minimum_size = Vector2(750, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.36, 0.24, 0.13, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 44
+text = "We hope you enjoyed the journey
+with Fira and friends."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Spacer" type="Control" parent="Paper/VBox" unique_id=1948476809]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SignLabel" type="Label" parent="Paper/VBox" unique_id=1874526776]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.36, 0.24, 0.13, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 56
+text = "- SeedAcademy"
+horizontal_alignment = 2
+
+[node name="HomeButton" type="TextureButton" parent="." unique_id=533020843]
+layout_mode = 1
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 223.0
+offset_bottom = 219.0
+texture_normal = ExtResource("5_home")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Fira" type="TextureRect" parent="." unique_id=1528679273]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.21900001
+anchor_top = 0.77300006
+anchor_right = 0.21900001
+anchor_bottom = 0.77300006
+offset_left = -451.48
+offset_top = -244.84009
+offset_right = 183.51999
+offset_bottom = 349.1599
+rotation = -0.21642083
+texture = ExtResource("6_a3yvk")
+
+[node name="Armadillo" type="TextureRect" parent="." unique_id=1760254447]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.864
+anchor_top = 0.47200003
+anchor_right = 0.864
+anchor_bottom = 0.47200003
+offset_left = -24.880005
+offset_top = -229.76004
+offset_right = 327.12
+offset_bottom = 69.23996
+rotation = 0.7557276
+texture = ExtResource("7_x8opl")
+expand_mode = 1
+flip_h = true
+
+[node name="Ape" type="TextureRect" parent="." unique_id=1788294245]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.81500006
+anchor_top = 0.87000006
+anchor_right = 0.81500006
+anchor_bottom = 0.87000006
+offset_left = 61.19983
+offset_top = -205.60016
+offset_right = 413.19995
+offset_bottom = 93.39978
+rotation = 0.7557276
+texture = ExtResource("8_a3yvk")
+expand_mode = 1
+flip_h = true
+
+[connection signal="pressed" from="HomeButton" to="." method="_on_home_pressed"]

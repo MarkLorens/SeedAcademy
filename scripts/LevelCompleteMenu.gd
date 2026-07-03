@@ -1,9 +1,11 @@
 extends Control
 
 const LEVEL_SELECT := "res://ui/Menu/level_select.tscn"
+const ENDING_SCENE := "res://scenes/ending_scene.tscn"
 
 @onready var attempts_value: Label = $CenterContainer/Paper/VBox/StatsRow/AttemptsBox/Value
 @onready var time_value: Label = $CenterContainer/Paper/VBox/StatsRow/TimeBox/Value
+@onready var doodle: TextureRect = $CenterContainer/Paper/VBox/Doodle
 
 func _ready() -> void:
 	self.visible = false
@@ -13,6 +15,12 @@ func _ready() -> void:
 
 # Called by LevelSceneManager when the player reaches the end checkpoint.
 func show_level_complete(attempts: int, time_seconds: int) -> void:
+	# Show this level's completed graphic (see level_data.complete_image_path).
+	var data: level_data = LevelManager.get_level(
+		LevelManager.index_for_scene(get_tree().current_scene.scene_file_path))
+	if data and not data.complete_image_path.is_empty():
+		doodle.texture = load(data.complete_image_path)
+
 	attempts_value.text = "Attempts: %d" % attempts
 	var mins: int = int(time_seconds / 60.0)
 	var secs: int = time_seconds % 60
@@ -41,8 +49,11 @@ func _on_next_pressed() -> void:
 	get_tree().paused = false
 	var next_scene := _next_level_scene()
 	if next_scene.is_empty():
+		#
+		# TODO: Add the ending scene here
+		#
 		# No next level yet — fall back to the level list.
-		get_tree().change_scene_to_file(LEVEL_SELECT)
+		get_tree().change_scene_to_file(ENDING_SCENE)
 	else:
 		get_tree().change_scene_to_file(next_scene)
 
