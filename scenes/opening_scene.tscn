@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cwysn2nyeiox2" path="res://scripts/OpeningScene.gd" id="1_open"]
 [ext_resource type="Texture2D" uid="uid://b8a8w43gxuh57" path="res://assets/menu/CoverOpened.png" id="2_61xuo"]
-[ext_resource type="Texture2D" uid="uid://cf52orv7y0xxi" path="res://assets/ingame art assets/back:foregrounds/meadow (plains)/bg_meadow_1_sky base.PNG" id="2_j2imu"]
+[ext_resource type="Texture2D" uid="uid://c2kjxg6o5o4c" path="res://assets/ingame art assets/back:foregrounds/meadow (plains)/bg_meadow_1_sky base.PNG" id="2_j2imu"]
 
 [node name="OpeningScene" type="Control" unique_id=1979511466]
 layout_mode = 3
@@ -24,6 +24,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_j2imu")
+expand_mode = 4
 
 [node name="Paper" type="TextureRect" parent="." unique_id=1540394702]
 custom_minimum_size = Vector2(1000, 1000)

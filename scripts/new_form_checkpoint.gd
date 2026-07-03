@@ -25,6 +25,7 @@ func _on_body_entered(body) -> void:
 
 	# Only introduce the form the first time it's acquired this session.
 	if _ui_shown:
+		AudioManager.play_transform(form_to_grant.form_name)
 		return
 	_ui_shown = true
 

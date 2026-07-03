@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c5lvls1q8r0xa"]
 
 [ext_resource type="Script" uid="uid://d13bcakvfsder" path="res://scripts/LevelSelect.gd" id="1_lsel"]
+[ext_resource type="Texture2D" uid="uid://c2kjxg6o5o4c" path="res://assets/ingame art assets/back:foregrounds/meadow (plains)/bg_meadow_1_sky base.PNG" id="2_4vshp"]
 [ext_resource type="Texture2D" uid="uid://b8a8w43gxuh57" path="res://assets/menu/CoverOpened.png" id="2_cover"]
 [ext_resource type="Texture2D" uid="uid://o010y4a7x0st" path="res://assets/Level List/Graphic_Forest.png" id="3_sg4vv"]
 [ext_resource type="Texture2D" uid="uid://q62if1ynqyav" path="res://assets/menu/DeepForest.png" id="4_title"]
@@ -18,6 +19,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lsel")
 
+[node name="Background" type="TextureRect" parent="." unique_id=2118275370]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4vshp")
+expand_mode = 4
+
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=940349284]
 layout_mode = 1
 anchors_preset = 15
@@ -25,8 +36,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-offset_transform_enabled = true
-offset_transform_position = Vector2(0, 60)
 
 [node name="Paper" type="Control" parent="CenterContainer" unique_id=1599219913]
 custom_minimum_size = Vector2(1400, 955)
@@ -39,9 +48,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -1.0
-offset_top = 62.0
 offset_right = -1.0
-offset_bottom = 62.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_cover")
@@ -56,9 +63,9 @@ anchor_top = 0.351
 anchor_right = 0.507
 anchor_bottom = 0.351
 offset_left = -500.80005
-offset_top = -178.20502
+offset_top = -240.20502
 offset_right = 502.19995
-offset_bottom = 724.795
+offset_bottom = 662.795
 theme_override_constants/separation = 0
 
 [node name="GraphicButton" type="TextureButton" parent="CenterContainer/Paper/VBoxContainer" unique_id=351233313]
@@ -111,9 +118,9 @@ anchor_top = 0.59400004
 anchor_right = 0.148
 anchor_bottom = 0.59400004
 offset_left = -441.2
-offset_top = -99.27002
+offset_top = -161.27002
 offset_right = -182.2
-offset_bottom = 122.72998
+offset_bottom = 60.72998
 grow_vertical = 2
 texture_normal = ExtResource("6_left")
 ignore_texture_size = true
@@ -128,9 +135,9 @@ anchor_top = 0.62
 anchor_right = 0.84900004
 anchor_bottom = 0.62
 offset_left = 182.3999
-offset_top = -112.599976
+offset_top = -174.599976
 offset_right = 438.3999
-offset_bottom = 143.40002
+offset_bottom = 81.40002
 grow_horizontal = 0
 grow_vertical = 2
 texture_normal = ExtResource("7_right")

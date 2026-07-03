@@ -14,10 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://b6cd3t06jcai1" path="res://ui/DialogueUI.tscn" id="12_go7sj"]
 [ext_resource type="PackedScene" uid="uid://d2h3l6oyr3lle" path="res://props/DialogueEventTrigger.tscn" id="14_2aecg"]
 [ext_resource type="PackedScene" uid="uid://0qjinmtbtk6j" path="res://props/LevelCompleteCheckpoint.tscn" id="16_7nomh"]
-[ext_resource type="Texture2D" uid="uid://rcqtq2x8qe1r" path="res://assets/ingame art assets/characters/frog_walking_1.PNG" id="17_isj1j"]
+[ext_resource type="Texture2D" uid="uid://6th7oopp2d21" path="res://assets/ingame art assets/characters/frog_walking_1.PNG" id="17_isj1j"]
 [ext_resource type="Script" uid="uid://bm7hck826n3e" path="res://scripts/LevelCamera.gd" id="17_lvlcam"]
 [ext_resource type="Resource" uid="uid://dskh4tkuuj6ee" path="res://form_tres/ape.tres" id="18_isj1j"]
-[ext_resource type="Texture2D" uid="uid://cagciqosrmrhb" path="res://assets/ingame art assets/characters/rhino_walking_1.PNG" id="19_so66j"]
+[ext_resource type="Texture2D" uid="uid://bep0qg0lhai52" path="res://assets/ingame art assets/characters/rhino_walking_1.PNG" id="19_so66j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6dial"]
 texture = ExtResource("3_7gny6")
