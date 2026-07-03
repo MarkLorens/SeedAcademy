@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://cekms7w8expo0" path="res://assets/Action Button/ActionButton-Shield.png" id="1_7q0qy"]
 [ext_resource type="Script" uid="uid://g2g4i4tnygar" path="res://scripts/form_actions/armadillo_action.gd" id="1_24302"]
 [ext_resource type="Script" uid="uid://bx2hrhh8teetw" path="res://scripts/resource/FormData.gd" id="2_24302"]
-[ext_resource type="Texture2D" uid="uid://cjicl0p40um4s" path="res://assets/ingame art assets/characters/temporary characters/armadillo_dynamicsize.PNG" id="2_k187g"]
 [ext_resource type="Texture2D" uid="uid://co7jeatwffdxh" path="res://assets/Emote Wheel/Wheel 1.png" id="4_4n7ox"]
 [ext_resource type="Texture2D" uid="uid://cmhe5dwuo45re" path="res://assets/ingame art assets/characters/armadillo_walking_1.PNG" id="4_t32fb"]
 [ext_resource type="Texture2D" uid="uid://ekmbrl821up0" path="res://assets/ingame art assets/characters/armadillo_walking_2.PNG" id="5_7q0qy"]
@@ -25,7 +24,7 @@ metadata/_custom_type_script = "uid://g2g4i4tnygar"
 [resource]
 script = ExtResource("2_24302")
 form_name = "armadillo"
-form_texture = ExtResource("2_k187g")
+form_texture = ExtResource("4_t32fb")
 walk_frames = Array[Texture2D]([ExtResource("4_t32fb"), ExtResource("5_7q0qy"), ExtResource("6_1c0cu"), ExtResource("7_85coq")])
 run_speed = 1250.0
 action_script = SubResource("Resource_mloqk")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ds3aky0udjho7"
-path="res://.godot/imported/Narasi Akhir-1.png-5793b0ce9639ca6aa52def5c9d414626.ctex"
+uid="uid://bb887my5aj3yf"
+path="res://.godot/imported/3.png-ae46472254a555d35e3813facded782e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Narasi Akhir/Narasi Akhir-1.png"
-dest_files=["res://.godot/imported/Narasi Akhir-1.png-5793b0ce9639ca6aa52def5c9d414626.ctex"]
+source_file="res://assets/Narasi Akhir/3.png"
+dest_files=["res://.godot/imported/3.png-ae46472254a555d35e3813facded782e.ctex"]
 
 [params]
 

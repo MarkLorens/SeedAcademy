@@ -1,6 +1,7 @@
 extends Control
 
 const LEVEL_SELECT := "res://ui/Menu/level_select.tscn"
+const ENDING_SCENE := "res://scenes/ending_scene.tscn"
 
 @onready var attempts_value: Label = $CenterContainer/Paper/VBox/StatsRow/AttemptsBox/Value
 @onready var time_value: Label = $CenterContainer/Paper/VBox/StatsRow/TimeBox/Value
@@ -52,7 +53,7 @@ func _on_next_pressed() -> void:
 		# TODO: Add the ending scene here
 		#
 		# No next level yet — fall back to the level list.
-		get_tree().change_scene_to_file(LEVEL_SELECT)
+		get_tree().change_scene_to_file(ENDING_SCENE)
 	else:
 		get_tree().change_scene_to_file(next_scene)
 
