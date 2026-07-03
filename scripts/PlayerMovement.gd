@@ -189,6 +189,36 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	_update_air_animation()
 
+	_check_lethal_wall()
+
+# Running face-first into a wall is lethal, but only for BreakableLayer tiles or
+# PlatformLayer tiles flagged `deadly` in the TileSet. We only test near-vertical
+# faces opposing movement, so running up ramps (diagonal normal) and standing on
+# top of tiles (upward normal) are always safe regardless of the flag.
+func _check_lethal_wall() -> void:
+	for i in get_slide_collision_count():
+		var col := get_slide_collision(i)
+		var normal := col.get_normal()
+		if normal.x > -0.9 or absf(normal.y) > 0.35:
+			continue  # not a vertical wall facing against us
+		var collider = col.get_collider()
+		if collider is BreakableTileLayer:
+			_die()  # the whole breakable layer is lethal
+			return
+		if collider is TileMapLayer:
+			# Sample the tile just inside the surface and read its custom data.
+			var point: Vector2 = col.get_position() - normal * 4.0
+			var cell: Vector2i = collider.local_to_map(collider.to_local(point))
+			var data: TileData = collider.get_cell_tile_data(cell)
+			if data and data.get_custom_data("deadly"):
+				_die()
+				return
+
+func _die() -> void:
+	var level := get_tree().get_first_node_in_group("level_manager")
+	if level and level.has_method("player_died"):
+		level.player_died()
+
 func _update_dash_timers(delta: float) -> void:
 	if is_dashing:
 		dash_timer -= delta

@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cmtn3cavbs7tu" path="res://ui/LevelUI.tscn" id="12_172wr"]
 [ext_resource type="PackedScene" uid="uid://dp7p1uu7a8kwc" path="res://props/hazards/Spikes.tscn" id="13_g2hoc"]
 [ext_resource type="PackedScene" uid="uid://bqu5mvd3q7agq" path="res://props/hazards/Crusher.tscn" id="14_fldb1"]
+[ext_resource type="PackedScene" uid="uid://0qjinmtbtk6j" path="res://props/LevelCompleteCheckpoint.tscn" id="17_wdtqu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6cvei"]
 texture = ExtResource("2_ne2mo")
@@ -116,6 +117,8 @@ texture_region_size = Vector2i(256, 256)
 [sub_resource type="TileSet" id="TileSet_g2hoc"]
 tile_size = Vector2i(256, 256)
 physics_layer_0/collision_layer = 1
+custom_data_layer_0/name = "deadly"
+custom_data_layer_0/type = 1
 sources/1 = SubResource("TileSetAtlasSource_172wr")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g2hoc"]
@@ -135,12 +138,14 @@ tile_size = Vector2i(256, 256)
 physics_layer_0/collision_layer = 8
 sources/0 = SubResource("TileSetAtlasSource_g2hoc")
 
-[node name="Level2" type="Node" unique_id=1255567890 node_paths=PackedStringArray("attempt_text", "Player", "Camera")]
+[node name="Level2" type="Node" unique_id=1255567890 node_paths=PackedStringArray("attempt_text", "Player", "Camera", "level_complete_checkpoint")]
 script = ExtResource("1_g2hoc")
 attempt_text = NodePath("LevelUI/CanvasLayer/AttemptMargin/Attempts")
 Player = NodePath("Player")
 Camera = NodePath("Camera2D")
 Event_UI_Scene = ExtResource("2_hey2k")
+intro_lines = null
+level_complete_checkpoint = NodePath("LevelCompleteCheckpoint")
 
 [node name="JungleBackground" parent="." unique_id=1863640712 instance=ExtResource("3_fldb1")]
 position = Vector2(-2353, -1630)
@@ -380,6 +385,9 @@ up_velocity = 800.0
 position = Vector2(53891, -409)
 down_velocity = 1500.0
 up_velocity = 800.0
+
+[node name="LevelCompleteCheckpoint" parent="." unique_id=2119744462 instance=ExtResource("17_wdtqu")]
+position = Vector2(73262, 435)
 
 [editable path="LevelUI"]
 [editable path="LevelUI/CanvasLayer/RadialMargin/RadialButton"]
