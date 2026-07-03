@@ -143,7 +143,7 @@ Camera = NodePath("Camera2D")
 Event_UI_Scene = ExtResource("2_hey2k")
 
 [node name="JungleBackground" parent="." unique_id=1863640712 instance=ExtResource("3_fldb1")]
-position = Vector2(-2351, -1924)
+position = Vector2(-2353, -1630)
 
 [node name="BGLayer" type="TileMapLayer" parent="." unique_id=1248394571]
 position = Vector2(0, 1)
