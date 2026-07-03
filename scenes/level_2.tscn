@@ -17,6 +17,10 @@
 [ext_resource type="PackedScene" uid="uid://dp7p1uu7a8kwc" path="res://props/hazards/Spikes.tscn" id="13_g2hoc"]
 [ext_resource type="PackedScene" uid="uid://bqu5mvd3q7agq" path="res://props/hazards/Crusher.tscn" id="14_fldb1"]
 [ext_resource type="PackedScene" uid="uid://0qjinmtbtk6j" path="res://props/LevelCompleteCheckpoint.tscn" id="17_wdtqu"]
+[ext_resource type="PackedScene" uid="uid://d2h3l6oyr3lle" path="res://props/DialogueEventTrigger.tscn" id="18_7qsfm"]
+[ext_resource type="PackedScene" uid="uid://blndefl6ahvhm" path="res://props/NewFormCheckpoint.tscn" id="19_k22d5"]
+[ext_resource type="Resource" uid="uid://bome6pqwaiyfe" path="res://form_tres/armadillo.tres" id="20_k6a82"]
+[ext_resource type="Texture2D" uid="uid://muqtelo3neiv" path="res://assets/ingame art assets/characters/armadillo_walking_1.PNG" id="21_k6a82"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6cvei"]
 texture = ExtResource("2_ne2mo")
@@ -144,8 +148,8 @@ attempt_text = NodePath("LevelUI/CanvasLayer/AttemptMargin/Attempts")
 Player = NodePath("Player")
 Camera = NodePath("Camera2D")
 Event_UI_Scene = ExtResource("2_hey2k")
-intro_lines = null
 level_complete_checkpoint = NodePath("LevelCompleteCheckpoint")
+level_int = 2
 
 [node name="ForestBackground" parent="." unique_id=176740566 instance=ExtResource("3_wdtqu")]
 position = Vector2(1601, -1342)
@@ -388,7 +392,16 @@ down_velocity = 1500.0
 up_velocity = 800.0
 
 [node name="LevelCompleteCheckpoint" parent="." unique_id=2119744462 instance=ExtResource("17_wdtqu")]
-position = Vector2(73262, 435)
+position = Vector2(74292, 431)
+
+[node name="DialogueEventTrigger" parent="." unique_id=531485491 instance=ExtResource("18_7qsfm")]
+position = Vector2(7333, -96)
+lines = Array[String](["A brick wall blocks the path!", "Transform into a Rhino and tap the action button to smash through it!"])
+
+[node name="NewFormCheckpoint" parent="." unique_id=1595220022 instance=ExtResource("19_k22d5")]
+position = Vector2(73391, 312)
+form_to_grant = ExtResource("20_k6a82")
+form_texture = ExtResource("21_k6a82")
 
 [editable path="LevelUI"]
 [editable path="LevelUI/CanvasLayer/RadialMargin/RadialButton"]

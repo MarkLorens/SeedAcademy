@@ -13,11 +13,13 @@
 [ext_resource type="Texture2D" uid="uid://brhkxw86c1yts" path="res://assets/spritesheets/breakable-sprite-sheet.png" id="8_ema3p"]
 [ext_resource type="Script" uid="uid://sspf8gc7udxc" path="res://scripts/BreakableTileLayer.gd" id="9_8uepa"]
 [ext_resource type="PackedScene" uid="uid://cmtn3cavbs7tu" path="res://ui/LevelUI.tscn" id="10_q7pjq"]
+[ext_resource type="Resource" uid="uid://bome6pqwaiyfe" path="res://form_tres/armadillo.tres" id="10_wa6ex"]
 [ext_resource type="Script" uid="uid://bm7hck826n3e" path="res://scripts/LevelCamera.gd" id="11_8uepa"]
 [ext_resource type="PackedScene" uid="uid://byycomofmvfbj" path="res://props/hazards/Turrets.tscn" id="14_p3r0x"]
 [ext_resource type="PackedScene" uid="uid://dp7p1uu7a8kwc" path="res://props/hazards/Spikes.tscn" id="15_5xqnf"]
 [ext_resource type="PackedScene" uid="uid://bqu5mvd3q7agq" path="res://props/hazards/Crusher.tscn" id="16_una4e"]
 [ext_resource type="PackedScene" uid="uid://0qjinmtbtk6j" path="res://props/LevelCompleteCheckpoint.tscn" id="19_q7pjq"]
+[ext_resource type="PackedScene" uid="uid://d2h3l6oyr3lle" path="res://props/DialogueEventTrigger.tscn" id="19_wa6ex"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wa6ex"]
 texture = ExtResource("1_vcx5n")
@@ -148,6 +150,7 @@ Camera = NodePath("Camera2D")
 Event_UI_Scene = ExtResource("2_q2dsb")
 intro_lines = Array[String](["Rawr"])
 level_complete_checkpoint = NodePath("LevelCompleteCheckpoint")
+level_int = 3
 
 [node name="JungleBackground" parent="." unique_id=1863640712 instance=ExtResource("3_ema3p")]
 position = Vector2(-2352, -1630)
@@ -160,7 +163,7 @@ tile_set = SubResource("TileSet_sx8yt")
 [node name="Player" parent="." unique_id=1742630827 instance=ExtResource("2_56dhn")]
 position = Vector2(-3808, 143)
 scale = Vector2(1, 1)
-forms = Array[ExtResource("3_ax3dk")]([ExtResource("4_q2dsb"), ExtResource("5_p3r0x"), ExtResource("6_5xqnf")])
+forms = Array[ExtResource("3_ax3dk")]([ExtResource("4_q2dsb"), ExtResource("5_p3r0x"), ExtResource("6_5xqnf"), ExtResource("10_wa6ex")])
 dash_speed = 2750.0
 dash_cooldown = 0.5
 
@@ -712,6 +715,10 @@ position = Vector2(97917, -3261)
 
 [node name="LevelCompleteCheckpoint" parent="." unique_id=2119744462 instance=ExtResource("19_q7pjq")]
 position = Vector2(124497, 392)
+
+[node name="DialogueEventTrigger" parent="." unique_id=531485491 instance=ExtResource("19_wa6ex")]
+position = Vector2(-801, -86)
+lines = Array[String](["Look out! Hunters are firing darts!", "Transform into an Armadillo and roll!"])
 
 [editable path="LevelUI"]
 [editable path="LevelUI/CanvasLayer/RadialMargin/RadialButton"]
