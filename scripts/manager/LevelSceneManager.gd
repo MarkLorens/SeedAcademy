@@ -7,8 +7,8 @@ extends Node
 @export var Event_UI_Scene: PackedScene
 @export var intro_lines: Array[String] = [
 	"The animals need your help!",
-	"Run through the forest and lead them to safety.", "
-	Along the way, magical animals will share \n their powers with you.",
+	"Run through the forest and lead them to safety.", 
+	"Along the way, magical animals will share \n their powers with you.",
 ]
 
 @export var level_complete_checkpoint : Area2D
@@ -62,24 +62,26 @@ func level_completed() -> void:
 
 # Reset everything on new game
 func new_game(just_died: bool):
-	
-	if not just_died and intro_event:
-		_show_intro_event()
-	elif not intro_event:
-		_on_intro_finished()
-	else:
+	if just_died:
 		Player.position = PLAYER_START_POS
 		# Teleport: skip interpolation this frame so the respawn doesn't smear.
 		Player.reset_physics_interpolation()
-		# Re-arm any spikes that fell during the previous attempt.
+		# Drop any forms unlocked mid-level (e.g. frog from a checkpoint).
+		Player.reset_forms()
+		# Re-arm any spikes that fell and rebuild any walls broken last attempt.
 		get_tree().call_group("spikes", "reset")
+		get_tree().call_group("breakables", "reset")
 		attempts += 1
 		attempt_text.text = "Attempt %d" % attempts
 		attempt_text.get_parent().show()
-		
+
 		await get_tree().create_timer(1.0).timeout
-		
+
 		attempt_text.get_parent().hide()
+	elif intro_event:
+		_show_intro_event()
+	else:
+		_on_intro_finished()
 
 func _show_intro_event() -> void:
 	Player.velocity = Vector2i(0, 0)
@@ -89,9 +91,6 @@ func _show_intro_event() -> void:
 	eventUI.dialogue_finished.connect(_on_intro_finished)
 
 func player_died() -> void:
-	if Player.is_shielded:
-		return
-	
 	AudioManager.play_sfx(AudioManager.SFX_FAIL)
 	LevelManager.save_progress_for_scene(get_tree().current_scene.scene_file_path, calculate_progress_percentage())
 	new_game(true)
