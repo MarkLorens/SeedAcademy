@@ -274,11 +274,11 @@ position = Vector2(42111, 894)
 
 [node name="DialogueEventTrigger" parent="." unique_id=531485491 instance=ExtResource("14_2aecg")]
 position = Vector2(3933, -73)
-lines = Array[String](["Watch out! Hunters have planted a spike pit ahead.", "Fira can dash to cross large gaps.", "Dash over it by tapping the right button."])
+lines = Array[String](["Watch out! Hunters have planted spike pits ahead.", "Fira can dash to cross large gaps.", "Dash over it by tapping the right button."])
 
 [node name="DialogueEventTrigger2" parent="." unique_id=78568718 instance=ExtResource("14_2aecg")]
 position = Vector2(10545, -103)
-lines = Array[String](["Hunters have planted a falling spikes above!. "])
+lines = Array[String](["Hunters have planted falling spikes above!. "])
 
 [node name="DialogueEventTrigger4" parent="." unique_id=275736630 instance=ExtResource("14_2aecg")]
 position = Vector2(26460, -183)
@@ -328,6 +328,7 @@ progress = 10.0
 visible = true
 
 [node name="PauseButton" parent="LevelUI/CanvasLayer" parent_id_path=PackedInt32Array(1469804206, 1472738757) index="4" unique_id=539774867]
+custom_minimum_size = Vector2(100, 100)
 offset_left = -100.0
 offset_bottom = 100.0
 
@@ -344,7 +345,7 @@ form_to_grant = ExtResource("12_7nomh")
 form_texture = ExtResource("17_isj1j")
 
 [node name="NewFormCheckpoint2" parent="." unique_id=566749134 instance=ExtResource("9_2y5yt")]
-position = Vector2(53863, -907)
+position = Vector2(53868, -978)
 form_to_grant = ExtResource("18_isj1j")
 form_texture = ExtResource("19_so66j")
 
