@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://chc7n4i6pwohc" path="res://assets/Action Button/ActionButton-Jump.png" id="1_8cq8q"]
 [ext_resource type="Script" uid="uid://b3oujte8eps7m" path="res://scripts/form_actions/frog_action.gd" id="1_mloqk"]
-[ext_resource type="Texture2D" uid="uid://b5qolu1hbh7g2" path="res://assets/ingame art assets/characters/temporary characters/frog_samesize.PNG" id="2_fgmyk"]
 [ext_resource type="Script" uid="uid://bx2hrhh8teetw" path="res://scripts/resource/FormData.gd" id="3_fgmyk"]
 [ext_resource type="Texture2D" uid="uid://6th7oopp2d21" path="res://assets/ingame art assets/characters/frog_walking_1.PNG" id="4_cb2yb"]
 [ext_resource type="Texture2D" uid="uid://ipmuk3ukwp46" path="res://assets/Emote Wheel/Wheel Unlock 2-1.png" id="4_fgmyk"]
@@ -18,7 +17,7 @@ metadata/_custom_type_script = "uid://b3oujte8eps7m"
 [resource]
 script = ExtResource("3_fgmyk")
 form_name = "frog"
-form_texture = ExtResource("2_fgmyk")
+form_texture = ExtResource("4_cb2yb")
 walk_frames = Array[Texture2D]([ExtResource("4_cb2yb"), ExtResource("5_8cq8q"), ExtResource("6_135tw"), ExtResource("7_518h5")])
 run_speed = 1400.0
 jump_speed = -3000.0

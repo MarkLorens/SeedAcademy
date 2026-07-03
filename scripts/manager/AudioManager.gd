@@ -6,6 +6,7 @@ extends Node
 
 const MUSIC := preload("res://assets/Sounds/Music/MAIN MENU MUSIC.ogg")
 const GAMEPLAY_MUSIC := preload("res://assets/Sounds/Music/IN GAME MUSIC.ogg")
+const CREDIT_MUSIC := preload("res://assets/Sounds/Music/CREDITS MUSIC.ogg")
 
 const SFX_BUTTON := preload("res://assets/Sounds/Sound Effects/UI/Button.mp3")
 const SFX_DASH := preload("res://assets/Sounds/Sound Effects/Fira/Fira Dash.mp3")
@@ -46,6 +47,9 @@ func play_menu_music() -> void:
 ## Start the in-game music. Safe to call from every level's _ready.
 func play_gameplay_music() -> void:
 	_play_music(GAMEPLAY_MUSIC)
+	
+func play_credit_music() -> void:
+	_play_music(CREDIT_MUSIC)
 
 ## Switch to `stream`, restarting only when the track actually changes.
 func _play_music(stream: AudioStream) -> void:
