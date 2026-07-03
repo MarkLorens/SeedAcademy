@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c5sym1ls2gkxb" path="res://props/player_forms/Player.tscn" id="2_56dhn"]
 [ext_resource type="PackedScene" uid="uid://b6cd3t06jcai1" path="res://ui/DialogueUI.tscn" id="2_q2dsb"]
 [ext_resource type="Script" uid="uid://bx2hrhh8teetw" path="res://scripts/resource/FormData.gd" id="3_ax3dk"]
-[ext_resource type="PackedScene" uid="uid://rs7301aqj778" path="res://props/bg/JungleBackground.tscn" id="3_ema3p"]
+[ext_resource type="PackedScene" uid="uid://cgym5qnarhnsg" path="res://props/bg/MountainBackground.tscn" id="3_q7pjq"]
 [ext_resource type="Resource" uid="uid://dleraek6mun4q" path="res://form_tres/human.tres" id="4_q2dsb"]
 [ext_resource type="Resource" uid="uid://dex1t3kuntlgn" path="res://form_tres/frog.tres" id="5_p3r0x"]
 [ext_resource type="Resource" uid="uid://dskh4tkuuj6ee" path="res://form_tres/ape.tres" id="6_5xqnf"]
@@ -151,8 +151,8 @@ intro_lines = Array[String](["Rawr"])
 level_complete_checkpoint = NodePath("LevelCompleteCheckpoint")
 level_int = 3
 
-[node name="JungleBackground" parent="." unique_id=1863640712 instance=ExtResource("3_ema3p")]
-position = Vector2(-2352, -1630)
+[node name="MountainBackground" parent="." unique_id=1076276017 instance=ExtResource("3_q7pjq")]
+position = Vector2(1583, -328)
 
 [node name="BGLayer" type="TileMapLayer" parent="." unique_id=1612506312]
 position = Vector2(0, 1)
