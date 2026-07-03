@@ -41,6 +41,7 @@ func _on_trigger_entered(body: Node2D) -> void:
 		return
 		
 	triggered = true
+	AudioManager.play_sfx(AudioManager.SFX_SPIKE_TURUN)
 	if triggerDelay > 0.0:
 		await get_tree().create_timer(triggerDelay).timeout
 

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://chy6xipxm0npv"
+path="res://.godot/imported/Rhino Headbutt.mp3-b98b2f231d706775b2e6e0799da744c5.mp3str"
+
+[deps]
+
+source_file="res://assets/Sounds/Sound Effects/Rhino/Rhino Headbutt.mp3"
+dest_files=["res://.godot/imported/Rhino Headbutt.mp3-b98b2f231d706775b2e6e0799da744c5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

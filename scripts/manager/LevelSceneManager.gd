@@ -6,13 +6,14 @@ extends Node
 @export var Camera: Camera2D
 @export var Event_UI_Scene: PackedScene
 @export var intro_lines: Array[String] = [
-	"\"Hey you.\"",
-	"\"You're finally awake.\"",
-	"\"Lorem Ipsum and whatnot.\"",
+	"The animals need your help!",
+	"Run through the forest and lead them to safety.", "
+	Along the way, magical animals will share \n their powers with you.",
 ]
 
 @export var level_complete_checkpoint : Area2D
 @export var level_int : int
+@export var intro_event: bool
 
 const PLAYER_START_POS := Vector2(-100, 280)
 var attempts := 1
@@ -62,8 +63,10 @@ func level_completed() -> void:
 # Reset everything on new game
 func new_game(just_died: bool):
 	
-	if not just_died:
+	if not just_died and intro_event:
 		_show_intro_event()
+	elif not intro_event:
+		_on_intro_finished()
 	else:
 		Player.position = PLAYER_START_POS
 		# Teleport: skip interpolation this frame so the respawn doesn't smear.

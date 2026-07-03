@@ -12,6 +12,7 @@ var skip_next_intro := false
 var levels: Array[level_data] = [
 	preload("res://level_tres/level_1.tres"),
 	preload("res://level_tres/level_2.tres"),
+	preload("res://level_tres/level_3.tres"),
 ]
 
 func get_level(index: int) -> level_data:
