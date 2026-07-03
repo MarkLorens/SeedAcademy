@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb61eobgh68rh"
-path="res://.godot/imported/ControllerButton.png-d24ad43f33fabe9fece11bb7104704ce.ctex"
+uid="uid://byg2lqnbd180o"
+path="res://.godot/imported/bg_forest_4_far grass.PNG-0a4cd3caa67b32a57f4f3b1ee61838a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/temporary_assets_danu_no_judge/ControllerButton.png"
-dest_files=["res://.godot/imported/ControllerButton.png-d24ad43f33fabe9fece11bb7104704ce.ctex"]
+source_file="res://assets/ingame art assets/back:foregrounds/forest/bg_forest_4_far grass.PNG"
+dest_files=["res://.godot/imported/bg_forest_4_far grass.PNG-0a4cd3caa67b32a57f4f3b1ee61838a2.ctex"]
 
 [params]
 

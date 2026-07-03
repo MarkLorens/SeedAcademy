@@ -8,7 +8,6 @@
 [node name="JungleBackground" type="Node2D" unique_id=1863640712]
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1753422793]
-texture_filter = 1
 scroll_scale = Vector2(0.6, 1)
 scroll_offset = Vector2(0, 1)
 repeat_size = Vector2(7877, 0)
