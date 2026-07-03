@@ -178,18 +178,18 @@ tile_set = SubResource("TileSet_wu3ic")
 script = ExtResource("9_8uepa")
 
 [node name="Turrets" parent="." unique_id=1818455521 instance=ExtResource("14_p3r0x")]
-position = Vector2(6561, 230)
+position = Vector2(6228, -2291)
 is_long_range = true
 projectile_speed = 1000.0
 projectile_range = 6000.0
 
 [node name="Turrets2" parent="." unique_id=1271695105 instance=ExtResource("14_p3r0x")]
-position = Vector2(12794, 233)
+position = Vector2(12461, -2288)
 projectile_speed = 1000.0
 projectile_range = 6000.0
 
 [node name="Turrets3" parent="." unique_id=32663448 instance=ExtResource("14_p3r0x")]
-position = Vector2(18772, 233)
+position = Vector2(18439, -2288)
 projectile_speed = 1000.0
 projectile_range = 6000.0
 

@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b8mh20iwdgwed" path="res://assets/ingame art assets/characters/temporary characters/rhino_samesize.PNG" id="2_gryqo"]
 [ext_resource type="Texture2D" uid="uid://cagciqosrmrhb" path="res://assets/ingame art assets/characters/rhino_walking_1.PNG" id="4_e3cpp"]
 [ext_resource type="Texture2D" uid="uid://c1f7rlnj5ogqk" path="res://assets/Emote Wheel/Wheel Unlock 3-1 .png" id="4_wgvxy"]
+[ext_resource type="Texture2D" uid="uid://dr4h670hpajk8" path="res://assets/temporary_assets_danu_no_judge/Player_Resized.png" id="4_yfqoc"]
 [ext_resource type="Texture2D" uid="uid://coae0ldlbqyq3" path="res://assets/Emote Wheel/Wheel Unlock 3-2.png" id="5_gryqo"]
 [ext_resource type="Texture2D" uid="uid://cm6mkojhtbdvg" path="res://assets/ingame art assets/characters/rhino_walking_2.PNG" id="5_hys1x"]
 [ext_resource type="Texture2D" uid="uid://mafm48xrtj5" path="res://assets/Emote Wheel/Wheel Unlock 3-3.png" id="6_4wxqa"]
@@ -28,3 +29,4 @@ wheel_menu_forms = Array[Texture2D]([ExtResource("4_wgvxy"), ExtResource("5_gryq
 new_form_guide = "Rhino bulldozes through walls!"
 action_button = ExtResource("1_hys1x")
 ability_frames = Array[Texture2D]([ExtResource("8_abil")])
+falling_frames = Array[Texture2D]([ExtResource("4_yfqoc")])
