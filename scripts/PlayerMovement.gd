@@ -96,9 +96,12 @@ func set_form(index: int) -> void:
 	current_form_index = index
 	current_form = forms[index]
 	_build_walk_animation(current_form)
+	
+	action_button.texture_normal = current_form.action_button
 
-# Build a "walk" animation from the form's frames. Forms with no walk_frames
-# fall back to a single-frame animation of their static form_texture.
+# Build "walk" and "ability" animations from the form's frames. Forms with no
+# walk_frames fall back to a single-frame animation of their static
+# form_texture; forms with no ability_frames simply have no "ability" animation.
 func _build_walk_animation(form: FormData) -> void:
 	var frames := SpriteFrames.new()
 	frames.remove_animation("default")
@@ -111,7 +114,22 @@ func _build_walk_animation(form: FormData) -> void:
 	else:
 		for tex in form.walk_frames:
 			frames.add_frame("walk", tex)
+	if not form.ability_frames.is_empty():
+		frames.add_animation("ability")
+		frames.set_animation_loop("ability", true)
+		frames.set_animation_speed("ability", form.ability_fps)
+		for tex in form.ability_frames:
+			frames.add_frame("ability", tex)
 	sprite.sprite_frames = frames
+	sprite.play("walk")
+
+# Swap to the form's ability sprite while its action is active.
+# Forms without ability frames (e.g. frog) keep their walk sprite.
+func show_ability_sprite() -> void:
+	if sprite.sprite_frames.has_animation("ability"):
+		sprite.play("ability")
+
+func show_walk_sprite() -> void:
 	sprite.play("walk")
 
 func _physics_process(delta: float) -> void:
@@ -136,6 +154,7 @@ func _update_dash_timers(delta: float) -> void:
 		if dash_timer <= 0.0:
 			is_dashing = false
 			velocity.y = 0.0
+			show_walk_sprite()
 	if not can_dash:
 		cooldown_timer -= delta
 		if cooldown_timer <= 0.0:
@@ -149,6 +168,7 @@ func start_dash() -> void:
 	dash_timer = dash_duration
 	cooldown_timer = dash_cooldown
 	velocity.y = 0.0
+	show_ability_sprite()
 
 func unlock_form(new_form: FormData) -> void:
 	if new_form in forms:

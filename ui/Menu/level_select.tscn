@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d13bcakvfsder" path="res://scripts/LevelSelect.gd" id="1_lsel"]
 [ext_resource type="Texture2D" uid="uid://b8a8w43gxuh57" path="res://assets/menu/CoverOpened.png" id="2_cover"]
-[ext_resource type="Texture2D" uid="uid://c7ffl6w7mes2k" path="res://assets/menu/DeepForestGraphic1.png" id="3_graphic"]
+[ext_resource type="Texture2D" uid="uid://o010y4a7x0st" path="res://assets/Level List/Graphic_Forest.png" id="3_sg4vv"]
 [ext_resource type="Texture2D" uid="uid://q62if1ynqyav" path="res://assets/menu/DeepForest.png" id="4_title"]
 [ext_resource type="Texture2D" uid="uid://cegn6ewxppp7a" path="res://assets/menu/HomeButton.png" id="5_home"]
 [ext_resource type="Texture2D" uid="uid://dabya00peyew" path="res://assets/menu/LevelLeft.png" id="6_left"]
@@ -55,19 +55,20 @@ anchor_left = 0.507
 anchor_top = 0.5
 anchor_right = 0.507
 anchor_bottom = 0.5
-offset_left = -501.80005
-offset_top = -145.5
-offset_right = 501.19995
-offset_bottom = 401.5
-theme_override_constants/separation = 200
+offset_left = -500.80005
+offset_top = -287.5
+offset_right = 502.19995
+offset_bottom = 615.5
+theme_override_constants/separation = 0
 
 [node name="GraphicButton" type="TextureButton" parent="CenterContainer/Paper/VBoxContainer" unique_id=351233313]
-custom_maximum_size = Vector2(400, 400)
+custom_minimum_size = Vector2(1000, 400)
+custom_maximum_size = Vector2(1000, 1000)
 layout_mode = 2
 size_flags_horizontal = 4
-texture_normal = ExtResource("3_graphic")
+texture_normal = ExtResource("3_sg4vv")
 ignore_texture_size = true
-stretch_mode = 3
+stretch_mode = 5
 
 [node name="VBox" type="VBoxContainer" parent="CenterContainer/Paper/VBoxContainer" unique_id=1164739903]
 layout_mode = 2
