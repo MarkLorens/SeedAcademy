@@ -33,8 +33,10 @@ var is_charging := false
 var charge_time := 0.0
 # Event Handler
 var can_move := false
-# True while in a form that grants invulnerability (e.g. armadillo).
 var is_shielded := false
+# True while an ability/dash sprite is being shown, so the air animation doesn't
+# override it.
+var _ability_active := false
 
 func _ready() -> void:
 	add_to_group("player")
@@ -96,8 +98,16 @@ func set_form(index: int) -> void:
 	current_form_index = index
 	current_form = forms[index]
 	_build_walk_animation(current_form)
-	
+
 	action_button.texture_normal = current_form.action_button
+
+# Build "walk", plus optional "ability"/"jump"/"falling" animations from the
+# form's frames. Forms with no walk_frames fall back to a single-frame animation
+# of their static form_texture; optional animations are skipped when their frame
+# list is empty.
+	# No sound for the initial form applied during _ready.
+	if is_node_ready():
+		AudioManager.play_transform(current_form.form_name)
 
 # Build "walk" and "ability" animations from the form's frames. Forms with no
 # walk_frames fall back to a single-frame animation of their static
@@ -114,23 +124,53 @@ func _build_walk_animation(form: FormData) -> void:
 	else:
 		for tex in form.walk_frames:
 			frames.add_frame("walk", tex)
-	if not form.ability_frames.is_empty():
-		frames.add_animation("ability")
-		frames.set_animation_loop("ability", true)
-		frames.set_animation_speed("ability", form.ability_fps)
-		for tex in form.ability_frames:
-			frames.add_frame("ability", tex)
+	_add_optional_anim(frames, "ability", form.ability_frames, form.ability_fps)
+	_add_optional_anim(frames, "jump", form.jump_frames, form.jump_fps)
+	_add_optional_anim(frames, "falling", form.falling_frames, form.falling_fps)
 	sprite.sprite_frames = frames
 	sprite.play("walk")
+
+func _add_optional_anim(frames: SpriteFrames, anim: String, textures: Array[Texture2D], fps: float) -> void:
+	if textures.is_empty():
+		return
+	frames.add_animation(anim)
+	frames.set_animation_loop(anim, true)
+	frames.set_animation_speed(anim, fps)
+	for tex in textures:
+		frames.add_frame(anim, tex)
+
+# Picks walk / jump / falling from the current physics state. Rising uses the
+# "jump" sprite, any other airborne state uses "falling" (covers ledge falls);
+# forms without those frames just keep walking. Skipped while an ability or dash
+# controls the sprite explicitly.
+func _update_air_animation() -> void:
+	if is_dashing or _ability_active:
+		return
+	var frames := sprite.sprite_frames
+	if not is_on_floor():
+		if velocity.y < 0.0 and frames.has_animation("jump"):
+			_play_anim("jump")
+		elif frames.has_animation("falling"):
+			_play_anim("falling")
+		else:
+			_play_anim("walk")
+	else:
+		_play_anim("walk")
+
+func _play_anim(anim: String) -> void:
+	if sprite.animation != anim:
+		sprite.play(anim)
 
 # Swap to the form's ability sprite while its action is active.
 # Forms without ability frames (e.g. frog) keep their walk sprite.
 func show_ability_sprite() -> void:
+	_ability_active = true
 	if sprite.sprite_frames.has_animation("ability"):
 		sprite.play("ability")
 
 func show_walk_sprite() -> void:
-	sprite.play("walk")
+	_ability_active = false
+	_update_air_animation()
 
 func _physics_process(delta: float) -> void:
 	_update_dash_timers(delta)
@@ -145,8 +185,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = current_form.run_speed
 		velocity.y += GRAVITY * current_form.gravity_scale * delta
-	
+
 	move_and_slide()
+	_update_air_animation()
 
 func _update_dash_timers(delta: float) -> void:
 	if is_dashing:
@@ -169,6 +210,7 @@ func start_dash() -> void:
 	cooldown_timer = dash_cooldown
 	velocity.y = 0.0
 	show_ability_sprite()
+	AudioManager.play_sfx(AudioManager.SFX_DASH)
 
 func unlock_form(new_form: FormData) -> void:
 	if new_form in forms:

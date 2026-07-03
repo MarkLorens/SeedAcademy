@@ -20,6 +20,12 @@ var _cooldown_left := 0.0
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
+	if is_long_range:
+		$ShotTriggerZone.disabled = true
+		$LongShotTriggerZone.disabled = false
+	else:
+		$LongShotTriggerZone.disabled = true
+		$ShotTriggerZone.disabled = false
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):

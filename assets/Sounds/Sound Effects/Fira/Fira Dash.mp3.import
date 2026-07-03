@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bcvev7nh12q62"
+path="res://.godot/imported/Fira Dash.mp3-42aa1212179d7e5290da51c8709b19e3.mp3str"
+
+[deps]
+
+source_file="res://assets/Sounds/Sound Effects/Fira/Fira Dash.mp3"
+dest_files=["res://.godot/imported/Fira Dash.mp3-42aa1212179d7e5290da51c8709b19e3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

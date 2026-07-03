@@ -58,6 +58,9 @@ stretch_mode = 5
 
 [node name="NewFormGuide" type="Label" parent="CanvasLayer/Container/HBoxContainer2" unique_id=912132787]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_73jnv")
+theme_override_font_sizes/font_size = 64
+text = "asdasdasdasd"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Container" unique_id=1640400264]
 layout_mode = 2

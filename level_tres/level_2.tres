@@ -5,5 +5,8 @@
 [resource]
 script = ExtResource("1_cg61j")
 name = "Level 2"
+scene_path = "uid://b4jsedfasf0ig"
 title = "uid://q62if1ynqyav"
-graphic = "uid://q62if1ynqyav"
+graphic = "uid://o010y4a7x0st"
+complete_image_path = "uid://dhfbm8xjkj6v0"
+locked = true

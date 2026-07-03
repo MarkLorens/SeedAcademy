@@ -24,6 +24,9 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		var level := get_tree().get_first_node_in_group("level_manager")
+		if body.is_shielded:
+			queue_free()
+			return
 		if level and level.has_method("player_died"):
 			level.player_died()
 	queue_free()  # disappear on hitting anything
