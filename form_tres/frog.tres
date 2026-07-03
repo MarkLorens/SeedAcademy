@@ -30,4 +30,4 @@ new_form_guide = "Jump higher the longer you hold the action button!"
 action_button = ExtResource("1_8cq8q")
 ability_frames = Array[Texture2D]([ExtResource("5_8cq8q")])
 jump_frames = Array[Texture2D]([ExtResource("5_8cq8q")])
-falling_frames = Array[Texture2D]([ExtResource("7_518h5")])
+falling_frames = Array[Texture2D]([null])

@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://bx2hrhh8teetw" path="res://scripts/resource/FormData.gd" id="1_mm5lq"]
 [ext_resource type="Texture2D" uid="uid://g13lbteqska8" path="res://assets/Action Button/ActionButton-Dash.png" id="1_ya0qg"]
 [ext_resource type="Texture2D" uid="uid://ct5yexrw2bu5v" path="res://assets/ingame art assets/characters/temporary characters/fira.PNG" id="2_shmhx"]
-[ext_resource type="Texture2D" uid="uid://dgbqvsgmtx3rv" path="res://assets/menu/stats/Stats2.png" id="4_h5pe1"]
 [ext_resource type="Texture2D" uid="uid://ie5skpqls73d" path="res://assets/Emote Wheel/Wheel unlock 1.png" id="4_shmhx"]
 [ext_resource type="Texture2D" uid="uid://bo8plnoxot81r" path="res://assets/ingame art assets/characters/fira_walking_1.PNG" id="4_u01ct"]
 [ext_resource type="Texture2D" uid="uid://dada3es0h1loy" path="res://assets/ingame art assets/characters/fira_walking_2.PNG" id="5_ya0qg"]
@@ -28,4 +27,3 @@ wheel_menu_forms = Array[Texture2D]([ExtResource("4_shmhx")])
 new_form_guide = "Fira dashes nimbly as she likes."
 action_button = ExtResource("1_ya0qg")
 ability_frames = Array[Texture2D]([ExtResource("8_abil")])
-falling_frames = Array[Texture2D]([ExtResource("4_h5pe1")])
