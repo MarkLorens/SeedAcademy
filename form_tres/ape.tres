@@ -2,10 +2,16 @@
 
 [ext_resource type="Script" uid="uid://drp47dq265ee" path="res://scripts/form_actions/ape_action.gd" id="1_0syon"]
 [ext_resource type="Script" uid="uid://bx2hrhh8teetw" path="res://scripts/resource/FormData.gd" id="1_6j8ln"]
+[ext_resource type="Texture2D" uid="uid://cdy0hkjw22xox" path="res://assets/Action Button/ActionButton-Break.png" id="1_hys1x"]
 [ext_resource type="Texture2D" uid="uid://b8mh20iwdgwed" path="res://assets/ingame art assets/characters/temporary characters/rhino_samesize.PNG" id="2_gryqo"]
+[ext_resource type="Texture2D" uid="uid://cagciqosrmrhb" path="res://assets/ingame art assets/characters/rhino_walking_1.PNG" id="4_e3cpp"]
 [ext_resource type="Texture2D" uid="uid://c1f7rlnj5ogqk" path="res://assets/Emote Wheel/Wheel Unlock 3-1 .png" id="4_wgvxy"]
 [ext_resource type="Texture2D" uid="uid://coae0ldlbqyq3" path="res://assets/Emote Wheel/Wheel Unlock 3-2.png" id="5_gryqo"]
+[ext_resource type="Texture2D" uid="uid://cm6mkojhtbdvg" path="res://assets/ingame art assets/characters/rhino_walking_2.PNG" id="5_hys1x"]
 [ext_resource type="Texture2D" uid="uid://mafm48xrtj5" path="res://assets/Emote Wheel/Wheel Unlock 3-3.png" id="6_4wxqa"]
+[ext_resource type="Texture2D" uid="uid://cep73dj8a1gvg" path="res://assets/ingame art assets/characters/rhino_walking_3.PNG" id="6_fecvf"]
+[ext_resource type="Texture2D" uid="uid://ig61l8nwn40" path="res://assets/ingame art assets/characters/rhino_walking_4.PNG" id="7_yfqoc"]
+[ext_resource type="Texture2D" uid="uid://b0podtpaikn8g" path="res://assets/ingame art assets/characters/rhino_ability.PNG" id="8_abil"]
 
 [sub_resource type="Resource" id="Resource_surk0"]
 script = ExtResource("1_0syon")
@@ -15,7 +21,10 @@ metadata/_custom_type_script = "uid://drp47dq265ee"
 script = ExtResource("1_6j8ln")
 form_name = "ape"
 form_texture = ExtResource("2_gryqo")
+walk_frames = Array[Texture2D]([ExtResource("4_e3cpp"), ExtResource("5_hys1x"), ExtResource("6_fecvf"), ExtResource("7_yfqoc")])
 run_speed = 1250.0
 action_script = SubResource("Resource_surk0")
 wheel_menu_forms = Array[Texture2D]([ExtResource("4_wgvxy"), ExtResource("5_gryqo"), ExtResource("6_4wxqa")])
 new_form_guide = "Rhino bulldozes through walls!"
+action_button = ExtResource("1_hys1x")
+ability_frames = Array[Texture2D]([ExtResource("8_abil")])

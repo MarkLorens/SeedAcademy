@@ -16,3 +16,9 @@ class_name FormData
 @export var min_jump_speed: float = 0
 @export var wheel_menu_forms: Array[Texture2D]
 @export var new_form_guide: String
+@export var action_button: Texture2D
+## Sprite(s) shown while the form's ability is active (1 = static, 2+ = animation).
+## Leave empty to keep the walk sprite during the ability (e.g. frog).
+@export var ability_frames: Array[Texture2D] = []
+## Frames per second for the ability animation.
+@export var ability_fps: float = 10.0
