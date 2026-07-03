@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yht1wpm7n47n"
-path="res://.godot/imported/water_dispenser.PNG-df9e6c531baecf445b11aff2f52e8e70.ctex"
+uid="uid://cw1hqnhrk2hj7"
+path="res://.godot/imported/bg_forest_3_main trees.PNG-c87ace5d59f73569474933d5e17492ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/temporary_assets_danu_no_judge/water_dispenser.PNG"
-dest_files=["res://.godot/imported/water_dispenser.PNG-df9e6c531baecf445b11aff2f52e8e70.ctex"]
+source_file="res://assets/ingame art assets/back:foregrounds/forest/bg_forest_3_main trees.PNG"
+dest_files=["res://.godot/imported/bg_forest_3_main trees.PNG-c87ace5d59f73569474933d5e17492ba.ctex"]
 
 [params]
 

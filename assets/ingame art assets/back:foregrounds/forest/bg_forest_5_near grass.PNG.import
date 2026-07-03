@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3gtq1cd75qdg"
-path="res://.godot/imported/plx-3.v1.png-472c3653657bffa4201f46972be606fc.ctex"
+uid="uid://tu2tnxbqu4md"
+path="res://.godot/imported/bg_forest_5_near grass.PNG-a1fb8d271732b68272931c8c27a774b0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/temporary_assets_danu_no_judge/plx-3.v1.png"
-dest_files=["res://.godot/imported/plx-3.v1.png-472c3653657bffa4201f46972be606fc.ctex"]
+source_file="res://assets/ingame art assets/back:foregrounds/forest/bg_forest_5_near grass.PNG"
+dest_files=["res://.godot/imported/bg_forest_5_near grass.PNG-a1fb8d271732b68272931c8c27a774b0.ctex"]
 
 [params]
 

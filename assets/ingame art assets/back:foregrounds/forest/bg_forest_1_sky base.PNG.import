@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://covhuedd6p3k8"
-path="res://.godot/imported/plx-4.v1.png-692d9680d9d6d64e772f2b526ca04670.ctex"
+uid="uid://oitehsrne61i"
+path="res://.godot/imported/bg_forest_1_sky base.PNG-b67d950b8ed22c3ae77ddf58868a6f57.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/temporary_assets_danu_no_judge/plx-4.v1.png"
-dest_files=["res://.godot/imported/plx-4.v1.png-692d9680d9d6d64e772f2b526ca04670.ctex"]
+source_file="res://assets/ingame art assets/back:foregrounds/forest/bg_forest_1_sky base.PNG"
+dest_files=["res://.godot/imported/bg_forest_1_sky base.PNG-b67d950b8ed22c3ae77ddf58868a6f57.ctex"]
 
 [params]
 

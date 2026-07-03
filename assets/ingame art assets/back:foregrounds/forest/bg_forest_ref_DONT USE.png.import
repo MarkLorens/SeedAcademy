@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://eo3yral5qnqf"
-path="res://.godot/imported/caution_wet_floor_w.PNG-f72b43208dad5556ac01dd5c6fbe97d2.ctex"
+uid="uid://b53uwhadnnhn6"
+path="res://.godot/imported/bg_forest_ref_DONT USE.png-c53366ded73e6cbd5ce4aa8542ed4f06.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/temporary_assets_danu_no_judge/caution_wet_floor_w.PNG"
-dest_files=["res://.godot/imported/caution_wet_floor_w.PNG-f72b43208dad5556ac01dd5c6fbe97d2.ctex"]
+source_file="res://assets/ingame art assets/back:foregrounds/forest/bg_forest_ref_DONT USE.png"
+dest_files=["res://.godot/imported/bg_forest_ref_DONT USE.png-c53366ded73e6cbd5ce4aa8542ed4f06.ctex"]
 
 [params]
 

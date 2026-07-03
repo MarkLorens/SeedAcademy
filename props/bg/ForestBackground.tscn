@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cikc47qpyv4jj"]
+
+[ext_resource type="Texture2D" uid="uid://oitehsrne61i" path="res://assets/ingame art assets/back:foregrounds/forest/bg_forest_1_sky base.PNG" id="1_m8hp7"]
+[ext_resource type="Texture2D" uid="uid://ps44sov0bb24" path="res://assets/ingame art assets/back:foregrounds/forest/bg_forest_2_back trees.PNG" id="2_wpe1x"]
+[ext_resource type="Texture2D" uid="uid://cw1hqnhrk2hj7" path="res://assets/ingame art assets/back:foregrounds/forest/bg_forest_3_main trees.PNG" id="3_votyc"]
+[ext_resource type="Texture2D" uid="uid://byg2lqnbd180o" path="res://assets/ingame art assets/back:foregrounds/forest/bg_forest_4_far grass.PNG" id="4_svtte"]
+[ext_resource type="Texture2D" uid="uid://tu2tnxbqu4md" path="res://assets/ingame art assets/back:foregrounds/forest/bg_forest_5_near grass.PNG" id="5_l0g2b"]
+
+[node name="ForestBackground" type="Node2D" unique_id=176740566]
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=967426556]
+scroll_scale = Vector2(0.5, 1)
+scroll_offset = Vector2(0, 1)
+repeat_size = Vector2(7877, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1679476132]
+texture = ExtResource("1_m8hp7")
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=1372629459]
+scroll_scale = Vector2(0.6, 1)
+scroll_offset = Vector2(0, 1)
+repeat_size = Vector2(7877, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D2" unique_id=289210005]
+texture = ExtResource("2_wpe1x")
+
+[node name="Parallax2D3" type="Parallax2D" parent="." unique_id=146249312]
+scroll_scale = Vector2(0.7, 1)
+scroll_offset = Vector2(0, 1)
+repeat_size = Vector2(7877, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D3" unique_id=133636628]
+texture = ExtResource("3_votyc")
+
+[node name="Parallax2D4" type="Parallax2D" parent="." unique_id=712685963]
+scroll_scale = Vector2(0.8, 1)
+scroll_offset = Vector2(0, 1)
+repeat_size = Vector2(7877, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D4" unique_id=1290760790]
+texture = ExtResource("4_svtte")
+
+[node name="Parallax2D5" type="Parallax2D" parent="." unique_id=152892489]
+scroll_scale = Vector2(0.9, 1)
+scroll_offset = Vector2(0, 1)
+repeat_size = Vector2(7877, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D5" unique_id=2051050854]
+texture = ExtResource("5_l0g2b")
