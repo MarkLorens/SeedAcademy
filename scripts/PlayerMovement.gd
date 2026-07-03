@@ -40,6 +40,12 @@ var is_shielded := false
 # override it.
 var _ability_active := false
 
+# Transform-spin timing (seconds): one flip segment, and the pause facing back.
+const TRANSFORM_FLIP := 0.08
+const TRANSFORM_BACK_HOLD := 0.06
+var _base_scale_x: float = 1.0
+var _transform_tween: Tween
+
 func _ready() -> void:
 	add_to_group("player")
 	attack_hitbox.monitoring = false
@@ -48,6 +54,8 @@ func _ready() -> void:
 	$ShieldCol.monitorable = false
 	# Remember the starting forms so mid-level unlocks can be dropped on death.
 	_initial_forms = forms.duplicate()
+	# The sprite's normal horizontal scale, so the transform spin returns to it.
+	_base_scale_x = sprite.scale.x
 	set_form(0)
 	
 	assert(radial_button, "CRITICAL: Radial button node was not found!")
@@ -89,8 +97,23 @@ func _on_action_up() -> void:
 
 # Fired by the radial menu when a slice is chosen on release.
 func _on_form_selected(index: int) -> void:
-	if index >= 0 and index < self.forms.size():
-		self.set_form(index)
+	if index < 0 or index >= self.forms.size() or index == current_form_index:
+		return
+	_play_transform_spin(index)
+
+# Asset-free transform: the sprite squashes edge-on (hiding the form swap at the
+# thinnest point), grows back mirrored so the new form faces away, then flips
+# around to face forward again.
+func _play_transform_spin(index: int) -> void:
+	if _transform_tween and _transform_tween.is_valid():
+		_transform_tween.kill()
+		sprite.scale.x = _base_scale_x
+	_transform_tween = create_tween()
+	_transform_tween.tween_property(sprite, "scale:x", 0.0, TRANSFORM_FLIP)
+	_transform_tween.tween_callback(set_form.bind(index))  # swap hidden at the edge
+	_transform_tween.tween_property(sprite, "scale:x", -_base_scale_x, TRANSFORM_FLIP)
+	_transform_tween.tween_interval(TRANSFORM_BACK_HOLD)   # linger facing back
+	_transform_tween.tween_property(sprite, "scale:x", _base_scale_x, TRANSFORM_FLIP)
 
 # Fired by action button
 func action_pressed() -> void:
