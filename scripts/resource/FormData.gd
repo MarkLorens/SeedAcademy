@@ -22,3 +22,10 @@ class_name FormData
 @export var ability_frames: Array[Texture2D] = []
 ## Frames per second for the ability animation.
 @export var ability_fps: float = 10.0
+## Sprite(s) shown while rising (moving upward in the air). 1 = static, 2+ = anim.
+@export var jump_frames: Array[Texture2D] = []
+@export var jump_fps: float = 10.0
+## Sprite(s) shown while falling (airborne and not rising). Also covers walking
+## off ledges, not just the jump ability.
+@export var falling_frames: Array[Texture2D] = []
+@export var falling_fps: float = 10.0
