@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b8a8w43gxuh57" path="res://assets/menu/CoverOpened.png" id="3_cover"]
 [ext_resource type="FontFile" uid="uid://pyolfstly3un" path="res://assets/fonts/Lilita_One/LilitaOne-Regular.ttf" id="4_font"]
 [ext_resource type="Texture2D" uid="uid://cegn6ewxppp7a" path="res://assets/menu/HomeButton.png" id="5_home"]
-[ext_resource type="Texture2D" uid="uid://ct5yexrw2bu5v" path="res://assets/ingame art assets/characters/temporary characters/fira.PNG" id="6_r22ra"]
+[ext_resource type="Texture2D" uid="uid://chcr5y253vvdy" path="res://assets/ingame art assets/characters/fira_walking_1.PNG" id="6_a3yvk"]
 [ext_resource type="Texture2D" uid="uid://cmhe5dwuo45re" path="res://assets/ingame art assets/characters/armadillo_walking_1.PNG" id="7_x8opl"]
 [ext_resource type="Texture2D" uid="uid://5464g7dp7g6d" path="res://assets/ingame art assets/characters/rhino_ability.PNG" id="8_a3yvk"]
 
@@ -123,7 +123,7 @@ offset_top = -244.84009
 offset_right = 183.51999
 offset_bottom = 349.1599
 rotation = -0.21642083
-texture = ExtResource("6_r22ra")
+texture = ExtResource("6_a3yvk")
 
 [node name="Armadillo" type="TextureRect" parent="." unique_id=1760254447]
 layout_mode = 1
