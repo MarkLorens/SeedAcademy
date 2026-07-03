@@ -69,6 +69,7 @@ func reset() -> void:
 	global_position = original_position
 	triggered = false
 	landed = false
+	velocity = Vector2.ZERO
 	# Teleport: don't let physics interpolation smear the jump back up.
 	reset_physics_interpolation()
 
