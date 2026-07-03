@@ -1,8 +1,11 @@
 extends Control
 
+var progress: int 
+
 func _ready() -> void:
 	self.visible = false
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	AudioManager.wire_buttons(self)
 
 func show_pause() -> void:
 	self.visible = true
@@ -10,14 +13,17 @@ func show_pause() -> void:
 	$"../RadialMargin".visible = false
 	$"../PauseButton".visible = false
 	get_tree().paused = true
+	
 	_refresh_progress()
+	save_highest_progress()
 
 # Pull this level's progress from the LevelManager database; keep the
 # scene's exported value when the current scene isn't in it.
 func _refresh_progress() -> void:
-	var pct: float = LevelManager.get_progress_for_scene(get_tree().current_scene.scene_file_path)
-	if pct >= 0.0:
-		$CenterContainer/Paper/VBoxContainer/ProgressBar.progress = pct
+	#var pct: float = LevelManager.get_progress_for_scene(get_tree().current_scene.scene_file_path)
+	progress = $"../../..".calculate_progress_percentage()
+	if progress >= 0.0:
+		$CenterContainer/Paper/VBoxContainer/ProgressBar.progress = progress
 
 func hide_pause() -> void:
 	self.visible = false
@@ -40,6 +46,9 @@ func _on_home_pressed() -> void:
 func _on_list_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://ui/Menu/level_select.tscn")
+	
+func save_highest_progress() -> void:
+	LevelManager.save_progress_for_scene(get_tree().current_scene.scene_file_path, progress)
 
 func _on_settings_pressed() -> void:
 	# TODO: hook up the settings screen.

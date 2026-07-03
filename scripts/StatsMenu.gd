@@ -14,6 +14,8 @@ const MAIN_MENU := "res://ui/Menu/main_menu.tscn"
 @onready var time_value: Label = $CenterContainer/Paper/VBox/NotesRow/TimeNote/Value
 
 func _ready() -> void:
+	AudioManager.play_menu_music()
+	AudioManager.wire_buttons(self)
 	_refresh()
 
 func _refresh() -> void:

@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://cy40kcqqkykwd"]
 
-[ext_resource type="Texture2D" uid="uid://tvq56yw1u4fg" path="res://icon.svg" id="1_4gfpj"]
+[ext_resource type="Texture2D" uid="uid://evfjm8lo5hy8" path="res://assets/menu/Pause Button.png" id="1_4gfpj"]
 
 [node name="PauseButton" type="Control" unique_id=539774867]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,4 +16,3 @@ layout_mode = 1
 offset_left = -128.0
 offset_bottom = 128.0
 texture_normal = ExtResource("1_4gfpj")
-texture_pressed = ExtResource("1_4gfpj")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bdgf3wyn5bi6u"
+path="res://.godot/imported/Armadillo Transform.mp3-b4fcdd4fc83338aab8f6d20a0f524009.mp3str"
+
+[deps]
+
+source_file="res://assets/Sounds/Sound Effects/Armadillo/Armadillo Transform.mp3"
+dest_files=["res://.godot/imported/Armadillo Transform.mp3-b4fcdd4fc83338aab8f6d20a0f524009.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

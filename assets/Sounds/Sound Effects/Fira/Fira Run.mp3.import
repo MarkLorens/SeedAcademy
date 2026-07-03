@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c1vr14er1oinp"
+path="res://.godot/imported/Fira Run.mp3-42925d28b4dab932731e6604d6fbf5fc.mp3str"
+
+[deps]
+
+source_file="res://assets/Sounds/Sound Effects/Fira/Fira Run.mp3"
+dest_files=["res://.godot/imported/Fira Run.mp3-42925d28b4dab932731e6604d6fbf5fc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

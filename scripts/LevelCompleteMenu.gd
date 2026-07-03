@@ -9,6 +9,7 @@ func _ready() -> void:
 	self.visible = false
 	# Keep working while the tree is paused.
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	AudioManager.wire_buttons(self)
 
 # Called by LevelSceneManager when the player reaches the end checkpoint.
 func show_level_complete(attempts: int, time_seconds: int) -> void:
@@ -48,12 +49,11 @@ func _on_next_pressed() -> void:
 # Path of the next level in the LevelManager database that has a scene,
 # or "" when there is none after the current one.
 func _next_level_scene() -> String:
-	var current_path: String = get_tree().current_scene.scene_file_path
-	for i in LevelManager.levels.size():
-		if str(LevelManager.levels[i].get("scene", "")) == current_path:
-			for j in range(i + 1, LevelManager.levels.size()):
-				var next := str(LevelManager.levels[j].get("scene", ""))
-				if not next.is_empty():
-					return next
-			break
+	var i := LevelManager.index_for_scene(get_tree().current_scene.scene_file_path)
+	if i < 0:
+		return ""
+	for j in range(i + 1, LevelManager.levels.size()):
+		var next: level_data = LevelManager.levels[j]
+		if not next.scene_path.is_empty():
+			return next.scene_path
 	return ""
