@@ -1,18 +1,18 @@
 [gd_scene format=3 uid="uid://dc30faqa0ix7p"]
 
 [ext_resource type="Texture2D" uid="uid://blgt3dgfmm1fm" path="res://assets/ingame art assets/level platform tiles/dart.PNG" id="1_dart"]
-[ext_resource type="Script" path="res://scripts/Projectile.gd" id="2_proj"]
+[ext_resource type="Script" uid="uid://cfuoacv24esql" path="res://scripts/Projectile.gd" id="2_proj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hit"]
 size = Vector2(160, 36)
 
-[node name="Projectile" type="Area2D"]
+[node name="Projectile" type="Area2D" unique_id=912419314]
 script = ExtResource("2_proj")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1844366571]
 texture = ExtResource("1_dart")
 offset = Vector2(0, 14)
 
-[node name="ProjectileHitZone" type="CollisionShape2D" parent="."]
+[node name="ProjectileHitZone" type="CollisionShape2D" parent="." unique_id=224375510]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_hit")
