@@ -8,7 +8,7 @@ signal dialogue_finished
 
 var current_line := 0
 
-@onready var label: Label = $NewGameDialogues/MarginContainer/DialogueLabel
+@onready var label: Label = $NewGameDialogues/MarginContainer/CardPanel/DialogueLabel
 @onready var next_button: Button = $NewGameDialogues/MarginContainer/NextButton
 
 func _ready() -> void:
