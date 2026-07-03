@@ -85,5 +85,11 @@ func _refresh() -> void:
 
 func _on_play_pressed() -> void:
 	var data: level_data = levels[current]
-	if not data.locked and not data.scene_path.is_empty():
+	if data.locked or data.scene_path.is_empty():
+		return
+	# Levels with an opening cinematic go there first; the cinematic
+	# chains to the level itself (OpeningScene.next_scene_path).
+	if not data.cinematic_path.is_empty():
+		get_tree().change_scene_to_file(data.cinematic_path)
+	else:
 		get_tree().change_scene_to_file(data.scene_path)

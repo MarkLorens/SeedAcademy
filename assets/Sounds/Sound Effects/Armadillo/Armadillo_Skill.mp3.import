@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d0ppxtmq22e2f"
+path="res://.godot/imported/Armadillo_Skill.mp3-2ce2e11842c1442c067555644fe78003.mp3str"
+
+[deps]
+
+source_file="res://assets/Sounds/Sound Effects/Armadillo/Armadillo_Skill.mp3"
+dest_files=["res://.godot/imported/Armadillo_Skill.mp3-2ce2e11842c1442c067555644fe78003.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

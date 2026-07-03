@@ -139,12 +139,12 @@ sources/0 = SubResource("TileSetAtlasSource_1s4pk")
 
 [node name="Level1" type="Node" unique_id=257814844 node_paths=PackedStringArray("attempt_text", "Player", "Camera", "level_complete_checkpoint")]
 script = ExtResource("1_4nkto")
-Event_UI_Scene = ExtResource("12_go7sj")
-level_int = 1
 attempt_text = NodePath("LevelUI/CanvasLayer/AttemptMargin/Attempts")
 Player = NodePath("Player")
 Camera = NodePath("Camera2D")
+Event_UI_Scene = ExtResource("12_go7sj")
 level_complete_checkpoint = NodePath("LevelCompleteCheckpoint")
+level_int = 1
 
 [node name="JungleBackground" parent="." unique_id=1863640712 instance=ExtResource("3_isj1j")]
 position = Vector2(-2350, -1630)

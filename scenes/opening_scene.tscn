@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://bvx03cnl8heg1"]
+
+[ext_resource type="Script" uid="uid://cwysn2nyeiox2" path="res://scripts/OpeningScene.gd" id="1_open"]
+[ext_resource type="Texture2D" path="res://assets/Narasi Awal/1.jpeg" id="2_2w8es"]
+[ext_resource type="Texture2D" uid="uid://b8a8w43gxuh57" path="res://assets/menu/CoverOpened.png" id="2_61xuo"]
+[ext_resource type="Texture2D" uid="uid://cf52orv7y0xxi" path="res://assets/ingame art assets/back:foregrounds/meadow (plains)/bg_meadow_1_sky base.PNG" id="2_j2imu"]
+
+[node name="OpeningScene" type="Control" unique_id=1979511466]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_open")
+fade_in_time = 0.5
+hold_time = 2.0
+fade_out_time = 0.5
+
+[node name="Background" type="TextureRect" parent="." unique_id=931109010]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j2imu")
+
+[node name="Paper" type="TextureRect" parent="." unique_id=1540394702]
+custom_minimum_size = Vector2(1000, 1000)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 210.0
+offset_top = 144.0
+offset_right = -195.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_61xuo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ImageDisplay" type="TextureRect" parent="." unique_id=1819399099]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.20300001
+anchor_top = 0.19796298
+anchor_right = 0.81600004
+anchor_bottom = 0.962963
+offset_left = -48.76001
+offset_top = -12.800018
+offset_right = 37.279907
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_2w8es")
+expand_mode = 1
+stretch_mode = 6
+metadata/_edit_use_anchors_ = true
