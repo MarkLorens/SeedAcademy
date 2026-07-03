@@ -78,10 +78,6 @@ func _on_action_up() -> void:
 	is_charging = false
 	charge_bar.visible = false
 	
-	
-	print("Charge Time: ", charge_time)
-	print("Max Charge Time: ", max_charge_time)
-	
 	var charge_ratio: float = charge_time / max_charge_time
 	current_form.action_script.on_release(self, current_form, charge_ratio)
 
@@ -121,7 +117,6 @@ func _build_walk_animation(form: FormData) -> void:
 func _physics_process(delta: float) -> void:
 	_update_dash_timers(delta)
 
-	# Freeze the walk cycle on its current frame while the player is stationary.
 	sprite.speed_scale = 1.0 if can_move else 0.0
 
 	if not can_move:

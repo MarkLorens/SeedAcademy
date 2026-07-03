@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dwhbst82mgghc" path="res://ui/Menu/PauseMenu.tscn" id="3_okjyp"]
 [ext_resource type="FontFile" uid="uid://pyolfstly3un" path="res://assets/fonts/Lilita_One/LilitaOne-Regular.ttf" id="5_v0jhs"]
 [ext_resource type="PackedScene" uid="uid://cy40kcqqkykwd" path="res://ui/Button/PauseButton.tscn" id="6_ic7kd"]
+[ext_resource type="PackedScene" path="res://ui/Menu/LevelCompleteMenu.tscn" id="7_lvlc"]
 
 [node name="LevelUI" type="Control" unique_id=1469804206]
 layout_mode = 3
@@ -60,6 +61,9 @@ offset_right = 558.0
 offset_bottom = -38.0
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=355216389 instance=ExtResource("3_okjyp")]
+visible = false
+
+[node name="LevelCompleteMenu" parent="CanvasLayer" instance=ExtResource("7_lvlc")]
 visible = false
 
 [node name="PauseButton" parent="CanvasLayer" unique_id=539774867 instance=ExtResource("6_ic7kd")]

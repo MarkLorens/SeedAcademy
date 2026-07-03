@@ -12,11 +12,11 @@ var levels: Array[Dictionary] = []
 
 var current := 0
 
-@onready var graphic_button: TextureButton = $CenterContainer/Paper/VBox/GraphicButton
-@onready var title_image: TextureRect = $CenterContainer/Paper/VBox/TitleImage
-@onready var title_label: Label = $CenterContainer/Paper/VBox/TitleLabel
-@onready var progress_bar = $CenterContainer/Paper/VBox/ProgressBar
-@onready var dots: HBoxContainer = $CenterContainer/Paper/VBox/Dots
+@onready var graphic_button: TextureButton = $CenterContainer/Paper/VBoxContainer/GraphicButton
+@onready var title_image: TextureRect = $CenterContainer/Paper/VBoxContainer/VBox/TitleImage
+@onready var title_label: Label = $CenterContainer/Paper/VBoxContainer/VBox/TitleLabel
+@onready var progress_bar = $CenterContainer/Paper/VBoxContainer/VBox/ProgressBar
+@onready var dots: HBoxContainer = $CenterContainer/Paper/VBoxContainer/VBox/Dots
 @onready var prev_button: TextureButton = $PrevButton
 @onready var next_button: TextureButton = $NextButton
 @onready var home_button: TextureButton = $HomeButton
