@@ -8,27 +8,27 @@ extends Node
 # dialogue. LevelSceneManager consumes (and resets) it in new_game().
 var skip_next_intro := false
 
-var levels: Array[Dictionary] = [
+@export var levels: Array[Dictionary] = [
 	{
-		"name": "Deep Forest",
+		"name": "Meadow",
 		"scene": "res://scenes/level_1.tscn",
-		"title": "res://assets/menu/DeepForest.png",
-		"graphic": "res://assets/menu/DeepForestGraphic2.png",
-		"progress": 10.0,
-	},
-	{
-		"name": "Level 2",
-		"scene": "",
-		"title": "",
-		"graphic": "res://assets/menu/DeepForestGraphic1.png",
+		"title": "res://assets/Level List/Meadow.png",
+		"graphic": "res://assets/Level List/Graphic_Meadow.png",
 		"progress": 0.0,
 	},
 	{
-		"name": "Level 3",
+		"name": "Deep Forest",
 		"scene": "",
-		"title": "",
-		"graphic": "res://assets/menu/DeepForestGraphic1.png",
-		"progress": 100.0,
+		"title": "res://assets/Level List/Deep Forest.png",
+		"graphic": "res://assets/Level List/Graphic_Forest.png",
+		"progress": 0.0,
+	},
+	{
+		"name": "Mountain",
+		"scene": "",
+		"title": "res://assets/Level List/Meadow.png",
+		"graphic": "res://assets/Level List/Graphic_Mountain.png",
+		"progress": 0.0,
 	},
 ]
 
