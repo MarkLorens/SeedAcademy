@@ -10,7 +10,7 @@ extends Control
 @export_file("*.tscn") var next_scene_path := "res://scenes/level_1.tscn"
 
 const IMAGE_DIR := "res://assets/Narasi Awal/"
-const IMAGE_COUNT := 7
+const IMAGE_COUNT := 5
 
 @onready var image_display: TextureRect = $ImageDisplay
 
