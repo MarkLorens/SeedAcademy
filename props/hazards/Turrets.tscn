@@ -4,18 +4,27 @@
 [ext_resource type="Script" uid="uid://b0yjxll3g6fr2" path="res://scripts/Turret.gd" id="3_turret"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fey80"]
-size = Vector2(5511.5, 2369.5)
+size = Vector2(3900.75, 2369.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6kwvf"]
+size = Vector2(11912, 2372)
 
 [node name="Turrets" type="Area2D" unique_id=1818455521]
 script = ExtResource("3_turret")
 projectile_range = 2000.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1572658030]
+scale = Vector2(2, 2)
 texture = ExtResource("1_pd6fd")
 
 [node name="ShotTriggerZone" type="CollisionShape2D" parent="." unique_id=1647716524]
-position = Vector2(-2958, -6)
+position = Vector2(-2152.625, -6)
 shape = SubResource("RectangleShape2D_fey80")
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=538653324]
-position = Vector2(-160, 0)
+position = Vector2(-258, 0)
+
+[node name="LongShotTriggerZone" type="CollisionShape2D" parent="." unique_id=198612475]
+position = Vector2(-6156, -5)
+shape = SubResource("RectangleShape2D_6kwvf")
+debug_color = Color(0.8372975, 0.22840345, 0.77292895, 0.41960785)
