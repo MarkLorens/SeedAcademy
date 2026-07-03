@@ -8,7 +8,7 @@ const INDICATOR_ON := preload("res://assets/menu/IndicatorOn.png")
 const INDICATOR_OFF := preload("res://assets/menu/IndicatorOff.png")
 
 # Level pages come from the LevelManager autoload (the level database).
-var levels: Array[Dictionary] = []
+var levels: Array[level_data] = []
 
 var current := 0
 
@@ -22,6 +22,8 @@ var current := 0
 @onready var home_button: TextureButton = $HomeButton
 
 func _ready() -> void:
+	AudioManager.play_menu_music()
+	AudioManager.wire_buttons(self)
 	levels = LevelManager.levels
 	graphic_button.pressed.connect(_on_play_pressed)
 	prev_button.pressed.connect(func(): _go(current - 1))
@@ -49,26 +51,25 @@ func _go(index: int) -> void:
 
 # Update everything to reflect the current page.
 func _refresh() -> void:
-	var data: Dictionary = levels[current]
+	var data: level_data = levels[current]
 
 	# Title: use the level's title image when it has one, else a plain label.
-	var title_path := str(data.get("title", ""))
-	title_image.visible = not title_path.is_empty()
-	title_label.visible = title_path.is_empty()
-	if not title_path.is_empty():
-		title_image.texture = load(title_path)
+	title_image.visible = not data.title.is_empty()
+	title_label.visible = data.title.is_empty()
+	if not data.title.is_empty():
+		title_image.texture = load(data.title)
 	else:
-		title_label.text = str(data.get("name", "Level %d" % (current + 1)))
+		title_label.text = data.name if not data.name.is_empty() else "Level %d" % (current + 1)
 
-	# Level doodle — tapping it starts the level.
-	var graphic_path := str(data.get("graphic", ""))
+	# Level doodle — tapping it starts the level. Completed levels show
+	# the full graphic instead of the doodle.
+	var graphic_path := data.complete_image_path if data.completed and not data.complete_image_path.is_empty() else data.graphic
 	graphic_button.texture_normal = load(graphic_path) if not graphic_path.is_empty() else null
 
-	progress_bar.progress = float(data.get("progress", 0.0))
+	progress_bar.progress = float(data.progress)
 
-	# Dim the graphic when this level's scene isn't set yet.
-	var scene_path := str(data.get("scene", ""))
-	graphic_button.disabled = scene_path.is_empty()
+	# Dim the graphic when the level is locked or its scene isn't set yet.
+	graphic_button.disabled = data.locked or data.scene_path.is_empty()
 	graphic_button.modulate = Color(1, 1, 1, 0.4) if graphic_button.disabled else Color.WHITE
 
 	# Arrows stop at the ends.
@@ -83,6 +84,6 @@ func _refresh() -> void:
 		dot.texture = INDICATOR_ON if i == current else INDICATOR_OFF
 
 func _on_play_pressed() -> void:
-	var scene_path := str(levels[current].get("scene", ""))
-	if not scene_path.is_empty():
-		get_tree().change_scene_to_file(scene_path)
+	var data: level_data = levels[current]
+	if not data.locked and not data.scene_path.is_empty():
+		get_tree().change_scene_to_file(data.scene_path)

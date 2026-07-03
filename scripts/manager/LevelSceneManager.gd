@@ -11,7 +11,10 @@ extends Node
 	"\"Lorem Ipsum and whatnot.\"",
 ]
 
-const PLAYER_START_POS := Vector2i(-100, 280)
+@export var level_complete_checkpoint : Area2D
+@export var level_int : int
+
+const PLAYER_START_POS := Vector2(-100, 280)
 var attempts := 1
 var level_time := 0.0
 
@@ -27,6 +30,7 @@ var _level_done := false
 
 func _ready() -> void:
 	add_to_group("level_manager")
+	AudioManager.stop_music()
 
 	assert(pause_menu, "CRITICAL: PAUSE MENU is not CONNECTED")
 	assert(pause_button, "CRITICAL: PAUSE BUTTON is not CONNECTED")
@@ -46,11 +50,13 @@ func level_completed() -> void:
 	if _level_done:
 		return
 	_level_done = true
+	LevelManager.complete_level_for_scene(get_tree().current_scene.scene_file_path)
 
 	Camera.lock_end()
 	await get_tree().create_timer(4.0).timeout
 
 	Player.can_move = false
+	AudioManager.play_sfx(AudioManager.SFX_LEVEL_COMPLETE)
 	level_complete_menu.show_level_complete(attempts, int(level_time))
 
 # Reset everything on new game
@@ -80,9 +86,32 @@ func _show_intro_event() -> void:
 	eventUI.dialogue_finished.connect(_on_intro_finished)
 
 func player_died() -> void:
+	if Player.is_shielded:
+		return
+	
+	AudioManager.play_sfx(AudioManager.SFX_FAIL)
+	LevelManager.save_progress_for_scene(get_tree().current_scene.scene_file_path, calculate_progress_percentage())
 	new_game(true)
 
 func _on_intro_finished() -> void:
 	Player.can_move = true
 	speed = START_SPEED
 	pass
+
+func calculate_progress_percentage() -> float: 
+	var total_path = level_complete_checkpoint.position.x - PLAYER_START_POS.x
+	var player_path = Player.position.x - PLAYER_START_POS.x
+
+	# Calculate the progress ratio (0.0 to 1.0) using the dot product
+	var progress_ratio = player_path / total_path
+
+	# Clamp the result so progress doesn't go below 0% or above 100%
+	var final_progress = clamp(progress_ratio, 0.0, 1.0)
+
+	# Optional: Convert to a percentage (0 to 100)
+	print("Total Path: ", total_path)
+	print("Player Path: ", player_path)
+	print("Progress Ratio: ", progress_ratio)
+	
+	print(int(final_progress * 100))
+	return int(final_progress * 100)

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cwf04joi8vllh"
+path="res://.godot/imported/Frog Walk.mp3-5002b3e26cff14d40e2440a87480f036.mp3str"
+
+[deps]
+
+source_file="res://assets/Sounds/Sound Effects/Frog/Frog Walk.mp3"
+dest_files=["res://.godot/imported/Frog Walk.mp3-5002b3e26cff14d40e2440a87480f036.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://p74j2rkjyqk5"
+path="res://.godot/imported/Frog Transform.mp3-09aedda01d6e633af6cc09ba8bb09812.mp3str"
+
+[deps]
+
+source_file="res://assets/Sounds/Sound Effects/Frog/Frog Transform.mp3"
+dest_files=["res://.godot/imported/Frog Transform.mp3-09aedda01d6e633af6cc09ba8bb09812.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

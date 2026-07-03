@@ -95,8 +95,12 @@ func set_form(index: int) -> void:
 	current_form_index = index
 	current_form = forms[index]
 	_build_walk_animation(current_form)
-	
+
 	action_button.texture_normal = current_form.action_button
+
+	# No sound for the initial form applied during _ready.
+	if is_node_ready():
+		AudioManager.play_transform(current_form.form_name)
 
 # Build "walk" and "ability" animations from the form's frames. Forms with no
 # walk_frames fall back to a single-frame animation of their static
@@ -168,6 +172,7 @@ func start_dash() -> void:
 	cooldown_timer = dash_cooldown
 	velocity.y = 0.0
 	show_ability_sprite()
+	AudioManager.play_sfx(AudioManager.SFX_DASH)
 
 func unlock_form(new_form: FormData) -> void:
 	if new_form in forms:
