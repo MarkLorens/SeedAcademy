@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="level_data" format=3 uid="uid://2kyajthr0l8u"]
+
+[ext_resource type="Script" uid="uid://dqiqd0nd3t4sg" path="res://scripts/resource/level_data.gd" id="1_23s4l"]
+
+[resource]
+script = ExtResource("1_23s4l")
+name = "Mountain"
+scene_path = "uid://bwd306cv3k20e"
+title = "uid://ckqq5g77lyr2h"
+graphic = "uid://csqisxemr1xsi"
+complete_image_path = "uid://chbj1vacmckg4"
+locked = true
