@@ -6,6 +6,7 @@
 script = ExtResource("1_w8jk0")
 name = "Meadow"
 scene_path = "uid://dcgb0j3s34ycs"
+cinematic_path = "res://scenes/opening_scene.tscn"
 title = "uid://b34vde6j8rjhq"
 graphic = "uid://dwbelx4utjo7i"
 complete_image_path = "uid://cs0fxuww1ped5"

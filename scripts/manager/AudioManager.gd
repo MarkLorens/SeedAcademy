@@ -12,6 +12,10 @@ const SFX_FAIL := preload("res://assets/Sounds/Sound Effects/Fira/Fira Fail.mp3"
 const SFX_SUCCESS := preload("res://assets/Sounds/Sound Effects/Fira/Fira Success.mp3")
 const SFX_FROG_JUMP := preload("res://assets/Sounds/Sound Effects/Frog/Frog Jump.mp3")
 const SFX_LEVEL_COMPLETE := preload("res://assets/Sounds/Sound Effects/Level Complete/Level Complete.mp3")
+const SFX_OBJECT_BREAK := preload("res://assets/Sounds/Sound Effects/UI/Object Break.mp3")
+const SFX_SPIKE_TURUN := preload("res://assets/Sounds/Sound Effects/UI/Spike Turun.mp3")
+const SFX_ARMADILLO_SKILL := preload("res://assets/Sounds/Sound Effects/Armadillo/Armadillo_Skill.mp3")
+const SFX_RHINO_HEADBUTT := preload("res://assets/Sounds/Sound Effects/Rhino/Rhino Headbutt.mp3")
 
 # Keyed by FormData.form_name.
 const TRANSFORM_SFX := {

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhkbvmwtpplb4"
+path="res://.godot/imported/Object Break.mp3-2f6f8bd159ee5bb8fb1033e41e417c51.mp3str"
+
+[deps]
+
+source_file="res://assets/Sounds/Sound Effects/UI/Object Break.mp3"
+dest_files=["res://.godot/imported/Object Break.mp3-2f6f8bd159ee5bb8fb1033e41e417c51.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
