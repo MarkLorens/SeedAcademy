@@ -67,6 +67,9 @@ func _refresh() -> void:
 	graphic_button.texture_normal = load(graphic_path) if not graphic_path.is_empty() else null
 
 	progress_bar.progress = float(data.progress)
+	progress_bar.set_level_textures(
+		load(data.progress_fill) if not data.progress_fill.is_empty() else null,
+		load(data.progress_edge) if not data.progress_edge.is_empty() else null)
 
 	# Dim the graphic when the level is locked or its scene isn't set yet.
 	graphic_button.disabled = data.locked or data.scene_path.is_empty()

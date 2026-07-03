@@ -10,3 +10,4 @@ func on_release(player: CharacterBody2D, form: FormData, charge_ratio: float) ->
 		print(lerp(form.min_jump_speed, form.jump_speed, charge_ratio))
 		player.velocity.y = lerp(form.min_jump_speed, form.jump_speed, charge_ratio)
 		AudioManager.play_sfx(AudioManager.SFX_FROG_JUMP)
+		StatsManager.add_jump()

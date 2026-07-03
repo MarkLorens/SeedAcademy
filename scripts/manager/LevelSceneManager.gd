@@ -31,7 +31,7 @@ var _level_done := false
 
 func _ready() -> void:
 	add_to_group("level_manager")
-	AudioManager.stop_music()
+	AudioManager.play_gameplay_music()
 
 	assert(pause_menu, "CRITICAL: PAUSE MENU is not CONNECTED")
 	assert(pause_button, "CRITICAL: PAUSE BUTTON is not CONNECTED")
@@ -43,6 +43,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Player and Player.can_move:
 		level_time += delta
+		StatsManager.add_play_time(delta)
 
 func pause_game() -> void:
 	pause_menu.show_pause()
@@ -62,6 +63,7 @@ func level_completed() -> void:
 
 # Reset everything on new game
 func new_game(just_died: bool):
+	StatsManager.add_attempt()
 	if just_died:
 		Player.position = PLAYER_START_POS
 		# Teleport: skip interpolation this frame so the respawn doesn't smear.
