@@ -1,0 +1,161 @@
+[gd_scene format=3 uid="uid://c7na5dd8bdjb4"]
+
+[ext_resource type="Script" uid="uid://m8u1jy4ebugd" path="res://scripts/LevelCompleteMenu.gd" id="1_lvlc"]
+[ext_resource type="Texture2D" uid="uid://cjje6cfa6jy6c" path="res://assets/menu/BGLevelComplete.png" id="2_3qofo"]
+[ext_resource type="Texture2D" uid="uid://bjr64js5rimg0" path="res://assets/menu/Homepage_47.png" id="3_title"]
+[ext_resource type="Texture2D" uid="uid://v2p4hdesm7oh" path="res://assets/menu/DeepForestGraphic2.png" id="4_doodle"]
+[ext_resource type="Texture2D" uid="uid://djtdfub7n5ijd" path="res://assets/menu/LevelCompleteStatsBG.png" id="5_statbg"]
+[ext_resource type="FontFile" uid="uid://pyolfstly3un" path="res://assets/fonts/Lilita_One/LilitaOne-Regular.ttf" id="6_font"]
+[ext_resource type="Texture2D" uid="uid://csh4nd2v4anxm" path="res://assets/menu/RestartButton.png" id="7_restart"]
+[ext_resource type="Texture2D" uid="uid://c32ibufycdn2e" path="res://assets/menu/ListButton.png" id="8_list"]
+[ext_resource type="Texture2D" uid="uid://clame0hd6xsc5" path="res://assets/menu/PlayButton.png" id="9_next"]
+
+[node name="LevelCompleteMenu" type="Control" unique_id=1368391438]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lvlc")
+
+[node name="Dim" type="ColorRect" parent="." unique_id=1956218590]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.45)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=992380297]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Paper" type="Control" parent="CenterContainer" unique_id=1391868448]
+custom_minimum_size = Vector2(1200, 800)
+layout_mode = 2
+
+[node name="PaperBG" type="TextureRect" parent="CenterContainer/Paper" unique_id=258354411]
+custom_minimum_size = Vector2(1300, 800)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_right = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3qofo")
+expand_mode = 1
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/Paper" unique_id=225576589]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.14
+anchor_right = 1.0
+anchor_bottom = 1.057
+offset_top = 66.0
+offset_right = -7.0
+offset_bottom = 26.399963
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="TextureRect" parent="CenterContainer/Paper/VBox" unique_id=713536064]
+custom_minimum_size = Vector2(0, 220)
+layout_mode = 2
+texture = ExtResource("3_title")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Doodle" type="TextureRect" parent="CenterContainer/Paper/VBox" unique_id=20340686]
+custom_minimum_size = Vector2(0, 290)
+layout_mode = 2
+texture = ExtResource("4_doodle")
+stretch_mode = 5
+
+[node name="StatsRow" type="HBoxContainer" parent="CenterContainer/Paper/VBox" unique_id=1085468110]
+layout_mode = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="AttemptsBox" type="TextureRect" parent="CenterContainer/Paper/VBox/StatsRow" unique_id=1355657558]
+custom_minimum_size = Vector2(435, 130)
+layout_mode = 2
+texture = ExtResource("5_statbg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Value" type="Label" parent="CenterContainer/Paper/VBox/StatsRow/AttemptsBox" unique_id=1356374524]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.36, 0.24, 0.13, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("6_font")
+theme_override_font_sizes/font_size = 44
+text = "Attempts: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeBox" type="TextureRect" parent="CenterContainer/Paper/VBox/StatsRow" unique_id=143084753]
+custom_minimum_size = Vector2(435, 130)
+layout_mode = 2
+texture = ExtResource("5_statbg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Value" type="Label" parent="CenterContainer/Paper/VBox/StatsRow/TimeBox" unique_id=533493619]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.36, 0.24, 0.13, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("6_font")
+theme_override_font_sizes/font_size = 44
+text = "Time : 0:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonRow" type="HBoxContainer" parent="CenterContainer/Paper/VBox" unique_id=862646169]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="RestartButton" type="TextureButton" parent="CenterContainer/Paper/VBox/ButtonRow" unique_id=977267650]
+custom_minimum_size = Vector2(150, 158)
+layout_mode = 2
+texture_normal = ExtResource("7_restart")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ListButton" type="TextureButton" parent="CenterContainer/Paper/VBox/ButtonRow" unique_id=2102954294]
+custom_minimum_size = Vector2(150, 158)
+layout_mode = 2
+texture_normal = ExtResource("8_list")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="NextButton" type="TextureButton" parent="CenterContainer/Paper/VBox/ButtonRow" unique_id=354082461]
+custom_minimum_size = Vector2(150, 158)
+layout_mode = 2
+texture_normal = ExtResource("9_next")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="CenterContainer/Paper/VBox/ButtonRow/RestartButton" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="CenterContainer/Paper/VBox/ButtonRow/ListButton" to="." method="_on_list_pressed"]
+[connection signal="pressed" from="CenterContainer/Paper/VBox/ButtonRow/NextButton" to="." method="_on_next_pressed"]

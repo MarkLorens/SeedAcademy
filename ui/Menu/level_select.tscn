@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d13bcakvfsder" path="res://scripts/LevelSelect.gd" id="1_lsel"]
 [ext_resource type="Texture2D" uid="uid://b8a8w43gxuh57" path="res://assets/menu/CoverOpened.png" id="2_cover"]
-[ext_resource type="Texture2D" uid="uid://c7ffl6w7mes2k" path="res://assets/menu/DeepForestGraphic1.png" id="3_graphic"]
+[ext_resource type="Texture2D" uid="uid://o010y4a7x0st" path="res://assets/Level List/Graphic_Forest.png" id="3_sg4vv"]
 [ext_resource type="Texture2D" uid="uid://q62if1ynqyav" path="res://assets/menu/DeepForest.png" id="4_title"]
 [ext_resource type="Texture2D" uid="uid://cegn6ewxppp7a" path="res://assets/menu/HomeButton.png" id="5_home"]
 [ext_resource type="Texture2D" uid="uid://dabya00peyew" path="res://assets/menu/LevelLeft.png" id="6_left"]
@@ -48,38 +48,42 @@ texture = ExtResource("2_cover")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="VBox" type="VBoxContainer" parent="CenterContainer/Paper" unique_id=1164739903]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Paper" unique_id=810512644]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.119
-anchor_right = 1.0
-anchor_bottom = 1.0680001
-offset_left = 130.0
-offset_top = 38.354996
-offset_right = -110.0
-offset_bottom = -116.94006
-grow_horizontal = 2
-grow_vertical = 2
+anchor_left = 0.507
+anchor_top = 0.5
+anchor_right = 0.507
+anchor_bottom = 0.5
+offset_left = -500.80005
+offset_top = -287.5
+offset_right = 502.19995
+offset_bottom = 615.5
+theme_override_constants/separation = 0
+
+[node name="GraphicButton" type="TextureButton" parent="CenterContainer/Paper/VBoxContainer" unique_id=351233313]
+custom_minimum_size = Vector2(1000, 400)
+custom_maximum_size = Vector2(1000, 1000)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_sg4vv")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/Paper/VBoxContainer" unique_id=1164739903]
+layout_mode = 2
 offset_transform_enabled = true
-offset_transform_position = Vector2(0, 50)
 theme_override_constants/separation = 25
 alignment = 1
 
-[node name="GraphicButton" type="TextureButton" parent="CenterContainer/Paper/VBox" unique_id=351233313]
-custom_minimum_size = Vector2(360, 330)
-layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("3_graphic")
-stretch_mode = 5
-
-[node name="TitleImage" type="TextureRect" parent="CenterContainer/Paper/VBox" unique_id=1310312370]
+[node name="TitleImage" type="TextureRect" parent="CenterContainer/Paper/VBoxContainer/VBox" unique_id=1310312370]
 custom_minimum_size = Vector2(0, 160)
 layout_mode = 2
 texture = ExtResource("4_title")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TitleLabel" type="Label" parent="CenterContainer/Paper/VBox" unique_id=1287680488]
+[node name="TitleLabel" type="Label" parent="CenterContainer/Paper/VBoxContainer/VBox" unique_id=1287680488]
 visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0.36, 0.24, 0.13, 1)
@@ -87,13 +91,13 @@ theme_override_font_sizes/font_size = 56
 text = "Level 2"
 horizontal_alignment = 1
 
-[node name="ProgressBar" parent="CenterContainer/Paper/VBox" unique_id=970653208 instance=ExtResource("8_progress")]
+[node name="ProgressBar" parent="CenterContainer/Paper/VBoxContainer/VBox" unique_id=970653208 instance=ExtResource("8_progress")]
 layout_mode = 2
 size_flags_horizontal = 4
 value = 10.0
 progress = 10.0
 
-[node name="Dots" type="HBoxContainer" parent="CenterContainer/Paper/VBox" unique_id=965626863]
+[node name="Dots" type="HBoxContainer" parent="CenterContainer/Paper/VBoxContainer/VBox" unique_id=965626863]
 layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1

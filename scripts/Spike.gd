@@ -3,12 +3,15 @@ extends Area2D
 @export var isFalling: bool = false
 @export var fallSpeed: float = 5000.0
 @export var triggerDelay: float = 0.15
+## How long a fallen spike rests on the floor before returning to its start.
+@export var resetDelay: float = 1.0
 
 const FALLING_TEXTURE := preload("res://assets/ingame art assets/level platform tiles/spikes_up.PNG")
 
 var velocity := Vector2.ZERO
 var landed := false
 var triggered := false
+var original_position: Vector2
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var kill_shape: CollisionPolygon2D = $CollisionShape2D
@@ -16,6 +19,10 @@ var triggered := false
 @onready var trigger_zone: Area2D = $TriggerZone
 
 func _ready() -> void:
+	add_to_group("spikes")
+	# Save Original Position for resetting
+	original_position = global_position
+
 	body_entered.connect(_on_body_entered)
 	if isFalling:
 		trigger_zone.body_entered.connect(_on_trigger_entered)
@@ -46,7 +53,25 @@ func _physics_process(delta: float) -> void:
 		if floor_ray.is_colliding():
 			landed = true
 			velocity = Vector2.ZERO
-			position.y = floor_ray.get_collision_point().y
+			global_position.y = floor_ray.get_collision_point().y
+			# Rest on the floor for a moment, then return to the start.
+			_reset_after_delay()
+
+func _reset_after_delay() -> void:
+	await get_tree().create_timer(resetDelay).timeout
+	# The level may have reset us already (e.g. player died) — don't do it twice.
+	if landed:
+		reset()
+
+## Put the spike back at its starting position, armed again.
+## Also called by the level manager when the player respawns.
+func reset() -> void:
+	global_position = original_position
+	triggered = false
+	landed = false
+	velocity = Vector2.ZERO
+	# Teleport: don't let physics interpolation smear the jump back up.
+	reset_physics_interpolation()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://0qjinmtbtk6j"]
+
+[ext_resource type="Script" uid="uid://cxpode647ox88" path="res://scripts/level_complete_checkpoint.gd" id="1_oc5ih"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1tcr"]
+size = Vector2(30, 1000)
+
+[node name="LevelCompleteCheckpoint" type="Area2D" unique_id=2119744462]
+script = ExtResource("1_oc5ih")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1316478400]
+position = Vector2(0, -502)
+shape = SubResource("RectangleShape2D_l1tcr")
