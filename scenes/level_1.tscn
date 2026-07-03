@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dos18l1kajxqj" path="res://scripts/manager/LevelSceneManager.gd" id="1_4nkto"]
 [ext_resource type="PackedScene" uid="uid://c5sym1ls2gkxb" path="res://props/player_forms/Player.tscn" id="3_5xbjy"]
 [ext_resource type="Texture2D" uid="uid://dhl8pin3f27oi" path="res://assets/spritesheets/bg-spritesheet.png" id="3_7gny6"]
+[ext_resource type="PackedScene" uid="uid://rs7301aqj778" path="res://props/jungle_stage/JungleBackground.tscn" id="3_isj1j"]
 [ext_resource type="Script" uid="uid://bx2hrhh8teetw" path="res://scripts/resource/FormData.gd" id="5_15mv3"]
 [ext_resource type="Resource" uid="uid://dleraek6mun4q" path="res://form_tres/human.tres" id="6_e3sih"]
 [ext_resource type="Texture2D" uid="uid://brhkxw86c1yts" path="res://assets/spritesheets/breakable-sprite-sheet.png" id="8_2aecg"]
@@ -144,6 +145,9 @@ attempt_text = NodePath("LevelUI/CanvasLayer/AttemptMargin/Attempts")
 Player = NodePath("Player")
 Camera = NodePath("Camera2D")
 Event_UI_Scene = ExtResource("12_go7sj")
+
+[node name="JungleBackground" parent="." unique_id=1863640712 instance=ExtResource("3_isj1j")]
+position = Vector2(-2350, -1923)
 
 [node name="BGLayer" type="TileMapLayer" parent="." unique_id=1509193997]
 position = Vector2(0, 1)
