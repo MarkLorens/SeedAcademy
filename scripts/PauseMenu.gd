@@ -43,6 +43,15 @@ func hide_pause() -> void:
 func _on_resume_pressed() -> void:
 	hide_pause()
 
+# Tapping the dimmed area outside the panel (the CenterContainer catches it,
+# since the Paper panel stops input over itself) resumes the game.
+func _on_backdrop_gui_input(event: InputEvent) -> void:
+	var pressed := (event is InputEventMouseButton) \
+		or (event is InputEventScreenTouch)
+	if pressed:
+		accept_event()
+		hide_pause()
+
 func _on_restart_pressed() -> void:
 	get_tree().paused = false
 	get_tree().reload_current_scene()

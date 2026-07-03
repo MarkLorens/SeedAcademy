@@ -37,6 +37,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 
 [node name="Paper" type="Control" parent="CenterContainer" unique_id=1575284974]
 custom_minimum_size = Vector2(1200, 800)
@@ -170,6 +171,7 @@ texture_normal = ExtResource("4_settings")
 ignore_texture_size = true
 stretch_mode = 5
 
+[connection signal="gui_input" from="CenterContainer" to="." method="_on_backdrop_gui_input"]
 [connection signal="pressed" from="CenterContainer/Paper/VBoxContainer/ButtonRow/ListButton" to="." method="_on_list_pressed"]
 [connection signal="pressed" from="CenterContainer/Paper/VBoxContainer/ButtonRow/PlayButton" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="CenterContainer/Paper/VBoxContainer/ButtonRow/RestartButton" to="." method="_on_restart_pressed"]
