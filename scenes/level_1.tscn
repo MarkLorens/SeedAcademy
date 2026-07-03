@@ -138,12 +138,14 @@ tile_size = Vector2i(256, 256)
 physics_layer_0/collision_layer = 8
 sources/0 = SubResource("TileSetAtlasSource_1s4pk")
 
-[node name="Level1" type="Node" unique_id=257814844 node_paths=PackedStringArray("attempt_text", "Player", "Camera")]
+[node name="Level1" type="Node" unique_id=257814844 node_paths=PackedStringArray("attempt_text", "Player", "Camera", "level_complete_checkpoint")]
 script = ExtResource("1_4nkto")
 attempt_text = NodePath("LevelUI/CanvasLayer/AttemptMargin/Attempts")
 Player = NodePath("Player")
 Camera = NodePath("Camera2D")
 Event_UI_Scene = ExtResource("12_go7sj")
+level_complete_checkpoint = NodePath("LevelCompleteCheckpoint")
+level_int = 1
 
 [node name="BGLayer" type="TileMapLayer" parent="." unique_id=1509193997]
 position = Vector2(0, 1)
@@ -344,6 +346,10 @@ offset_top = -540.0
 offset_right = 556.0
 offset_bottom = -40.0
 grow_vertical = 0
+
+[node name="PauseButton" parent="LevelUI/CanvasLayer" parent_id_path=PackedInt32Array(1469804206, 1472738757) index="4" unique_id=539774867]
+offset_left = -100.0
+offset_bottom = 100.0
 
 [node name="NewFormCheckpoint" parent="." unique_id=1595220022 instance=ExtResource("9_2y5yt")]
 position = Vector2(28082, 319)

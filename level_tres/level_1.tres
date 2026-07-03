@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_w8jk0")
-name = "Deep Forest"
+name = "Meadow"
 scene_path = "uid://dcgb0j3s34ycs"
-title = "uid://q62if1ynqyav"
-graphic = "uid://c7ffl6w7mes2k"
-default_unlocked = true
+title = "uid://b34vde6j8rjhq"
+graphic = "uid://dwbelx4utjo7i"
+complete_image_path = "uid://cs0fxuww1ped5"

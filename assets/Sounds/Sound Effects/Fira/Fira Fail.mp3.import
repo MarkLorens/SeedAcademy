@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://caq12ia66r7o8"
+path="res://.godot/imported/Fira Fail.mp3-82af09755e4135fb768229bae95f9bdf.mp3str"
+
+[deps]
+
+source_file="res://assets/Sounds/Sound Effects/Fira/Fira Fail.mp3"
+dest_files=["res://.godot/imported/Fira Fail.mp3-82af09755e4135fb768229bae95f9bdf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -21,6 +21,8 @@ func _ready() -> void:
 	# Keep working while the game tree is paused (pause menu is open).
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	resized.connect(_refresh)
+	# Show the bus's current volume, so the slider remembers its position.
+	value = AudioManager.get_volume(bar_label)
 	_refresh()
 
 func _gui_input(event: InputEvent) -> void:
@@ -42,8 +44,7 @@ func _set_from_x(x: float) -> void:
 	if is_equal_approx(new_value, value):
 		return
 	value = new_value
-	# TODO: hook this up to the audio bus volume later.
-	print("%s volume: %d%%" % [bar_label, roundi(value * 100.0)])
+	AudioManager.set_volume(bar_label, value)
 	value_changed.emit(value)
 
 func _refresh() -> void:
