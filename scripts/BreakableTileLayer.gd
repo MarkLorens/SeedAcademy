@@ -10,14 +10,23 @@ class_name BreakableTileLayer
 ## Cells counted as "the same wall". Add the diagonals for 8-way connectivity.
 const NEIGHBOURS: Array[Vector2i] = [Vector2i.UP, Vector2i.DOWN, Vector2i.LEFT, Vector2i.RIGHT]
 
+# A falling chunk spawned in place of each erased tile.
+const RUBBLE_SCENE := preload("res://props/hazards/Rubble.tscn")
+
 ## 0 = the whole wall shatters at once. > 0 staggers the break outward from the
 ## hit cell, one ring per `ripple_delay` seconds, for a crumble effect.
 @export var ripple_delay: float = 0.0
+
+## Max physics rubble chunks spawned per break (0 = one per tile, uncapped).
+## Caps the live RigidBody2D count so a huge wall stays mobile-friendly.
+@export var max_rubble: int = 40
 
 # Snapshot of the tiles as painted, so broken walls can be rebuilt on respawn.
 var _initial_cells: Array = []
 # Bumped on reset() to abort any break still crumbling from a previous attempt.
 var _gen := 0
+# Rubble chunks spawned in the current break, for the max_rubble cap.
+var _rubble_count := 0
 
 func _ready() -> void:
 	add_to_group("breakables")
@@ -29,9 +38,30 @@ func _ready() -> void:
 ## when the player respawns (see LevelSceneManager.new_game).
 func reset() -> void:
 	_gen += 1  # invalidate any in-flight (rippling) break
+	get_tree().call_group("rubble", "queue_free")  # clear any still-falling chunks
 	clear()
 	for c in _initial_cells:
 		set_cell(c[0], c[1], c[2], c[3])
+
+# Drop a physics chunk where a tile used to be. Spawned into the level (not under
+# this layer) so it falls and piles independently; capped by max_rubble.
+func _spawn_rubble(cell: Vector2i) -> void:
+	if max_rubble > 0 and _rubble_count >= max_rubble:
+		return
+	_rubble_count += 1
+	# break_from runs inside a physics query flush (via the attack's
+	# body_shape_entered), where adding a RigidBody2D is illegal. Compute the
+	# world position now (this layer is in-tree) and add the body after the flush.
+	_add_rubble.call_deferred(to_global(map_to_local(cell)))
+
+func _add_rubble(world_pos: Vector2) -> void:
+	if not is_inside_tree():
+		return  # layer was freed (e.g. scene change) before the deferred call
+	var rubble := RUBBLE_SCENE.instantiate()
+	get_parent().add_child(rubble)
+	rubble.global_position = world_pos
+	# Spawned mid-frame: don't let interpolation streak it in from the origin.
+	rubble.reset_physics_interpolation()
 
 # Break the connected wall starting at `start_cell` (map coordinates).
 func break_from(start_cell: Vector2i) -> void:
@@ -39,6 +69,7 @@ func break_from(start_cell: Vector2i) -> void:
 		return  # empty cell, nothing to break
 
 	var gen := _gen
+	_rubble_count = 0
 	AudioManager.play_sfx(AudioManager.SFX_OBJECT_BREAK)
 
 	var visited: Dictionary = {start_cell: true}
@@ -47,6 +78,7 @@ func break_from(start_cell: Vector2i) -> void:
 	while not frontier.is_empty():
 		var next_frontier: Array[Vector2i] = []
 		for cell in frontier:
+			_spawn_rubble(cell)
 			erase_cell(cell)  # removes the tile AND its collider
 			for offset in NEIGHBOURS:
 				var n: Vector2i = cell + offset

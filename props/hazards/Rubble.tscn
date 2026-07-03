@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ba8nx4iatcnb5"]
+
+[ext_resource type="Texture2D" uid="uid://b7i1us0865sc4" path="res://assets/ingame art assets/level platform tiles/breakable_tile_rubble.PNG" id="1_rub"]
+[ext_resource type="Script" uid="uid://bxrdi2a1ron0w" path="res://scripts/Rubble.gd" id="2_rub"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rub"]
+size = Vector2(200, 200)
+
+[node name="Rubble" type="RigidBody2D" unique_id=737810230]
+collision_layer = 16
+collision_mask = 17
+gravity_scale = 7.0
+script = ExtResource("2_rub")
+lifetime = 2.5
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1113031738]
+texture = ExtResource("1_rub")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1204527546]
+shape = SubResource("RectangleShape2D_rub")
