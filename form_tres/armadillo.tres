@@ -18,5 +18,5 @@ form_name = "armadillo"
 form_texture = ExtResource("2_k187g")
 run_speed = 1250.0
 action_script = SubResource("Resource_mloqk")
-wheel_menu_forms = Array[Texture2D]([ExtResource("4_k187g"), ExtResource("5_4n7ox"), ExtResource("6_k72am")])
+wheel_menu_forms = Array[Texture2D]([ExtResource("4_4n7ox"), ExtResource("5_k72am"), ExtResource("6_fqiuw"), ExtResource("7_80x8j")])
 new_form_guide = "Curls up and shrug away pain!"
