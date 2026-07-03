@@ -9,4 +9,5 @@ scene_path = "uid://b4jsedfasf0ig"
 title = "uid://q62if1ynqyav"
 graphic = "uid://o010y4a7x0st"
 complete_image_path = "uid://dhfbm8xjkj6v0"
-locked = true
+progress_fill = "res://assets/Level List/Progress_Bar/Progress_Forest.png"
+progress_edge = "res://assets/Level List/Progress_Bar/Progress_Forest_Edge.png"

@@ -5,11 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://g13lbteqska8" path="res://assets/Action Button/ActionButton-Dash.png" id="1_ya0qg"]
 [ext_resource type="Texture2D" uid="uid://ct5yexrw2bu5v" path="res://assets/ingame art assets/characters/temporary characters/fira.PNG" id="2_shmhx"]
 [ext_resource type="Texture2D" uid="uid://ie5skpqls73d" path="res://assets/Emote Wheel/Wheel unlock 1.png" id="4_shmhx"]
-[ext_resource type="Texture2D" uid="uid://bo8plnoxot81r" path="res://assets/ingame art assets/characters/fira_walking_1.PNG" id="4_u01ct"]
-[ext_resource type="Texture2D" uid="uid://dada3es0h1loy" path="res://assets/ingame art assets/characters/fira_walking_2.PNG" id="5_ya0qg"]
-[ext_resource type="Texture2D" uid="uid://blo6x8uvicr03" path="res://assets/ingame art assets/characters/fira_walking_3.PNG" id="6_njtgx"]
-[ext_resource type="Texture2D" uid="uid://db7i70b4fpwei" path="res://assets/ingame art assets/characters/fira_walking_4.PNG" id="7_h5pe1"]
-[ext_resource type="Texture2D" uid="uid://c5d3seld2y7dd" path="res://assets/ingame art assets/characters/fira_ability.PNG" id="8_abil"]
+[ext_resource type="Texture2D" uid="uid://chcr5y253vvdy" path="res://assets/ingame art assets/characters/fira_walking_1.PNG" id="4_u01ct"]
+[ext_resource type="Texture2D" uid="uid://clhwmpgbaw5yh" path="res://assets/ingame art assets/characters/fira_walking_2.PNG" id="5_ya0qg"]
+[ext_resource type="Texture2D" uid="uid://fq2cdp01aywb" path="res://assets/ingame art assets/characters/fira_walking_3.PNG" id="6_njtgx"]
+[ext_resource type="Texture2D" uid="uid://d27t5pt2w3cly" path="res://assets/ingame art assets/characters/fira_walking_4.PNG" id="7_h5pe1"]
+[ext_resource type="Texture2D" uid="uid://c5ml4y4cj201r" path="res://assets/ingame art assets/characters/fira_ability.PNG" id="8_abil"]
 
 [sub_resource type="Resource" id="Resource_c0gsl"]
 script = ExtResource("1_bv8e0")

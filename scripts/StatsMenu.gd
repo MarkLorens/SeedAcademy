@@ -16,6 +16,10 @@ const MAIN_MENU := "res://ui/Menu/main_menu.tscn"
 func _ready() -> void:
 	AudioManager.play_menu_music()
 	AudioManager.wire_buttons(self)
+	# Pull the session totals tracked by the StatsManager autoload.
+	total_jumps = StatsManager.total_jumps
+	total_attempts = StatsManager.total_attempts
+	total_time_seconds = int(StatsManager.total_time_seconds)
 	_refresh()
 
 func _refresh() -> void:

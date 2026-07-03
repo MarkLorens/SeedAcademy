@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://15ierjbch0eu" path="res://scripts/MainMenu.gd" id="1_main"]
 [ext_resource type="Texture2D" uid="uid://ccowcholpiifr" path="res://assets/menu/main_menu/HomepageCover.png" id="2_cover"]
+[ext_resource type="Texture2D" uid="uid://c2kjxg6o5o4c" path="res://assets/ingame art assets/back:foregrounds/meadow (plains)/bg_meadow_1_sky base.PNG" id="2_crccb"]
 [ext_resource type="Texture2D" uid="uid://cp0rkr544x4ii" path="res://assets/menu/main_menu/HomepageStatsButton.png" id="3_stats"]
 [ext_resource type="Texture2D" uid="uid://sjxhlnx6ypo" path="res://assets/menu/main_menu/HomepagePlayButton.png" id="4_play"]
 [ext_resource type="Texture2D" uid="uid://cnax5qaoxkss6" path="res://assets/menu/main_menu/HomepageAboutButton.png" id="5_about"]
@@ -14,6 +15,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_main")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1362888268]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_crccb")
+expand_mode = 4
 
 [node name="Cover" type="TextureRect" parent="." unique_id=450595958]
 custom_minimum_size = Vector2(1798, 1247)
