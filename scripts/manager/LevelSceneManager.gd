@@ -80,9 +80,6 @@ func _show_intro_event() -> void:
 	eventUI.dialogue_finished.connect(_on_intro_finished)
 
 func player_died() -> void:
-	if Player.is_shielded:
-		return
-	
 	new_game(true)
 
 func _on_intro_finished() -> void:
