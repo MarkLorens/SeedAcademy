@@ -11,6 +11,8 @@ const GRAVITY: int = 6725
 
 # Forms
 @export var forms: Array[FormData] = []
+# The starting forms, captured on _ready so death can revert mid-level unlocks.
+var _initial_forms: Array[FormData] = []
 var current_form_index: int = 0
 var current_form: FormData
 
@@ -44,6 +46,8 @@ func _ready() -> void:
 	attack_hitbox.body_shape_entered.connect(_on_attack_hit)
 	$ShieldCol.monitoring = false
 	$ShieldCol.monitorable = false
+	# Remember the starting forms so mid-level unlocks can be dropped on death.
+	_initial_forms = forms.duplicate()
 	set_form(0)
 	
 	assert(radial_button, "CRITICAL: Radial button node was not found!")
@@ -245,8 +249,16 @@ func start_dash() -> void:
 func unlock_form(new_form: FormData) -> void:
 	if new_form in forms:
 		return
-		
+
 	forms.append(new_form)
+	forms_changed.emit(forms)
+
+## Drop any mid-level unlocks and return to the level's starting forms.
+## Called by the level manager when the player respawns after dying.
+func reset_forms() -> void:
+	forms = _initial_forms.duplicate()
+	current_form_index = 0
+	set_form(0)
 	forms_changed.emit(forms)
 
 func _on_attack_hit(_body_rid: RID, body: Node, _body_shape: int, _local_shape: int) -> void:
