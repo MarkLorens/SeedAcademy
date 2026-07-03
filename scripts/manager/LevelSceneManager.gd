@@ -68,8 +68,11 @@ func new_game(just_died: bool):
 		Player.position = PLAYER_START_POS
 		# Teleport: skip interpolation this frame so the respawn doesn't smear.
 		Player.reset_physics_interpolation()
-		# Re-arm any spikes that fell during the previous attempt.
+		# Drop any forms unlocked mid-level (e.g. frog from a checkpoint).
+		Player.reset_forms()
+		# Re-arm any spikes that fell and rebuild any walls broken last attempt.
 		get_tree().call_group("spikes", "reset")
+		get_tree().call_group("breakables", "reset")
 		attempts += 1
 		attempt_text.text = "Attempt %d" % attempts
 		attempt_text.get_parent().show()
@@ -86,9 +89,6 @@ func _show_intro_event() -> void:
 	eventUI.dialogue_finished.connect(_on_intro_finished)
 
 func player_died() -> void:
-	if Player.is_shielded:
-		return
-	
 	AudioManager.play_sfx(AudioManager.SFX_FAIL)
 	LevelManager.save_progress_for_scene(get_tree().current_scene.scene_file_path, calculate_progress_percentage())
 	new_game(true)

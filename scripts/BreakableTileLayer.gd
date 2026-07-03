@@ -14,11 +14,31 @@ const NEIGHBOURS: Array[Vector2i] = [Vector2i.UP, Vector2i.DOWN, Vector2i.LEFT, 
 ## hit cell, one ring per `ripple_delay` seconds, for a crumble effect.
 @export var ripple_delay: float = 0.0
 
+# Snapshot of the tiles as painted, so broken walls can be rebuilt on respawn.
+var _initial_cells: Array = []
+# Bumped on reset() to abort any break still crumbling from a previous attempt.
+var _gen := 0
+
+func _ready() -> void:
+	add_to_group("breakables")
+	for cell in get_used_cells():
+		_initial_cells.append([cell, get_cell_source_id(cell),
+			get_cell_atlas_coords(cell), get_cell_alternative_tile(cell)])
+
+## Rebuild every wall broken during the attempt. Called by the level manager
+## when the player respawns (see LevelSceneManager.new_game).
+func reset() -> void:
+	_gen += 1  # invalidate any in-flight (rippling) break
+	clear()
+	for c in _initial_cells:
+		set_cell(c[0], c[1], c[2], c[3])
+
 # Break the connected wall starting at `start_cell` (map coordinates).
 func break_from(start_cell: Vector2i) -> void:
 	if get_cell_source_id(start_cell) == -1:
 		return  # empty cell, nothing to break
 
+	var gen := _gen
 	var visited: Dictionary = {start_cell: true}
 	var frontier: Array[Vector2i] = [start_cell]
 
@@ -33,6 +53,8 @@ func break_from(start_cell: Vector2i) -> void:
 					next_frontier.append(n)
 		if ripple_delay > 0.0 and not next_frontier.is_empty():
 			await get_tree().create_timer(ripple_delay).timeout
+			if gen != _gen:
+				return  # a respawn rebuilt the wall mid-crumble; stop erasing
 		frontier = next_frontier
 
 # Break the wall overlapped by a world-space rectangle (e.g. an attack hitbox).

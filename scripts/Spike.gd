@@ -12,6 +12,9 @@ var velocity := Vector2.ZERO
 var landed := false
 var triggered := false
 var original_position: Vector2
+# Bumped on every reset so a delayed self-reset from an earlier attempt can't
+# fire on a later one.
+var _reset_gen := 0
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var kill_shape: CollisionPolygon2D = $CollisionShape2D
@@ -58,14 +61,16 @@ func _physics_process(delta: float) -> void:
 			_reset_after_delay()
 
 func _reset_after_delay() -> void:
+	var gen := _reset_gen
 	await get_tree().create_timer(resetDelay).timeout
-	# The level may have reset us already (e.g. player died) — don't do it twice.
-	if landed:
+	# Skip if the level already reset us (e.g. player died) or re-triggered since.
+	if landed and gen == _reset_gen:
 		reset()
 
 ## Put the spike back at its starting position, armed again.
 ## Also called by the level manager when the player respawns.
 func reset() -> void:
+	_reset_gen += 1  # invalidate any pending delayed reset from this attempt
 	global_position = original_position
 	triggered = false
 	landed = false
