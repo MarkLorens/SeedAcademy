@@ -17,8 +17,8 @@ var current := 0
 @onready var title_label: Label = $CenterContainer/Paper/VBoxContainer/VBox/TitleLabel
 @onready var progress_bar = $CenterContainer/Paper/VBoxContainer/VBox/ProgressBar
 @onready var dots: HBoxContainer = $CenterContainer/Paper/VBoxContainer/VBox/Dots
-@onready var prev_button: TextureButton = $PrevButton
-@onready var next_button: TextureButton = $NextButton
+@onready var prev_button: TextureButton = $CenterContainer/Paper/PrevButton
+@onready var next_button: TextureButton = $CenterContainer/Paper/NextButton
 @onready var home_button: TextureButton = $HomeButton
 
 func _ready() -> void:
