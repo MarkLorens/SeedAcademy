@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0fft5ab70yud"
-path="res://.godot/imported/breakable_tile_center.PNG-8c6ae9aad483f6f71c6484b9e54665de.ctex"
+uid="uid://d3w2ccy614lix"
+path="res://.godot/imported/breakable_tile_right.PNG-339cda250c2a21eaaa1cc933f3ab2de6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ingame art assets/level platform tiles/breakable_tile_center.PNG"
-dest_files=["res://.godot/imported/breakable_tile_center.PNG-8c6ae9aad483f6f71c6484b9e54665de.ctex"]
+source_file="res://assets/ingame art assets/level platform tiles/breakable_tile_right.PNG"
+dest_files=["res://.godot/imported/breakable_tile_right.PNG-339cda250c2a21eaaa1cc933f3ab2de6.ctex"]
 
 [params]
 

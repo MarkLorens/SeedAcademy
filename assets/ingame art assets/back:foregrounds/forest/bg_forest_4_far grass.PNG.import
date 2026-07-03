@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7di7d0jsrsry"
-path="res://.godot/imported/breakable_tile_top.PNG-c326152cb6a6e6cda32debe7485f41a2.ctex"
+uid="uid://cxi3ywevnvn4g"
+path="res://.godot/imported/bg_forest_4_far grass.PNG-0a4cd3caa67b32a57f4f3b1ee61838a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ingame art assets/level platform tiles/breakable_tile_top.PNG"
-dest_files=["res://.godot/imported/breakable_tile_top.PNG-c326152cb6a6e6cda32debe7485f41a2.ctex"]
+source_file="res://assets/ingame art assets/back:foregrounds/forest/bg_forest_4_far grass.PNG"
+dest_files=["res://.godot/imported/bg_forest_4_far grass.PNG-0a4cd3caa67b32a57f4f3b1ee61838a2.ctex"]
 
 [params]
 
