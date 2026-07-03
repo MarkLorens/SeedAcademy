@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c5jog80f8xeuv"
+path="res://.godot/imported/Spike Turun.mp3-7791e757c553f21e3131793a4afd82db.mp3str"
+
+[deps]
+
+source_file="res://assets/Sounds/Sound Effects/UI/Spike Turun.mp3"
+dest_files=["res://.godot/imported/Spike Turun.mp3-7791e757c553f21e3131793a4afd82db.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

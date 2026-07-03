@@ -39,6 +39,8 @@ func break_from(start_cell: Vector2i) -> void:
 		return  # empty cell, nothing to break
 
 	var gen := _gen
+	AudioManager.play_sfx(AudioManager.SFX_OBJECT_BREAK)
+
 	var visited: Dictionary = {start_cell: true}
 	var frontier: Array[Vector2i] = [start_cell]
 

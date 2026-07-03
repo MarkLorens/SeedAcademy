@@ -44,6 +44,7 @@ func _on_trigger_entered(body: Node2D) -> void:
 		return
 		
 	triggered = true
+	AudioManager.play_sfx(AudioManager.SFX_SPIKE_TURUN)
 	if triggerDelay > 0.0:
 		await get_tree().create_timer(triggerDelay).timeout
 
@@ -80,9 +81,6 @@ func reset() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		print("hit") # Please leave the print as is. I am simply trying if the kill zone works
-		
-		# Here lies the command to start the dying
 		var level = get_tree().get_first_node_in_group("level_manager")
 		if level:
 			level.player_died()

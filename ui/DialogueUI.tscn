@@ -25,7 +25,6 @@ grow_vertical = 2
 [node name="DialogueLabel" type="Label" parent="NewGameDialogues/MarginContainer" unique_id=1262438983]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("2_xda8i")
 theme_override_font_sizes/font_size = 64
 metadata/_edit_use_anchors_ = true

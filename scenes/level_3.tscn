@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://dp7p1uu7a8kwc" path="res://props/hazards/Spikes.tscn" id="15_5xqnf"]
 [ext_resource type="PackedScene" uid="uid://bqu5mvd3q7agq" path="res://props/hazards/Crusher.tscn" id="16_una4e"]
 [ext_resource type="PackedScene" uid="uid://0qjinmtbtk6j" path="res://props/LevelCompleteCheckpoint.tscn" id="19_q7pjq"]
+[ext_resource type="PackedScene" uid="uid://d2h3l6oyr3lle" path="res://props/DialogueEventTrigger.tscn" id="19_wa6ex"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wa6ex"]
 texture = ExtResource("1_vcx5n")
@@ -714,6 +715,10 @@ position = Vector2(97917, -3261)
 
 [node name="LevelCompleteCheckpoint" parent="." unique_id=2119744462 instance=ExtResource("19_q7pjq")]
 position = Vector2(124497, 392)
+
+[node name="DialogueEventTrigger" parent="." unique_id=531485491 instance=ExtResource("19_wa6ex")]
+position = Vector2(-801, -86)
+lines = Array[String](["Look out! Hunters are firing darts!", "Transform into an Armadillo and roll!"])
 
 [editable path="LevelUI"]
 [editable path="LevelUI/CanvasLayer/RadialMargin/RadialButton"]
