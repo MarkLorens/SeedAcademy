@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var isFalling: bool = false
-@export var fallSpeed: float = 3000.0
+@export var fallSpeed: float = 5000.0
 @export var triggerDelay: float = 0.15
 ## How long a fallen spike rests on the floor before returning to its start.
 @export var resetDelay: float = 1.0
