@@ -52,13 +52,13 @@ stretch_mode = 5
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.507
-anchor_top = 0.5
+anchor_top = 0.351
 anchor_right = 0.507
-anchor_bottom = 0.5
+anchor_bottom = 0.351
 offset_left = -500.80005
-offset_top = -287.5
+offset_top = -178.20502
 offset_right = 502.19995
-offset_bottom = 615.5
+offset_bottom = 724.795
 theme_override_constants/separation = 0
 
 [node name="GraphicButton" type="TextureButton" parent="CenterContainer/Paper/VBoxContainer" unique_id=351233313]
@@ -102,6 +102,41 @@ layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
 
+[node name="PrevButton" type="TextureButton" parent="CenterContainer/Paper" unique_id=1767359056]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.148
+anchor_top = 0.59400004
+anchor_right = 0.148
+anchor_bottom = 0.59400004
+offset_left = -441.2
+offset_top = -99.27002
+offset_right = -182.2
+offset_bottom = 122.72998
+grow_vertical = 2
+texture_normal = ExtResource("6_left")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="NextButton" type="TextureButton" parent="CenterContainer/Paper" unique_id=105429525]
+custom_minimum_size = Vector2(256, 219)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.84900004
+anchor_top = 0.62
+anchor_right = 0.84900004
+anchor_bottom = 0.62
+offset_left = 182.3999
+offset_top = -112.599976
+offset_right = 438.3999
+offset_bottom = 143.40002
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("7_right")
+ignore_texture_size = true
+stretch_mode = 5
+
 [node name="HomeButton" type="TextureButton" parent="." unique_id=679829864]
 layout_mode = 1
 offset_left = 30.0
@@ -109,38 +144,5 @@ offset_top = 30.0
 offset_right = 223.0
 offset_bottom = 219.0
 texture_normal = ExtResource("5_home")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="PrevButton" type="TextureButton" parent="." unique_id=1767359056]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.026
-anchor_top = 0.59800005
-anchor_right = 0.026
-anchor_bottom = 0.59800005
-offset_left = 2.079998
-offset_top = -84.84003
-offset_right = 232.08
-offset_bottom = 85.15997
-grow_vertical = 2
-texture_normal = ExtResource("6_left")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="NextButton" type="TextureButton" parent="." unique_id=105429525]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.9710001
-anchor_top = 0.587
-anchor_right = 0.9710001
-anchor_bottom = 0.587
-offset_left = -231.32019
-offset_top = -84.96002
-offset_right = -1.3201904
-offset_bottom = 85.03998
-grow_horizontal = 0
-grow_vertical = 2
-texture_normal = ExtResource("7_right")
 ignore_texture_size = true
 stretch_mode = 5
