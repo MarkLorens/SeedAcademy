@@ -4,8 +4,6 @@ extends Control
 @onready var radial: Control = $RadialMenu
 
 @export var player : CharacterBody2D
-@export var INNER_R  := 50
-@export var OUTER_R  := 125
 
 # Angle (screen space, 0°=right / 90°=down / 180°=left / 270°=up) where segment 0
 # begins. 225° puts segment 0 at 225–315° (centered on "up" = top of the wheel),
@@ -19,7 +17,6 @@ var CHARS : Array
 
 var is_open     := false
 var hovered_idx := -1
-var chosen_idx  := -1
 var open_t      := 0.0
 
 signal character_selected(index: int)
@@ -55,8 +52,7 @@ func _commit_selection() -> void:
 	is_open = false
 	# Only commit if the hovered segment maps to an unlocked form.
 	if hovered_idx >= 0 and hovered_idx < CHARS.size():
-		chosen_idx = hovered_idx
-		character_selected.emit(chosen_idx)
+		character_selected.emit(hovered_idx)
 	hovered_idx = -1
 
 # Visual rect of the button (accounts for its scale so the center matches the sprite).

@@ -5,10 +5,6 @@ extends Node
 ## Autoload scripts can't take exported arrays from the inspector, so the
 ## .tres files are preloaded here.
 
-# Set right before a death-restart so the reloaded level skips the intro
-# dialogue. LevelSceneManager consumes (and resets) it in new_game().
-var skip_next_intro := false
-
 var levels: Array[level_data] = [
 	preload("res://level_tres/level_1.tres"),
 	preload("res://level_tres/level_2.tres"),

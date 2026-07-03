@@ -12,16 +12,11 @@ extends Node
 ]
 
 @export var level_complete_checkpoint : Area2D
-@export var level_int : int
 @export var intro_event: bool
 
 const PLAYER_START_POS := Vector2(-100, 280)
 var attempts := 1
 var level_time := 0.0
-
-var speed : float
-const START_SPEED : float = 10.0
-const MAX_SPEED : int = 25
 
 var _level_done := false
 
@@ -99,8 +94,6 @@ func player_died() -> void:
 
 func _on_intro_finished() -> void:
 	Player.can_move = true
-	speed = START_SPEED
-	pass
 
 func calculate_progress_percentage() -> float: 
 	var total_path = level_complete_checkpoint.position.x - PLAYER_START_POS.x
