@@ -7,6 +7,7 @@ extends Area2D
 const PROJECTILE_SCENE := preload("res://props/hazards/Projectile.tscn")
 
 @export var fire_cooldown: float = 1.5
+@export var is_long_range: bool = false
 @export var projectile_speed: float = 800.0
 @export var projectile_range: float = 1200.0
 @export var fire_direction: Vector2 = Vector2.LEFT

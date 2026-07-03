@@ -7,10 +7,10 @@
 size = Vector2(227, 218.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_warn"]
-size = Vector2(140, 800)
+size = Vector2(140, 3102)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slam"]
-size = Vector2(140, 800)
+size = Vector2(140, 3127)
 
 [node name="Crusher" type="Node2D" unique_id=1634587465]
 script = ExtResource("2_crush")
@@ -39,11 +39,12 @@ shape = SubResource("RectangleShape2D_lvuun")
 position = Vector2(-2584, 396)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WarningZone" unique_id=402993903]
+position = Vector2(0, 1151)
 shape = SubResource("RectangleShape2D_warn")
 
 [node name="SlamZone" type="Area2D" parent="." unique_id=402993904]
 position = Vector2(-400, 400)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SlamZone" unique_id=402993905]
-position = Vector2(473, -2)
+position = Vector2(473, 1161.5)
 shape = SubResource("RectangleShape2D_slam")
