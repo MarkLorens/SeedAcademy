@@ -7,8 +7,8 @@ extends Node
 @export var Event_UI_Scene: PackedScene
 @export var intro_lines: Array[String] = [
 	"The animals need your help!",
-	"Run through the forest and lead them to safety.", "
-	Along the way, magical animals will share \n their powers with you.",
+	"Run through the forest and lead them to safety.", 
+	"Along the way, magical animals will share \n their powers with you.",
 ]
 
 @export var level_complete_checkpoint : Area2D

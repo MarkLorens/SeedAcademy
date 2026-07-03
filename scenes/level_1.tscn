@@ -129,6 +129,8 @@ attempt_text = NodePath("LevelUI/CanvasLayer/AttemptMargin/Attempts")
 Player = NodePath("Player")
 Camera = NodePath("Camera2D")
 Event_UI_Scene = ExtResource("12_go7sj")
+intro_lines = Array[String](["The animals need your help!", "Run through the forest and lead them to safety.", "	Along the way, magical animals will share 
+ their powers with you."])
 level_complete_checkpoint = NodePath("LevelCompleteCheckpoint")
 level_int = 1
 intro_event = true
