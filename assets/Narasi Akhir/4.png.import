@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://drr35vtu6tp5k"
-path="res://.godot/imported/4.png-283a370cf0cc2c51d0998ac721fb2e3a.ctex"
+path="res://.godot/imported/4.PNG-1a8b641f89efd3082d512822ec3ff318.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Narasi Akhir/4.png"
-dest_files=["res://.godot/imported/4.png-283a370cf0cc2c51d0998ac721fb2e3a.ctex"]
+source_file="res://assets/Narasi Akhir/4.PNG"
+dest_files=["res://.godot/imported/4.PNG-1a8b641f89efd3082d512822ec3ff318.ctex"]
 
 [params]
 

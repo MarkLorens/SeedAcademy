@@ -35,8 +35,7 @@ window/handheld/orientation="landscape"
 
 [editor]
 
-movie_writer/movie_file="/Users/owl/Documents/Lomba/GameSeed/Shapeshifter/debug.avi"
-movie_writer/fps=120
+movie_writer/movie_file="/Users/max/Documents/Personal Work/We're game devs now apparently/SeedAcademy/seed-academy/ending.avi"
 
 [input]
 
