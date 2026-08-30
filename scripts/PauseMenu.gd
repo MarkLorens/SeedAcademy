@@ -20,7 +20,6 @@ func show_pause() -> void:
 # Pull this level's progress from the LevelManager database; keep the
 # scene's exported value when the current scene isn't in it.
 func _refresh_progress() -> void:
-	#var pct: float = LevelManager.get_progress_for_scene(get_tree().current_scene.scene_file_path)
 	progress = $"../../..".calculate_progress_percentage()
 	if progress >= 0.0:
 		$CenterContainer/Paper/VBoxContainer/ProgressBar.progress = progress
