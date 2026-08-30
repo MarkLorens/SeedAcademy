@@ -8,8 +8,6 @@ class_name FormData
 ## Frames per second for the walk cycle.
 @export var walk_fps: float = 10.0
 @export var run_speed: float = 0
-@export var attack_col_enabled: bool = false
-@export var shield_col_enabled: bool = false
 @export var jump_speed: float = 0
 @export var gravity_scale: float = 1.0
 @export var action_script: FormAction

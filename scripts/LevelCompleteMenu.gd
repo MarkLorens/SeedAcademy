@@ -49,10 +49,6 @@ func _on_next_pressed() -> void:
 	get_tree().paused = false
 	var next_scene := _next_level_scene()
 	if next_scene.is_empty():
-		#
-		# TODO: Add the ending scene here
-		#
-		# No next level yet — fall back to the level list.
 		get_tree().change_scene_to_file(ENDING_SCENE)
 	else:
 		get_tree().change_scene_to_file(next_scene)
